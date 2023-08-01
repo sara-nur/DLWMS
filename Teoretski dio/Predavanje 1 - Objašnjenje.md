@@ -1,3 +1,36 @@
+## Uvod
+
+***C#*** je dosta napredniji u odnosu na C++;
+
+***CRM (Object-Relational Mapping)*** - korištenjem Entity FrameWorka. 
+
+***Entitiy Framework*** omogućava da vrlo jednostavno napravimo vezu sa bazom podataka. da dohvatimo ili dodamo neke podatke. 
+
+
+
+## .NET
+
+Osigurava platformu develepoerima koja će omogućiti razvoj aplikacija za gotovo sve segmente života, aplikacija, mobilnih aplikacija, aplikacija za konzole tipa Xbox...
+
+*** CLM (Common Intermediate Language)***  prevodi iz intermediate jezika u mašinski kod kako bi se program mogao izvršiiti. 
+
+***SDK (Software Development Kit)*** potreban nam je kada razvijamo aplikacije, međutim kada aplikaciju isporučujemo, biće nam potreban neki ***RunTime***. 
+
+## .NET Platforma 
+
+***.NET Framework*** vezan je za Microsoft odnosno Windows. Glavni nedostatak .NET Frameworka je što u sklopu Microsofta, što predstavlja značajno ograničenje kada govorimo o nastupu na nekoj široj sceni. 
+
+TOK:  ***Razvoj aplikacije -> CLR -> .NET Platforma***
+
+***.NET Framework:*** WPF, Windows Forms, ASP.NET
+
+***.NET Core:*** UWP, ASP.NET Core
+
+- Open-source, dostupan je na drugim platformama npr. Linux...
+- Ima dodatne built-o
+
+
+
 ### **Namespace**
 
 <hr> 
@@ -52,6 +85,7 @@ for (int i = 0; i < args.Length; i++)
 ### Tipovi podataka
 
 <hr>
+
 ```c#
 //Tip: ctrl + . (generise dio koda) + enter
 
@@ -60,6 +94,7 @@ private static void TipoviPodataka()
             throw new NotImplementedException();
         }
 ```
+
 
 Generise dio koda koji nije implementiran, defaultna implementacija  throw new NotImplementedException();  - javlja nam da dio koda nije implementiran i smanjuje mogućnost padanja programa ukoliko zaboravimo da uradimo implementaciju određene metode. 
 
@@ -89,41 +124,49 @@ npr. da bi koristili
 
 `int* pok = &indeks;`
 
-moramo taj dio coda označiti kao unsafe 
+moramo taj dio coda označiti kao unsafe te nakon toga moramo u propertijima omogućiti unsafe code. 
 
-` unsafe
-            {
-            int* pok = &indeks;
-            }`
+```c#
+unsafe
+   {
+        int* pok = &indeks;
+   }
+```
 
-te nakon toga moramo u propertijima omogućiti unsafe code. 
 
 
-
-### Properti
+### Properties
 
 <hr> 
 
 Omogućava nam da u jednoj liniji koda napišemo i getter i setter. Snnipet: prop
 
-`         public int Indeks { get ; set }`
+```c#
+public int Indeks { get ; set }
+```
 
 Ukoliko zelimo da dodatno implementiramo getter i setter: 
 
- `        public int Indeks { get { return _indeks; } set { _indeks = value  } } ` 
+```c#
+public int Indeks { get { return _indeks; } set { _indeks = value  } } 
+```
 
 ključna riječ value - vrijednost koja se nalazi s desne strane ovog propertija, npr mozemo reci 
 
-`sara.Indeks = 30003; // mogli bi da koristimo kao javno dostupan atribut, a ne kao metodu.`   
+```c#
+sara.Indeks = 30003; // mogli bi da koristimo kao javno dostupan atribut, a ne kao metodu. 
+```
 
   npr. 
 
-`public int Indeks {
+```c#
+public int Indeks {
             get { return _indeks; } 
             set {
                 if(value>200000 && value<400000)
                 _indeks = value; }
-        } //snippet je prop, zamjenjene metode settera i gettera`
+        } //snippet je prop, zamjenjene metode settera i gettera
+```
 
    
 
@@ -190,10 +233,3 @@ Ispisi(objA); //mozemo joj poslati sta god zelimo
 <hr> 
 
 Ukoliko imamo više projekata, da bi koristili neki projekat u drugom projektu moramo dodati referencu u drugi projekat. npr. ako imamo projekat DLWMS.ConsoleApp i projekat DLWMS.Data, da bi koristili projekat DLWMS.Data trebamo dodati referencu u DLWMS.ConsoleApp.
-
-
-
-
-
-
-
