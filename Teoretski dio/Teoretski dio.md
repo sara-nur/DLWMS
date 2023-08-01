@@ -1,3 +1,7 @@
+### ***<u>Predavanje 1</u>***
+
+
+
 ## Uvod
 
 ***C#*** je dosta napredniji u odnosu na C++;
@@ -30,15 +34,11 @@ TOK:  ***Razvoj aplikacije -> CLR -> .NET Platforma***
 - Ima dodatne built-o
 
 
-<hr>
-
-Predavanje 1
-
-<hr>
 
 ### **Namespace**
 
 <hr> 
+
 
 Namespace - za cilj ima da u okviru jednog prostora (logicne cjeline) osigura unikatnost imena. U programiranju ne mogu biti dvosmislenosti i moramo tačno znati na šta se odnosi. 
 
@@ -46,15 +46,18 @@ U C# namespace koji cemo korisiti imati ce ime naseg solutiona. npr solution nam
 
 U različtim namespaceovima možemo imati istoimene entitete odnosno tipove podataka mada moramo voditi računa kada pristupamo određenom tipu na koji način to radimo.
 
-`    internal class Program //internal znaci da je ta klasa dostupna na nivou odredjenog namespace-a.`
+```c#
+internal class Program //internal znaci da je ta klasa dostupna na nivou odredjenog namespace-a.
 
-`static void Main(string[] args) //staticki elementi klase - dostupni su na nivou klase, za pristup njima nam nije potreban objekat i pristupamo diretkno preko klase. `
+static void Main(string[] args) //staticki elementi klase - dostupni su na nivou klase, za pristup njima nam nije potreban objekat i pristupamo diretkno preko klase. 
+```
 
 
 
 ### **Funkcija i metoda**
 
 <hr>
+
 
 U okviru C# nema koncepta globalnih funckija kao što je to slučaj u C++, u C++ smo mogli kreirati globalne funkcije koje ne pripadaju nikome i koje je svako mogao pozivati. 
 
@@ -66,6 +69,7 @@ U okviru C# nema koncepta globalnih funckija kao što je to slučaj u C++, u C++
 
 <hr> 
 
+
 Metoda Main je oznacena kao static, tipa void i prima niz stringova. 
 
 **args** omogućava da našem programu pošaljemo set ulaznih vrijednosti na osnovu kojih on može započeti izvršenje programa.
@@ -76,27 +80,29 @@ Console.WriteLine(); //<<cout<<" "<<endl; je metoda koja pripada klasi Console, 
 
 Za ispis vrijednosti koje su dosle kao ulazne unutar main metode
 
-`for (int i = 0; i < args.Length; i++)
+```c#
+for (int i = 0; i < args.Length; i++)
+{
+     Console.WriteLine(args[i]); 
+}
+```
 
-```
-        {
-        Console.WriteLine(args[i]); 
-        }`
-```
+
 
 ### Tipovi podataka
 
 <hr>
 
+
+```c#
 //Tip: ctrl + . (generise dio koda) + enter
 
-`private static void TipoviPodataka()
+private static void TipoviPodataka()
+        {
+            throw new NotImplementedException();
+        }
+```
 
-```
-    {
-        throw new NotImplementedException();
-    }`
-```
 
 Generise dio koda koji nije implementiran, defaultna implementacija  throw new NotImplementedException();  - javlja nam da dio koda nije implementiran i smanjuje mogućnost padanja programa ukoliko zaboravimo da uradimo implementaciju određene metode. 
 
@@ -106,17 +112,21 @@ Generise dio koda koji nije implementiran, defaultna implementacija  throw new N
 
 <hr>
 
+
 Interpolation - omogućava generisanje i formiranje određenog stringa na osnovu različitih vrijednosti koji su dostupni u određenoj liniji koda. Interpolation podrazumijeva korištenja znaka $ prije sadržaja koji želimo povezati. 
 
 npr. 
 
-`  Console.WriteLine($"{ ime}  je aktivan sa prosjekom {prosjek}");`
+```c#
+Console.WriteLine($"{ ime}  je aktivan sa prosjekom {prosjek}");
+```
 
 
 
-### Pokazivači
+### Pokazivači 
 
 <hr>
+
 
 Da bi u C# koristili pokazivače moramo nazna;iti pokazivače kao nesiguran kod. Želimo da osiguramo da znamo da koristimo pokazivače i imamo dvije preventivne mjere. 
 
@@ -124,17 +134,14 @@ npr. da bi koristili
 
 `int* pok = &indeks;`
 
-moramo taj dio coda označiti kao unsafe 
+moramo taj dio coda označiti kao unsafe te nakon toga moramo u propertijima omogućiti unsafe code. 
 
-` unsafe
-
-```
-        {
+```c#
+unsafe
+   {
         int* pok = &indeks;
-        }`
+   }
 ```
-
-te nakon toga moramo u propertijima omogućiti unsafe code. 
 
 
 
@@ -142,28 +149,34 @@ te nakon toga moramo u propertijima omogućiti unsafe code.
 
 <hr> 
 
+
 Omogućava nam da u jednoj liniji koda napišemo i getter i setter. Snnipet: prop
 
-`         public int Indeks { get ; set }`
+```c#
+public int Indeks { get ; set }
+```
 
 Ukoliko zelimo da dodatno implementiramo getter i setter: 
 
- `        public int Indeks { get { return _indeks; } set { _indeks = value  } } ` 
+```c#
+public int Indeks { get { return _indeks; } set { _indeks = value  } } 
+```
 
 ključna riječ value - vrijednost koja se nalazi s desne strane ovog propertija, npr mozemo reci 
 
-`sara.Indeks = 30003; // mogli bi da koristimo kao javno dostupan atribut, a ne kao metodu.`   
+```c#
+sara.Indeks = 30003; // mogli bi da koristimo kao javno dostupan atribut, a ne kao metodu. 
+```
 
   npr. 
 
-`public int Indeks {
-
-```
-        get { return _indeks; } 
-        set {
-            if(value>200000 && value<400000)
-            _indeks = value; }
-    } //snippet je prop, zamjenjene metode settera i gettera`
+```c#
+public int Indeks {
+            get { return _indeks; } 
+            set {
+                if(value>200000 && value<400000)
+                _indeks = value; }
+        } //snippet je prop, zamjenjene metode settera i gettera
 ```
 
    
@@ -171,6 +184,7 @@ ključna riječ value - vrijednost koja se nalazi s desne strane ovog propertija
 ### Vrste podataka - Value i reference tipovi
 
 <hr>
+
 
 Dvije vrste podataka koje cemo korisiti: value i reference tipovi
 
@@ -180,17 +194,19 @@ C# predstavlja managed okruženje tj. razvojno okruženje u kojem se izvršava a
 
 **Value tipovi (vrijednosni tipovi)** - tipovi podataka koji se uvijek pohranjuju na stacku, dakle tu govorimo o primitivnom tipu podataka: int, float, bool... 
 
-` int a = 10;
-  int b = a; //ovdje je b samo preuzela vrijednost a, ukoliko a promijenimo, b ce ostati nepromjenjeno
-   a = 2000;`
+```c#
+int a = 10;
+int b = a; //ovdje je b samo preuzela vrijednost a, ukoliko a promijenimo, b ce ostati nepromjenjeno
+   a = 2000;
 
-``int a = new int(); //ova linija koda inicijalizuje varijablu a nekom defaultnom vrijednoscu`
+int a = new int(); //ova linija koda inicijalizuje varijablu a nekom defaultnom vrijednoscu
 
-`int b; //Obje su na stacku samo varijabla a ima neko defualtnu vrijednosti (a==0)Console.WriteLine();`
+int b; //Obje su na stacku samo varijabla a ima neko defualtnu vrijednosti (a==0)Console.WriteLine();
 
-`if(b==0) // ne da nam da koristimo varijablu b jer nije inicijalizovana, stoga ne mozemo je porediti`
+if(b==0) // ne da nam da koristimo varijablu b jer nije inicijalizovana, stoga ne mozemo je porediti
 
-`Console.WriteLine();`
+Console.WriteLine();
+```
 
 
 
@@ -198,33 +214,38 @@ C# predstavlja managed okruženje tj. razvojno okruženje u kojem se izvršava a
 
 Reference tipovi kao što su klase, gdje se njihovi objekti odnosno vrijednosti pohranjuju na heap-u (u dinamickoj memoriji). 
 
-
-
 Svi tipovi podataka bili oni value ili reference imaju jedan jedinstveni bazni tip podatka, a to je **object**. 
 
-**Object** predstavlja najveći nivo u hijerarhiji nasljeđivanja. Kada imamo neki izvedeni tip njega možemo konvertovati u bazni, npr. 
 
-`object objA = a;
- object objSara = sara;`
+
+**Object** 
+
+Object predstavlja najveći nivo u hijerarhiji nasljeđivanja. Kada imamo neki izvedeni tip njega možemo konvertovati u bazni, npr. 
+
+```c#
+object objA = a;
+object objSara = sara;
+```
 
 Kada je nešto tipa object imamo par metoda koje su nam dostupne, npr Equals, ToString, GetType... Svi objekti odnosno sve vrijednosti tipa object će pored svojih propertija i metoda imati i ove dodatne metode bez obzira što one nisu implementirane unutar klase npr. unutar klase Student nemamo ToString ali ga možemo korisiti. 
 
 
 
- `Console.WriteLine(sara);  //ako bi samo ovo ispisali dobili bi ispis gdje se nazali objekat sara, odnosno putanju  (DLWMS.Data.Student),//Ovo je bazna ToString metoda, ukoliko ne zelimo da se to desava i zelimo da ispisemo propertije objekta, moramo napraviti override u klasi Student`
+```c#
+Console.WriteLine(sara);  //ako bi samo ovo ispisali dobili bi ispis gdje se nazali objekat sara, odnosno putanju  (DLWMS.Data.Student),//Ovo je bazna ToString metoda, ukoliko ne zelimo da se to desava i zelimo da ispisemo propertije objekta, moramo napraviti override u klasi Student
 
 
-
-`Ispisi(objA); //mozemo joj poslati sta god zelimo
-
+Ispisi(objA); //mozemo joj poslati sta god zelimo
+            //To je moguce jer je tip object bazni tip svim tipovima sto znaci da ih u svakom momentu mozemo pretvoriti u taj tip i vratiti 
+            Ispisi(objSara); 
 ```
-        //To je moguce jer je tip object bazni tip svim tipovima sto znaci da ih u svakom momentu mozemo pretvoriti u taj tip i vratiti 
-        Ispisi(objSara); `
-```
+
+
 
 ### Dodatne informacije
 
 <hr> 
+
 
 Ukoliko imamo više projekata, da bi koristili neki projekat u drugom projektu moramo dodati referencu u drugi projekat. npr. ako imamo projekat DLWMS.ConsoleApp i projekat DLWMS.Data, da bi koristili projekat DLWMS.Data trebamo dodati referencu u DLWMS.ConsoleApp.
 
@@ -232,7 +253,7 @@ Ukoliko imamo više projekata, da bi koristili neki projekat u drugom projektu m
 
 
 
-## **Predavanje 2**
+### ***<u>Predavanje 2</u>***
 
 
 
@@ -242,39 +263,44 @@ Tipovi podataka:
 
 - Reference tipovi - alociraju se na stacku
 
-  ​
+  
 
 U C++ nam je ključna riječ znala izlazak na stack, a u C# to nije slučaj. Sada new radi samo inicijalizaciju odnosno govori compileru da želimo da postavimo vrijednost na neku defaultnu vrijednost, ukoliko ne inicijalizujemo neku vrijednost onda je nećemo moći da koristimo jer compiler misli da smo zaboravili da ga iniciliziramo. 
 
 
 
-### Vrijednosni tipovi podataka - kreira kopiju. Struktura je value tip. Ako imamo nešto što će se često mijenjati, bolje je da napravimo strukturu umjesto klase jer je izlazak u dinamički dio poprilično skup. 
+**Vrijednosni tipovi podataka - kreira kopiju. Struktura je value tip. Ako imamo nešto što će se često mijenjati, bolje je da napravimo strukturu umjesto klase jer je izlazak u dinamički dio poprilično skup.** 
 
-Podrazumijevane vrijednosti. 
+
+
+**Podrazumijevane vrijednosti.** 
 
 One zavise od tipa, numeričke vrijednosti će imati 0, bool će biti false, a za reference tipove defaultna vrijednost će biti null. 
 
-nullable - null ne možemo dodijeliti value tipovima, zato imamo koncept nullable. To nam omogućava da value vrijednost ima null vrijednost. To radimo tako što stavimo ? nakon tipa podatka. npr.
+**nullable** - null ne možemo dodijeliti value tipovima, zato imamo koncept nullable. To nam omogućava da value vrijednost ima null vrijednost. To radimo tako što stavimo ? nakon tipa podatka. npr.
 
- int ? test = null;
+```c#
+int ? test = null;
 
 student?.Prezime -> provjerava da li je null, ovo govori compileru da ne provjerava dalje ako je lijeva strana null. 
 
 Drugi nacin
 
 string prezime = student?.Prezime??"PREZIME"; //ako je lijeva strana null onda ce Prezime biti postavljeno na vrijednost PREZIME, a ako lijeva strana nije prazna bice inicijalizovana njome
+```
 
-Slanje po referenci - u C# ključna riječ ref se navodi i prilikom poziva i prilikom deklaracije metode.
+**Slanje po referenci** - u C# ključna riječ ref se navodi i prilikom poziva i prilikom deklaracije metode.
 
 Ključna riječ **out** - služi nam da natjeramo metodu da izvrši modifikaciju prosljeđenog parametra. 
 
-Zahvaljujući outu ne moramo da nuliramo jer out osigurava da će parametar biti modifikovan. 
+Zahvaljujući **outu** ne moramo da nuliramo jer out osigurava da će parametar biti modifikovan. 
 
+```c#
 int.TryParse ("654" , out rezultat);      // prvi parametar je string, a drugi
 
 //ova metoda pokušava da parsira string 654 u integer i da pohrani rezultat u rezultat. Ova metoda vraca bool vrijednost. 
 
-
+```
 
 Ključna riječ **in** - poluconst, ona od nas zahtjeva da ni na koji način ne modifikujemo kompletan objekat. Sada moramo provjeravati da li je nesto null -> ne smije biti null jer želimo da pristupimo određenom propertiju tako da moramo inicijalizovati objekat. Oni su nam bitni radi postojećih metoda tako da znamo šta od njih možemo očekivati. 
 
@@ -286,9 +312,7 @@ Ključna riječ var - ne moramo navoditi tip podatka i on sam odredi tip podatka
 
 **Params** - da ne bi morali kreirati više metoda za različit broj paramatera već da proglasimo parametre nizom, uz ključnu riječ params, možemo poslati niz, a i set vrijednosti. npr.
 
-
-
-```
+```c#
 int suma1 = Sumiraj (new int[] { 2 , 34 , 8 , 6 });
 int suma2 = Sumiraj ( 2 , 34 , 8 , 6 );
 
@@ -307,7 +331,7 @@ int suma2 = Sumiraj ( 2 , 34 , 8 , 6 );
 
 
 
-## **Predavanje 3**
+### *<u>**Predavanje 3**</u>*
 
 
 
@@ -339,9 +363,11 @@ Sada možemo da pristupimo i manipulišemo vrijednostima propertija
 
 **abstract class** - ne da nam da kreiramo objekte klase kada je abstraktna 
 
+
+
 **Abstraktna metoda** - kada neku metodu proglasimo abstraktnom, to znači da svaku izvedenu klasu tjeramo da implementira tu metodu. Također, da bi metodu proglasili abstraktnom, klasa mora biti abstraktna. 
 
-### 
+
 
 **Virtualna metoda** - slična je abstraktnoj metodi s tim da abstraktna metoda tjera izvedene klase da je implementiraju, a kod virtualne metode je očekivano ali nije obavezno. 
 
@@ -351,9 +377,9 @@ Sada možemo da pristupimo i manipulišemo vrijednostima propertija
 
 Kada neka klasa implementira interface, ona može da naslijedi neku klasu. npr. 
 
+```c#
 public class Korisnik: Osoba, IKorisnik{} // ovo je moguće jer interface nije klasa i ne vrši se nasljeđivanje već implementacija interface-a. Također za razliku od nasljeđivanje klasa, implementacija interface-a nema ograničenje, možemo implementirati koliko želimo interface-a. 
-
-
+```
 
 **Nasljeđivanje interface-a**
 
@@ -375,11 +401,15 @@ Obično se na ulaznoj metodi, na početku rada aplikacije dostavlja informacija 
 
 Kreiramo generički interface 
 
-​    public interface IRepository<T>
+```c#
+public interface IRepository<T>
+```
 
 Ovim interface-om želimo da nametnemo listu metoda koje će biti potrebne za komunikaciju s bazom podatka. 
 
-​    public class Repository<T> : IRepository
+```c#
+    public class Repository<T> : IRepository
+```
 
 Unutar jedne klase želimo da objedinimo logiku pristupa bazi podataka svim drugim tipovima. 
 
@@ -391,11 +421,13 @@ Repository pravimo tako da logiku save, update i delete ne bi morali implementir
 
 Koristimo ga kada želimo da oslobodimo resurse što prije, počevši od momenta kad nam taj resurs nije više potreban. 
 
-To možemo postići sa ključnom riječi **using**. Osnovno pravilo kod korištenja using ključne riječi je da tip podatka treba imati metodu koja će automatski biti pozvana. Ta metoda bi trebala biti zadužna za otpuštanje tog resursa, npr. zatvaranje file, konekcije i sl. Na raspolaganju imamo interface **IDisposable**. On će nam nametnuti da implementiramo metodu **dispose**. Metodu možemo kreirati u klasi i bez korištenja interface-a IDisposable ali korištenjem njega osiguravamo da ćemo implementirati metodu dispose. 
+To možemo postići sa ključnom riječi **using**. Osnovno pravilo kod korištenja using ključne riječi je da tip podatka treba imati metodu koja će automatski biti pozvana. Ta metoda bi trebala biti zadužna za otpuštanje tog resursa, npr. zatvaranje file, konekcije i sl. 
+
+Na raspolaganju imamo interface **IDisposable**. On će nam nametnuti da implementiramo metodu **dispose**. Metodu možemo kreirati u klasi i bez korištenja interface-a IDisposable ali korištenjem njega osiguravamo da ćemo implementirati metodu dispose. 
 
 
 
-Forme
+**Forme**
 
 **partial** 
 
@@ -403,7 +435,7 @@ Forme
 
 
 
-## Predavanje 4
+### ***<u>Predavanje 4</u>***
 
 
 

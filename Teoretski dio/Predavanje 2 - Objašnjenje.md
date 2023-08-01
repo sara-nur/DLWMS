@@ -1,6 +1,7 @@
-Predavanje 2
+### ***<u>Predavanje 2</u>***
 
-<hr>
+
+
 
 Tipovi podataka:
 
@@ -55,16 +56,18 @@ Ključna riječ var - ne moramo navoditi tip podatka i on sam odredi tip podatka
 
 
 
-    int suma1 = Sumiraj (new int[] { 2 , 34 , 8 , 6 });
-    int suma2 = Sumiraj ( 2 , 34 , 8 , 6 );
-    
-     private static int Sumiraj(params int[] niz)
-            {
-                var suma = 0;
-                for ( int i = 0; i < niz.Length; i++ )
-                    suma += niz[i];
-                return suma;
-            }
+```c#
+int suma1 = Sumiraj (new int[] { 2 , 34 , 8 , 6 });
+int suma2 = Sumiraj ( 2 , 34 , 8 , 6 );
+
+ private static int Sumiraj(params int[] niz)
+        {
+            var suma = 0;
+            for ( int i = 0; i < niz.Length; i++ )
+                suma += niz[i];
+            return suma;
+        }
+```
 
 
 
