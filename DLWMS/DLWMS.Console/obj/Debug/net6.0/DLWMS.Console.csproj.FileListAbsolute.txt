@@ -1,0 +1,15 @@
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\bin\Debug\net6.0\DLWMS.Console.exe
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\bin\Debug\net6.0\DLWMS.Console.deps.json
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\bin\Debug\net6.0\DLWMS.Console.runtimeconfig.json
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\bin\Debug\net6.0\DLWMS.Console.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\bin\Debug\net6.0\DLWMS.Console.pdb
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\obj\Debug\net6.0\DLWMS.Console.csproj.AssemblyReference.cache
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\obj\Debug\net6.0\DLWMS.Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\obj\Debug\net6.0\DLWMS.Console.AssemblyInfoInputs.cache
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\obj\Debug\net6.0\DLWMS.Console.AssemblyInfo.cs
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\obj\Debug\net6.0\DLWMS.Console.csproj.CoreCompileInputs.cache
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\obj\Debug\net6.0\DLWMS.Console.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\obj\Debug\net6.0\refint\DLWMS.Console.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\obj\Debug\net6.0\DLWMS.Console.pdb
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\obj\Debug\net6.0\DLWMS.Console.genruntimeconfig.cache
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Console\obj\Debug\net6.0\ref\DLWMS.Console.dll
