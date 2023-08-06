@@ -1,0 +1,12 @@
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Data\bin\Debug\net6.0\DLWMS.Data.deps.json
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Data\bin\Debug\net6.0\DLWMS.Data.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Data\bin\Debug\net6.0\DLWMS.Data.pdb
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Data\obj\Debug\net6.0\DLWMS.Data.csproj.AssemblyReference.cache
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Data\obj\Debug\net6.0\DLWMS.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Data\obj\Debug\net6.0\DLWMS.Data.AssemblyInfoInputs.cache
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Data\obj\Debug\net6.0\DLWMS.Data.AssemblyInfo.cs
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Data\obj\Debug\net6.0\DLWMS.Data.csproj.CoreCompileInputs.cache
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Data\obj\Debug\net6.0\DLWMS.Data.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Data\obj\Debug\net6.0\refint\DLWMS.Data.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Data\obj\Debug\net6.0\DLWMS.Data.pdb
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.Data\obj\Debug\net6.0\ref\DLWMS.Data.dll

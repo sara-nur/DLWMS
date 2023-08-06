@@ -5,6 +5,10 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLWMS.ConsoleApp", "DLWMS.ConsoleApp\DLWMS.ConsoleApp.csproj", "{988F5031-5E93-4211-8383-652621C9D74E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLWMS.Data", "DLWMS.Data\DLWMS.Data.csproj", "{77DD8ABF-CA62-4D7B-A0F0-529A1A6A4A87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLWMS.WindForms", "DLWMS.WindForms\DLWMS.WindForms.csproj", "{95B27091-5495-4762-A795-D079AFC122DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{988F5031-5E93-4211-8383-652621C9D74E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{988F5031-5E93-4211-8383-652621C9D74E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{988F5031-5E93-4211-8383-652621C9D74E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77DD8ABF-CA62-4D7B-A0F0-529A1A6A4A87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77DD8ABF-CA62-4D7B-A0F0-529A1A6A4A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77DD8ABF-CA62-4D7B-A0F0-529A1A6A4A87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77DD8ABF-CA62-4D7B-A0F0-529A1A6A4A87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95B27091-5495-4762-A795-D079AFC122DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95B27091-5495-4762-A795-D079AFC122DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95B27091-5495-4762-A795-D079AFC122DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95B27091-5495-4762-A795-D079AFC122DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

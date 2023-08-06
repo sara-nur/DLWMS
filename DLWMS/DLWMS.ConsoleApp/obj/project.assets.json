@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "DLWMS.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DLWMS.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DLWMS.Data.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "DLWMS.Data/1.0.0": {
+      "type": "project",
+      "path": "../DLWMS.Data/DLWMS.Data.csproj",
+      "msbuildProject": "../DLWMS.Data/DLWMS.Data.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "DLWMS.Data >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Sara\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj": {
+              "projectPath": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

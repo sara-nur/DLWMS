@@ -16,6 +16,8 @@ Osigurava platformu develepoerima koja će omogućiti razvoj aplikacija za gotov
 
 ***SDK (Software Development Kit)*** potreban nam je kada razvijamo aplikacije, međutim kada aplikaciju isporučujemo, biće nam potreban neki ***RunTime***. 
 
+
+
 ## .NET Platforma 
 
 ***.NET Framework*** vezan je za Microsoft odnosno Windows. Glavni nedostatak .NET Frameworka je što u sklopu Microsofta, što predstavlja značajno ograničenje kada govorimo o nastupu na nekoj široj sceni. 
@@ -31,13 +33,34 @@ TOK:  ***Razvoj aplikacije -> CLR -> .NET Platforma***
 
 
 
-### **Namespace**
+## Namespace
 
-<hr> 
 
 Namespace - za cilj ima da u okviru jednog prostora (logicne cjeline) osigura unikatnost imena. U programiranju ne mogu biti dvosmislenosti i moramo tačno znati na šta se odnosi. 
 
 U C# namespace koji cemo korisiti imati ce ime naseg solutiona. npr solution nam se zove DLWMS.ConsoleApp pa se i namespace naziva DLWMS.ConsoleApp.
+
+```C#
+using System;
+using System.Text;
+using DLWMS.ConsoleApp.Helpers; // ako dodamo na vrh using DLWMS.ConsoleApp.Helpers onda naš program ne zna na koji namespace se Encoder odnosi 
+
+namespace DLWMS.ConsoleApp
+{
+
+    public class Program
+    {
+        public static void Main(string[] args )
+        {
+            Encoder en1; //Odnosi se na Encoder koji se nalazi u System
+            Helpers.Encoder en2; //pošto smo stavili using, moramo naznačiti na šta se odnosi
+          //  DLWMS.ConsoleApp.Helpers.Encoder en2; //Nalazi se na Encoder koji se nalazi u Helpers, možemo i dodati using DLWMS.ConsoleApp.Helpers;
+            Console.WriteLine ("Hello World");
+             
+        }
+    }
+}
+```
 
 U različtim namespaceovima možemo imati istoimene entitete odnosno tipove podataka mada moramo voditi računa kada pristupamo određenom tipu na koji način to radimo.
 
@@ -49,9 +72,8 @@ static void Main(string[] args) //staticki elementi klase - dostupni su na nivou
 
 
 
-### **Funkcija i metoda**
+## Funkcija i metoda
 
-<hr>
 
 U okviru C# nema koncepta globalnih funckija kao što je to slučaj u C++, u C++ smo mogli kreirati globalne funkcije koje ne pripadaju nikome i koje je svako mogao pozivati. 
 
@@ -59,9 +81,8 @@ U okviru C# nema koncepta globalnih funckija kao što je to slučaj u C++, u C++
 
 
 
-### Main metoda
+## Main metoda
 
-<hr> 
 
 Metoda Main je oznacena kao static, tipa void i prima niz stringova. 
 
@@ -80,11 +101,12 @@ for (int i = 0; i < args.Length; i++)
 }
 ```
 
+Kada su metode statičke ne moramo instancirati njihove objekte.
 
 
-### Tipovi podataka
 
-<hr>
+## Tipovi podataka
+
 
 ```c#
 //Tip: ctrl + . (generise dio koda) + enter
@@ -100,9 +122,8 @@ Generise dio koda koji nije implementiran, defaultna implementacija  throw new N
 
 
 
-### Interpolation
+## Interpolation 
 
-<hr>
 
 Interpolation - omogućava generisanje i formiranje određenog stringa na osnovu različitih vrijednosti koji su dostupni u određenoj liniji koda. Interpolation podrazumijeva korištenja znaka $ prije sadržaja koji želimo povezati. 
 
@@ -110,13 +131,23 @@ npr.
 
 ```c#
 Console.WriteLine($"{ ime}  je aktivan sa prosjekom {prosjek}");
+
+//Drugi primjer
+ private static void TipoviPodataka( )
+        {
+            int Indeks = 220022;
+            string imePrezime = "Sara Nur";
+            bool aktivan = false;
+            double skolarina = 2000;
+
+            Console.WriteLine ($"{Indeks} je student {imePrezime} aktivan {aktivan} skolarina {skolarina}");
+        }
 ```
 
 
 
-### Pokazivači 
+## Pokazivači 
 
-<hr>
 
 Da bi u C# koristili pokazivače moramo nazna;iti pokazivače kao nesiguran kod. Želimo da osiguramo da znamo da koristimo pokazivače i imamo dvije preventivne mjere. 
 
@@ -135,11 +166,9 @@ unsafe
 
 
 
-### Properties
+## Klase - properties 
 
-<hr> 
-
-Omogućava nam da u jednoj liniji koda napišemo i getter i setter. Snnipet: prop
+Omogućava nam da u jednoj liniji koda napišemo i getter i setter. **Snnipet: prop**
 
 ```c#
 public int Indeks { get ; set }
@@ -170,9 +199,34 @@ public int Indeks {
 
    
 
-### Vrste podataka - Value i reference tipovi
+Također, možemo navesti sve atribute imenom prilikom kreiranja objekta, na ovaj način ne moramo po redoslijedu dodavati atribute kao što bi to morali inače. 
 
-<hr>
+```c#
+Student zanin = new Student (indeks: 22343 , prezime: "Vojic" , ime: "Zanin");
+
+```
+
+Sada smo direktno izvšili interakciju sa Propertijima. 
+
+```c#
+Student jasmin = new Student ()
+            {
+                Prezime = "Jasminovic" ,
+                GodinaStudija = 1,
+            };
+
+
+//Ovo je ekvivalentno sljedecem:
+jasmin.Prezime = "Jasminovic";
+jasmin.GodinaStudija = 1;
+```
+
+**DTO - Data Transfer Object** 
+
+
+
+## Vrste tipova podataka - Value i Reference tipovi
+
 
 Dvije vrste podataka koje cemo korisiti: value i reference tipovi
 
@@ -180,12 +234,22 @@ U programskom jeziku C++ imali smo ključnu riječ new koja nam je sugerisala da
 
 C# predstavlja managed okruženje tj. razvojno okruženje u kojem se izvršava aplikacija - zaduženo je da upotpunosti upravlja memorijskim resursima. On vodi računa o alokaciji i dealokaciji u memoriji.
 
-**Value tipovi (vrijednosni tipovi)** - tipovi podataka koji se uvijek pohranjuju na stacku, dakle tu govorimo o primitivnom tipu podataka: int, float, bool... 
+
+
+### *Value tipovi (vrijednosni tipovi)*
+
+Tipovi podataka koji se uvijek pohranjuju na stacku, dakle tu govorimo o primitivnom tipu podataka: int, float, bool... 
 
 ```c#
 int a = 10;
 int b = a; //ovdje je b samo preuzela vrijednost a, ukoliko a promijenimo, b ce ostati nepromjenjeno
    a = 2000;
+
+int indeks = new int (); //iako imamo ključnu riječ new koja je u C++ značila izlazak sa stack-a i prezlazak na heap, u C# to nije slučaj. Svi primitivni tipovi uglavnom ostaju na stack-u-
+
+int indeks1 = 0;
+int indeks2 = indeks1;
+//vrijednost iz indeksa1 se kopira u indeks2, promjene u jednom se ne reflektuju na drugi
 
 int a = new int(); //ova linija koda inicijalizuje varijablu a nekom defaultnom vrijednoscu
 
@@ -198,11 +262,20 @@ Console.WriteLine();
 
 
 
-**Reference tipovi**
+### ***Reference tipovi***
 
 Reference tipovi kao što su klase, gdje se njihovi objekti odnosno vrijednosti pohranjuju na heap-u (u dinamickoj memoriji). 
 
+```c#
+Student sara = new Student(123432, "Sara", "Nur"); //na heap-u
+Student denis = sara;
 
+// u objekat denis se pohranjuje adresa objekta sara, promjene na jednom objektu se reflektuju na drugi objekat
+```
+
+
+
+## Bazni Tip - Object 
 
 Svi tipovi podataka bili oni value ili reference imaju jedan jedinstveni bazni tip podatka, a to je **object**. 
 
@@ -213,7 +286,26 @@ object objA = a;
 object objSara = sara;
 ```
 
-Kada je nešto tipa object imamo par metoda koje su nam dostupne, npr Equals, ToString, GetType... Svi objekti odnosno sve vrijednosti tipa object će pored svojih propertija i metoda imati i ove dodatne metode bez obzira što one nisu implementirane unutar klase npr. unutar klase Student nemamo ToString ali ga možemo korisiti. 
+
+
+Kada je nešto tipa object imamo par metoda koje su nam dostupne, npr **Equals**, **ToString**, **GetType**... 
+
+Svi objekti odnosno sve vrijednosti tipa object će pored svojih propertija i metoda imati i ove dodatne metode bez obzira što one nisu implementirane unutar klase npr. unutar klase Student nemamo ToString ali ga možemo korisiti. 
+
+Nedostatak je to što castanje nečega u object će učiniti da ono izgubi svoje  propertije 
+
+
+
+```c#
+Student denis = new Student (223344 , "Denka" , "Music");
+object objStudent = denis;
+
+if( objStudent is Student )
+    {
+         //uradiNesto 
+    }
+//Prije nekog casta npr možemo provjeriti da li je objekt tipa Student npr. 
+```
 
 
 
@@ -228,8 +320,29 @@ Ispisi(objA); //mozemo joj poslati sta god zelimo
 
 
 
-### Dodatne informacije
+## Nova verzija Metode
 
-<hr> 
+U klasi Student nemamo ToString() metodu pa se poziva ToString metoda od bazne klase (object - ukoliko ne postavimo neku drugu klasu kao baznu, object se automatski dodjeljuje)
+
+```c#
+Student denis = new Student(12432, "Denis", "Music");
+ Console.WriteLine (denis); //Ispisace rutu - DLWMS.Data.Student
+// ovo je ekvivalentno ovome 
+ Console.WriteLine (denis.ToString());
+```
+
+Da bi mogli ispisati podatke onako kako mi želimo, moramo da overridamo metodu ToString()
+
+```c#
+
+```
+
+
+
+
+
+### *Dodatne informacije*
 
 Ukoliko imamo više projekata, da bi koristili neki projekat u drugom projektu moramo dodati referencu u drugi projekat. npr. ako imamo projekat DLWMS.ConsoleApp i projekat DLWMS.Data, da bi koristili projekat DLWMS.Data trebamo dodati referencu u DLWMS.ConsoleApp.
+
+Class Library Projekat - onaj Projekat koji nema interface, on uglavnom služi kao neki kod koji će biti servis usluga drugim slojevima, bibliotekama, interface-ima...

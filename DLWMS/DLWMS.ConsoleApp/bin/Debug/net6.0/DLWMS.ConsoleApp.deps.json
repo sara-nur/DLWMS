@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "DLWMS.ConsoleApp/1.0.0": {
+        "dependencies": {
+          "DLWMS.Data": "1.0.0"
+        },
         "runtime": {
           "DLWMS.ConsoleApp.dll": {}
+        }
+      },
+      "DLWMS.Data/1.0.0": {
+        "runtime": {
+          "DLWMS.Data.dll": {}
         }
       }
     }
   },
   "libraries": {
     "DLWMS.ConsoleApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DLWMS.Data/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
