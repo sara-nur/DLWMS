@@ -4,7 +4,7 @@
 
 ***CRM (Object-Relational Mapping)*** - korištenjem Entity FrameWorka. 
 
-***Entitiy Framework*** omogućava da vrlo jednostavno napravimo vezu sa bazom podataka. da dohvatimo ili dodamo neke podatke. 
+***Entitiy Framework*** omogućava da vrlo jednostavno napravimo vezu sa bazom podataka, da dohvatimo ili dodamo neke podatke. 
 
 
 
@@ -334,10 +334,11 @@ Student denis = new Student(12432, "Denis", "Music");
 Da bi mogli ispisati podatke onako kako mi želimo, moramo da overridamo metodu ToString()
 
 ```c#
-
+ public override string ToString( )
+        {
+            return $"({_indeks}) {_ime} {Prezime} {GodinaStudija}";
+        }
 ```
-
-
 
 
 

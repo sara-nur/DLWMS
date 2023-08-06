@@ -11,7 +11,12 @@ namespace DLWMS.WindForms
 
         private void Form1_Load( object sender , EventArgs e )
         {
-              Student student = new Student();
+            Konekcija konekcija = new Konekcija ();
+            List<Student> studenti = konekcija.GetStudentByGodinaStudija (1);
+            foreach( var student in studenti )
+            {
+                MessageBox.Show(student.ToString());
+            }
         }
     }
 }

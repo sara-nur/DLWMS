@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 using DLWMS.ConsoleApp.Helpers;
-using DLWMS.ConsoleApp.Predavanja;
+using DLWMS.ConsoleApp.Predavanja.P2;
 
 namespace DLWMS.ConsoleApp
 {
@@ -12,12 +12,9 @@ namespace DLWMS.ConsoleApp
 
         public static void Main(string[] args )
         {
-        P1.Pokreni();
-        //    for( int i = 0; i < args.Length; i++ )
-        //    {
-        //        Console.WriteLine(args[i] );
-        //    }
-             
+            //MainP1.Pokreni();
+            MainP2.Pokreni ();
+        
         }
     }
 }

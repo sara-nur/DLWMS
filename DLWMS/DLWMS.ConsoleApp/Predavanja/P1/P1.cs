@@ -1,11 +1,11 @@
 ﻿using DLWMS.Data;
 using System.Threading.Tasks.Dataflow;
 
-namespace DLWMS.ConsoleApp.Predavanja
+namespace DLWMS.ConsoleApp.Predavanja.P1
 {
-    public class P1
+    public class MainP1
     {
-        public static void Pokreni( )
+        public static void Pokreni()
         {
             //TipoviPodataka ();
             //Pokazivaci ();
@@ -15,37 +15,37 @@ namespace DLWMS.ConsoleApp.Predavanja
             //NovaVerzijaMetode ();
         }
 
-        private static void NovaVerzijaMetode( )
+        private static void NovaVerzijaMetode()
         {
             Student denis = new Student(12432, "Denis", "Music");
-            Console.WriteLine (denis);
-            Console.WriteLine (denis.ToString());
+            Console.WriteLine(denis);
+            Console.WriteLine(denis.ToString());
         }
 
-        private static void BazniTip( )
+        private static void BazniTip()
         {
             int indeks2 = 222000;
-            Student denis = new Student (223344 , "Denka" , "Music");
+            Student denis = new Student(223344, "Denka", "Music");
 
             object objIndeks = indeks2;
             object objStudent = denis;
 
-            Prikazi (objIndeks);
-            Prikazi (denis);      //metoda ce primati object mozemo poslati bilo sta sto je tipa object 
+            Prikazi(objIndeks);
+            Prikazi(denis);      //metoda ce primati object mozemo poslati bilo sta sto je tipa object 
         }
 
-        private static void Prikazi( object objIndeks )
+        private static void Prikazi(object objIndeks)
         {
-            throw new NotImplementedException ();
+            throw new NotImplementedException();
         }
 
-        private static void VrsteTipovaPodataka( )
+        private static void VrsteTipovaPodataka()
         {
             int indeks1 = 0;
             int indeks2 = indeks1;
 
             //vrijednost iz indeksa1 se kopira u indeks2, promjene u jednom se ne reflektuju na drugi 
-            
+
             /*
             int indeks2 = new int (); //iako imamo ključnu riječ new koja je u C++ značila izlazak sa stack-a i prezlazak na heap, u C# to nije slučaj. Svi primitivni tipovi uglavnom ostaju na stack-u-
             if(indeks1 == 220000 )
@@ -64,20 +64,20 @@ namespace DLWMS.ConsoleApp.Predavanja
             // u objekat denis se pohranjuje adresa objekta sara, promjene na jednom objektu se reflektuju na drugi objekat 
         }
 
-        private static void Klase( )
+        private static void Klase()
         {
-            Student sara = new Student (220022 , "Sara" , "Nur");
-            sara.GetIndeks ();
-            Console.WriteLine (sara.GetIndeks ());
-            sara.SetIndeks (334440);
-            Console.WriteLine (sara.GetIndeks ());
+            Student sara = new Student(220022, "Sara", "Nur");
+            sara.GetIndeks();
+            Console.WriteLine(sara.GetIndeks());
+            sara.SetIndeks(334440);
+            Console.WriteLine(sara.GetIndeks());
             sara.Prezime = "Test"; // sada ovaj "test" postaje value u našem setter-u
                                    //ukoliko postavimo neka nasa pravila u propertiju prezime
 
-            Student zanin = new Student (indeks: 22343 , prezime: "Vojic" , ime: "Zanin");
-            Student jasmin = new Student ()
+            Student zanin = new Student(indeks: 22343, prezime: "Vojic", ime: "Zanin");
+            Student jasmin = new Student()
             {
-                Prezime = "Jasminovic" ,
+                Prezime = "Jasminovic",
                 GodinaStudija = 1,
             };
 
@@ -85,7 +85,7 @@ namespace DLWMS.ConsoleApp.Predavanja
             jasmin.GodinaStudija = 1;
         }
 
-        private static void Pokazivaci( )
+        private static void Pokazivaci()
         {
             int indeks = 220022;
             unsafe
@@ -95,14 +95,14 @@ namespace DLWMS.ConsoleApp.Predavanja
             }
         }
 
-        private static void TipoviPodataka( )
+        private static void TipoviPodataka()
         {
             int Indeks = 220022;
             string imePrezime = "Sara Nur";
             bool aktivan = false;
             double skolarina = 2000;
 
-            Console.WriteLine ($"{Indeks} je student {imePrezime} aktivan {aktivan} skolarina {skolarina}");
+            Console.WriteLine($"{Indeks} je student {imePrezime} aktivan {aktivan} skolarina {skolarina}");
         }
     }
 }

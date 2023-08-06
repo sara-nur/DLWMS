@@ -24,7 +24,28 @@
 
         public override string ToString( )
         {
-            return $"({_indeks}) {_ime} {Prezime} {GodinaStudija}";
+            return $"({_indeks}) -> {_ime} {Prezime} godina {GodinaStudija}";
         }
     }
+
+    public struct DLStudent
+    {
+        public string Prezime { get; set; }
+        public int GodinaStudija { get; set; }
+    }
+
+    public class Konekcija
+    {
+        public List<Student> GetStudentByGodinaStudija(int godinaStudija)
+        {
+            return new List<Student> ()
+            {
+                new Student() {Prezime= "Prezime1", GodinaStudija= godinaStudija},
+                new Student() {Prezime= "Prezime2", GodinaStudija= godinaStudija},
+                new Student() {Prezime= "Prezime3", GodinaStudija= godinaStudija},
+            };
+        }
+    }
+
+
 }

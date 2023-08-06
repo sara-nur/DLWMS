@@ -1,22 +1,88 @@
-### ***<u>Predavanje 2</u>***
+## Klasa Konekcija
+
+Simuliramo klasu koja će biti u stanju da komunicira sa bazom. Logika komunikacije s bazom je prepuštena ovoj klasi. 
+
+```c#
+ private static void KonekcijaNaBazu( )
+        {
+            Konekcija konekcija = new Konekcija(); //kreiramo objekat tipa Konekcija 
+            List<Student> studenti = konekcija.GetStudentByGodinaStudija(1); //Kreiramo listu koja sadrži studente prve godine
+            foreach(var student in studenti) //svaki objekat u ovoj listi će dobiti ime student u listi koja se naziva studenti 
+            {
+				Console.WriteLine(student);
+            }
+
+        }
+```
+
+Ostali dijeliovi koji povezivaju ovu metodu biće prikazana lista studenata. Ukoliko bude potrebe za mijenjanjem podataka, možemo ih mijenjati na jednom mjestu samo, a to je u klasi Konekcija. 
+
+Ovako ne moramo da modifikujemo na svim slojevima, već samo na jednom, dakle u Data Sloju. 
+
+Ona je zadužena za uspostavljanje konekcije i dohvatanje podataka. 
 
 
 
+## Slojevi & VrijednostiReference();
 
-Tipovi podataka:
+- **Primitivni tipovi i objekti** - alociraju se na heap-u
+- **Reference tipovi** - alociraju se na stack-u
 
-- Primitivni tipovi i objekti - alociraju se na heap-u
-- Reference tipovi - alociraju se na stacku
+U C++ nam je ključna riječ **new** značila izlazak sa stack-a u dinamički dio memorije, a u C# to nije slučaj. 
 
-U C++ nam je ključna riječ znala izlazak na stack, a u C# to nije slučaj. Sada new radi samo inicijalizaciju odnosno govori compileru da želimo da postavimo vrijednost na neku defaultnu vrijednost, ukoliko ne inicijalizujemo neku vrijednost onda je nećemo moći da koristimo jer compiler misli da smo zaboravili da ga iniciliziramo. 
+Sada **new** radi **samo inicijalizaciju** odnosno govori compileru da želimo da postavimo vrijednost na neku defaultnu vrijednosst, ukoliko ne inicijalizujemo neku vrijednost onda je nećemo moći da koristimo jer compiler misli da smo zaboravili da ga iniciliziramo. 
+
+```C#
+  private static void VrijednostiReference( )
+        {
+            int a = new int ();
+            int b = a;
+
+            b = 20;
+            
+        }
+//Vrijednosni tipovi podataka - kreira kopiju.
+```
+
+ 
+
+#### Struktura
+
+**Struct** je value tip. Ako imamo nešto što će se često mijenjati, bolje je da napravimo strukturu umjesto klase jer je izlazak u dinamički dio poprilično skup. 
+
+```C#
+ public struct DLStudent
+    {
+        public string Prezime { get; set; }
+        public int GodinaStudija { get; set; }
+    }
+```
+
+Kada smo na stack-u sve nam je pod rukom te kada izađemo iz određene metode, ono što je bilo na stack-u vezano za tu metodu se automatski dealocira. 
+
+Dok u dinamičkom dijelu imamo **garbage collector** koji povremeno naizali pa prebacuje objekte iz jedne generacije u drugu u zavisnosti od toga koliko ih često treba dealocirati...
+
+```c#
+Student student1 = new Student ()
+            {
+                Prezime = "Music" ,
+                GodinaStudija = 1,
+            };
+            Student student2 = student1;
+ //student1 i student2 posjeduju referencu na jedan te isti objekat
+
+Console.WriteLine(student1);
+            Console.WriteLine(student2);
+            student2.Prezime = "Modifikacija prezimena";
+            Console.WriteLine(student1);
+            Console.WriteLine(student2);
+
+//Promjena će se izvršiti na oba objekta, i na student1 i na student2 
+```
 
 
 
-Vrijednosni tipovi podataka - kreira kopiju. Struktura je value tip. Ako imamo nešto što će se često mijenjati, bolje je da napravimo strukturu umjesto klase jer je izlazak u dinamički dio poprilično skup. 
-
-
-
-Podrazumijevane vrijednosti. 
+#### Podrazumijevane vrijednosti
 
 One zavise od tipa, numeričke vrijednosti će imati 0, bool će biti false, a za reference tipove defaultna vrijednost će biti null. 
 
@@ -51,10 +117,6 @@ Ključna riječ **in** - poluconst, ona od nas zahtjeva da ni na koji način ne 
 Ključna riječ var - ne moramo navoditi tip podatka i on sam odredi tip podatka na osnovu onoga Što se nalazi s desne strane, mada ih nema poente korisitit s varijablama koje nisu inicijalizovane
 
 **Params** - da ne bi morali kreirati više metoda za različit broj paramatera već da proglasimo parametre nizom, uz ključnu riječ params, možemo poslati niz, a i set vrijednosti. npr.
-
-
-
-
 
 ```c#
 int suma1 = Sumiraj (new int[] { 2 , 34 , 8 , 6 });
