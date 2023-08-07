@@ -390,15 +390,51 @@ Isti slučaj imutabilnosti se može primjetiti i na sljedećem primjeru:
 
 ## Dekonstrukcija 
 
-**Dekonstrukcija**
+```C#
+//metodu Deconstruct dodajemo u klasu Student, sa out garantujemo da ce se parametri inicijalizovati 
+public void Deconstruct( out string prezime , out int godinaStudija )
+        {
+            prezime = Prezime;
+            godinaStudija = GodinaStudija;
+        }
 
-Ključna riječ var - ne moramo navoditi tip podatka i on sam odredi tip podatka na osnovu onoga Što se nalazi s desne strane, mada ih nema poente korisitit s varijablama koje nisu inicijalizovane
+//P2
+
+  private static void Dekonstrukcija( )
+        {
+            Student obj = new Student ()
+            {
+                GodinaStudija = 1 ,
+                MentorId = null ,
+                Prezime = "Prezime" ,
+            };
+
+            string prezime;
+            int godinaStudija;
+            obj.Deconstruct (out prezime , out godinaStudija);
+
+            (prezime, godinaStudija) = obj; //sada ova linija predstavlja isto sto i obj.Deconstruct (out prezime , out godinaStudija);
+        }
+```
+
+
+
+#### *var*
+
+Ključna riječ **var** - ne moramo navoditi tip podatka i on sam odredi tip podatka na osnovu onoga Što se nalazi s desne strane, mada ih nema poente korisitit s varijablama koje nisu inicijalizovane
+
+```c#
+var aktivan = true; 
+car cijena = 3.4;
+
+var ime; //ne mozemo koristiti var jer on nema na osnovu cega da prepozna tip 
+```
 
 
 
 ## Params
 
-**Params** - da ne bi morali kreirati više metoda za različit broj paramatera već da proglasimo parametre nizom, uz ključnu riječ params, možemo poslati niz, a i set vrijednosti. npr.
+Da ne bi morali kreirati više metoda za različit broj paramatera već da proglasimo parametre nizom, uz ključnu riječ **params**, možemo poslati niz, a i set vrijednosti. npr.
 
 ```c#
 int suma1 = Sumiraj (new int[] { 2 , 34 , 8 , 6 });
@@ -411,6 +447,20 @@ int suma2 = Sumiraj ( 2 , 34 , 8 , 6 );
                 suma += niz[i];
             return suma;
         }
+
+
+//umjesto ovoga mozemo koristiti metodu Sum
+private static int Sumiraj2( params int[] niz )
+        {
+            return niz.Sum ();
+        }
+//ili
+private static int Sumiraj2( params int[] niz ) => niz.Sum ();
+
+var tekst = string.Join ("+" , 2 , 35 , 8 , 6 , 34);
+var tekst2 = string.Join ("-", "sara", "nur")
+
+//Join prima tip object tako da joj možemo slati različite tipove podataka. Ova metoda je također primjer korištenja params-a
 ```
 
 
@@ -419,7 +469,32 @@ int suma2 = Sumiraj ( 2 , 34 , 8 , 6 );
 
 ## Indekseri 
 
-**Indekseri** -  to su operatori [], omogućava nam da pristupimo pojedinim elementima u nekom nizu. Kreiramo operator [], u C# koristimo ključnu riječ this.
+**Indekseri** -  to su operatori [], omogućava nam da pristupimo pojedinim elementima u nekom nizu. Kreiramo operator [], u C# koristimo ključnu riječ **this**.
 
 
+
+```c#
+//u Klasi student
+int[] Ocjene = new int[30];
+
+        public int this[int lokacija]
+        {
+            get { return Ocjene[lokacija]; }
+            set { Ocjene[lokacija] = value; }
+        }
+
+//u metodi mainP2
+
+ private static void Indekseri( )
+        {
+            var obj = new Student ()
+            {
+                GodinaStudija = 1 ,
+                MentorId = null ,
+                Prezime = "Prezime" ,
+            };
+
+            obj[0] = 6;  //idemo na lokaciju 0, a value ce biti 6
+        }
+```
 

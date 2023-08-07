@@ -19,6 +19,61 @@ namespace DLWMS.ConsoleApp.Predavanja.P2
             //ProvjeraNullVrijednosti ();
             //SlanjeParametara ();
             //Imutabilnost ();
+            //Dekonstrukcija ();
+            //Params ();
+            Indekseri ();
+        }
+
+        private static void Indekseri( )
+        {
+            var obj = new Student ()
+            {
+                GodinaStudija = 1 ,
+                MentorId = null ,
+                Prezime = "Prezime" ,
+            };
+
+            obj[0] = 6;  //idemo na lokaciju 0, a value ce biti 6
+        }
+
+        private static void Params( )
+        {
+            int suma = Sumiraj (2 , 35 , 8 , 6);
+            int suma2 = Sumiraj (2 , 35 , 8 , 6 , 34);
+            Console.WriteLine (suma);
+            Console.WriteLine (suma2);
+
+            var tekst = string.Join ("+" , 2 , 35 , 8 , 6 , 34);
+
+            Console.WriteLine (tekst);
+        }
+
+        private static int Sumiraj( params int[] niz )
+        {
+            var suma = 0;
+            for( int i = 0; i < niz.Length; i++ )
+                suma += niz[i];
+            return suma;
+        }
+
+        private static int Sumiraj2( params int[] niz )
+        {
+            return niz.Sum ();
+        }
+        private static void Dekonstrukcija( )
+        {
+            Student obj = new Student ()
+            {
+                GodinaStudija = 1 ,
+                MentorId = null ,
+                Prezime = "Prezime" ,
+            };
+
+            string prezime;
+            int godinaStudija;
+            obj.Deconstruct (out prezime , out godinaStudija);
+
+            (prezime, godinaStudija) = obj;
         }
 
         private static void Imutabilnost( )
