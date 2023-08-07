@@ -9,10 +9,91 @@ namespace DLWMS.ConsoleApp.Predavanja.P2
 {
     public class MainP2
     {
-        public static void Pokreni()
+
+        public static void Pokreni( )
         {
             //KonekcijaNaBazu();
-            VrijednostiReference ();
+            //VrijednostiReference ();
+            //Nizovi ();
+            //PodrazumijevaneVrijednosti ();
+            //ProvjeraNullVrijednosti ();
+            //SlanjeParametara ();
+            //Imutabilnost ();
+        }
+
+        private static void Imutabilnost( )
+        {
+            string ime = "Denis";
+            ime = ime.ToUpper ();
+            Console.WriteLine (ime);
+
+            DateTime danas = DateTime.Now;
+            danas = danas.AddDays (2);
+            Console.WriteLine (danas.ToString ("dd.MM.yyyy"));
+        }
+
+        private static void SlanjeParametara( )
+        {
+            Student student = new Student ();
+            InicijalizujStudenta (in student);
+            Console.WriteLine (student.Prezime);
+
+        }
+
+        private static void InicijalizujStudenta( in Student obj )
+        {
+            obj.Prezime = "Prezime32";
+        }
+
+        private static void ProvjeraNullVrijednosti( )
+        {
+            Konekcija konekcija = new Konekcija ();
+            Student student = konekcija.GetStudentByIndeks ("IB210012");
+            //if( student != null )
+            //{
+            //    Console.WriteLine (student.Prezime);
+            //}
+
+            Console.WriteLine (student?.Prezime);
+
+
+        }
+
+        private static void PodrazumijevaneVrijednosti( )
+        {
+            int a = new int ();
+            int b = 0;
+
+
+            Student marko = new Student ()
+            {
+                Prezime = "Neko" ,
+                GodinaStudija = 1 ,
+                MentorId = null ,
+            };
+        }
+
+        private static void Nizovi( )
+        {
+            Student[] studenti = new Student[3];
+
+            for( int i = 0; i < studenti.Length; i++ )
+            {
+                studenti[i] = new Student ();
+                studenti[i].Prezime = $"Prezime{i}";
+                studenti[i].GodinaStudija = i + 1;
+                Console.WriteLine (studenti[i]);
+            }
+
+
+            DLStudent[] dlStudenti = new DLStudent[3];
+            for( int i = 0; i < dlStudenti.Length; i++ )
+            {
+                dlStudenti[i].Prezime = $"Prezime{i}";
+                dlStudenti[i].GodinaStudija = i + 1;
+                Console.WriteLine (dlStudenti[i]);
+            }
+
         }
 
         private static void VrijednostiReference( )
@@ -25,27 +106,46 @@ namespace DLWMS.ConsoleApp.Predavanja.P2
             Student student1 = new Student ()
             {
                 Prezime = "Music" ,
-                GodinaStudija = 1,
+                GodinaStudija = 1 ,
             };
             Student student2 = student1;
             //student1 i student2 posjeduju referencu na jedan te isti objekat
-            Console.WriteLine(student1);
-            Console.WriteLine(student2);
-            student2.Prezime = "Modifikacija prezimena";
-            Console.WriteLine(student1);
-            Console.WriteLine(student2);
+            Console.WriteLine (student1);
+            Console.WriteLine (student2);
+            student2.Prezime = "Modifikacija prezimena Studenta 2";
+            Console.WriteLine (student1);
+            Console.WriteLine (student2);
+
+            Console.WriteLine ("------------------------------");
+
+            DLStudent dlStudent1 = new DLStudent ()
+            {
+                Prezime = "Music" ,
+                GodinaStudija = 1 ,
+            };
+
+            DLStudent dlStudent2 = dlStudent1;
+
+            Console.WriteLine (dlStudent1);
+            Console.WriteLine (dlStudent2);
+            dlStudent2.Prezime = "Modifikacija DL Studenta 2";
+            Console.WriteLine (dlStudent1);
+            Console.WriteLine (dlStudent2);
+
+
+
         }
 
-        private static void KonekcijaNaBazu()
+        private static void KonekcijaNaBazu( )
         {
-            Konekcija konekcija = new Konekcija();
-            List<Student> studenti = konekcija.GetStudentByGodinaStudija(1);
-            foreach (var student in studenti)
+            Konekcija konekcija = new Konekcija ();
+            List<Student> studenti = konekcija.GetStudentByGodinaStudija (1);
+            foreach( var student in studenti )
             {
-                Console.WriteLine(student);
+                Console.WriteLine (student);
             }
 
         }
     }
-    
+
 }
