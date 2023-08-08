@@ -1,27 +1,74 @@
-### ***<u>Predavanje 3</u>***
-
-
-
-**const & readonly**
+## const & readonly
 
 **const** - mora biti inicijalizovan odmah
 
 **readonly** - možemo ih inicijalizovati u konstrukutoru nakon čega oni postoji konstante. Nakon inicijalizacije se oni ne mogu mijenjati. 
 
+```c#
+   public const string Naziv = "DLWMS";
+        public readonly string KonekcijskiString;
+
+        public Konfiguracija(string konekcijskiString)
+        {
+            KonekcijskiString = konekcijskiString;
+        }
+```
 
 
-**nasljeđivanje, is, as**
+
+## nasljeđivanje, is, as
 
 Logika nasljeđivanja je kao i u C++, ukoliko nam nešto nije dostupno jer nije javno, to možemo uraditi tako što ćemo pozvati konstruktor bazne klase. S razlikom da se prilikom poziva bazne klase u headeru umjesto imena klase piše ključna riječ base. U C++ klasa je mogla da naslijedi više klasa, u C# možemo naslijediti samo jednu baznu klasu!
+
+Primjer:
+
+```c#
+ public class Osoba
+    {
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+
+        public Osoba(string ime, string prezime)
+        {
+            Ime=ime;
+            Prezime=prezime;
+        }
+    }
+
+
+  public class DLStudent : Osoba
+    {
+        public string Indeks { get; set; }
+
+        public DLStudent(string indeks, string ime, string prezime)
+            :base(ime,prezime)
+        {
+            Indeks = indeks;
+        }
+
+    }
+```
+
+```c#
+private static void Nasljedjivanje()
+        {
+            Osoba osoba = new Osoba("Sara", "Prez");
+            Osoba dlStudent = new DLStudent("IB23543", "Sara", "Nur");
+        }
+
+//Sada pomocu nasljedivanja, Osoba moze pokazivati na Osobu ali i na DLStudenta jer DLStudent nasljedjuje klasu Osoba. 
+```
+
+
 
 **is, as** - slični dynamic cast operatoru - one vrše provjeru tipa i konverziju 
 
 Da bi izbjegli null reference exception, 
 
 ```C#
-     if(osoba is DLStudent )
+     if(osoba is DLStudent ) // da li je osoba DLStudent 
      	{
-            var dlStudent = osoba as DLStudent;
+            var dlStudent = osoba as DLStudent; //osobu posmatramo kao DLStudent
         }
 ```
 
@@ -29,17 +76,121 @@ Ovdje provjeravamo da li je osoba DLStudent. Ukoliko jeste, posmatraj je kao DLS
 
 Sada možemo da pristupimo i manipulišemo vrijednostima propertija 
 
+
+
+## abstract class (metode, virtual)
+
 **abstract class** - ne da nam da kreiramo objekte klase kada je abstraktna 
+
+```c#
+  public abstract class Osoba
+    {
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+
+        public Osoba(string ime, string prezime)
+        {
+            Ime=ime;
+            Prezime=prezime;
+        }
+
+    }
+//sada ne mozemo kreirati objekte tipa Osoba, ali mozemo kreirati objekte koje nasljedjuju klasu Osoba, npr DLStudent. 
+```
 
 
 
 **Abstraktna metoda** - kada neku metodu proglasimo abstraktnom, to znači da svaku izvedenu klasu tjeramo da implementira tu metodu. Također, da bi metodu proglasili abstraktnom, klasa mora biti abstraktna. 
 
+```c#
+  public abstract class Osoba
+    {
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+
+        public Osoba(string ime, string prezime)
+        {
+            Ime=ime;
+            Prezime=prezime;
+        }
+
+              public abstract string PredstaviSe(); //sada svaka klasa koja nasljedjuje klasu Osoba mora da implentira metodu PredstaviSe()
+
+    }
+
+//u klasi DLStudent
+
+  public class DLStudent : Osoba
+    {
+        public string Indeks { get; set; }
+
+        public DLStudent(string indeks, string ime, string prezime)
+            :base(ime,prezime)
+        {
+            Indeks = indeks;
+        }
+
+      //sada obavezno moramo da implentiramo ovu metodu jer je u baznoj klasi navedena kao abstraktna. 
+        public override string PredstaviSe()
+        {
+            return $"{Indeks} - {Ime} - {Prezime}";
+        }
+    }
+```
+
 
 
 **Virtualna metoda** - slična je abstraktnoj metodi s tim da abstraktna metoda tjera izvedene klase da je implementiraju, a kod virtualne metode je očekivano ali nije obavezno. 
 
+```c#
+  public abstract class Osoba
+    {
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
 
+        public Osoba(string ime, string prezime)
+        {
+            Ime=ime;
+            Prezime=prezime;
+        }
+
+        public abstract string PredstaviSe();
+
+
+        public virtual string Info()
+        {
+            return $"{Ime} {Prezime}";
+        }
+
+    }
+    
+    //u klasi DLStudent
+    
+    public class DLStudent : Osoba
+    {
+        public string Indeks { get; set; }
+
+        public DLStudent(string indeks, string ime, string prezime)
+            :base(ime,prezime)
+        {
+            Indeks = indeks;
+        }
+
+        public override string PredstaviSe()
+        {
+            return $"{Indeks} - {Ime} - {Prezime}";
+        }
+        
+        //nismo obavezni da implentiramo metodu Info, ali mozemo ukoliko zelimo jer je ona u baznoj klasi proglasena virtuelnom. 
+
+        public override string Info()
+        {
+            return $"{Indeks} - {base.Info()}";
+        }
+    }
+    
+    
+```
 
 **Interface ** -u programiranju nam služe u kontekstu osiguranja određenih članova, propertija, atributa, metoda... Interface definiše ključna riječ interface, i nazivi interface se pišu sa velikim slovom I na početku, ovaj standard nam pomaže da lako prepoznamo interface. Ideja interface-a je da definišemo određeni set članova koje će klasa morati da posjeduje odnosno implementira. 
 

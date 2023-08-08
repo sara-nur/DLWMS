@@ -15,8 +15,13 @@ namespace DLWMS.WindForms
             List<Student> studenti = konekcija.GetStudentByGodinaStudija (1);
             foreach( var student in studenti )
             {
-                MessageBox.Show(student.ToString());
+                MessageBox.Show (student.ToString ());
             }
+        }
+
+        private void label1_Click( object sender , EventArgs e )
+        {
+
         }
     }
 }
