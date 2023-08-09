@@ -4,7 +4,7 @@
 
 ***CRM (Object-Relational Mapping)*** - korištenjem Entity FrameWorka. 
 
-***Entitiy Framework*** omogućava da vrlo jednostavno napravimo vezu sa bazom podataka, da dohvatimo ili dodamo neke podatke. 
+***Entity Framework*** omogućava da vrlo jednostavno napravimo vezu sa bazom podataka, da dohvatimo ili dodamo neke podatke. 
 
 
 

@@ -102,6 +102,8 @@ Sada možemo da pristupimo i manipulišemo vrijednostima propertija
 
 **Abstraktna metoda** - kada neku metodu proglasimo abstraktnom, to znači da svaku izvedenu klasu tjeramo da implementira tu metodu. Također, da bi metodu proglasili abstraktnom, klasa mora biti abstraktna. 
 
+
+
 ```c#
   public abstract class Osoba
     {
@@ -191,6 +193,10 @@ Sada možemo da pristupimo i manipulišemo vrijednostima propertija
     
     
 ```
+
+
+
+## Interface
 
 **Interface ** -u programiranju nam služe u kontekstu osiguranja određenih članova, propertija, atributa, metoda... Interface definiše ključna riječ interface, i nazivi interface se pišu sa velikim slovom I na početku, ovaj standard nam pomaže da lako prepoznamo interface. Ideja interface-a je da definišemo određeni set članova koje će klasa morati da posjeduje odnosno implementira. 
 
