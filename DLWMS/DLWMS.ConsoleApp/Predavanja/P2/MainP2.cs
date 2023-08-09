@@ -1,9 +1,4 @@
 ﻿using DLWMS.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DLWMS.ConsoleApp.Predavanja.P2
 {
@@ -60,6 +55,7 @@ namespace DLWMS.ConsoleApp.Predavanja.P2
         {
             return niz.Sum ();
         }
+
         private static void Dekonstrukcija( )
         {
             Student obj = new Student ()

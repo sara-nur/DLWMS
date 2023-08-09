@@ -9,26 +9,46 @@ namespace DLWMS.ConsoleApp.Predavanja.P3
 {
     internal class MainP3
     {
-        public static void Pokreni( )
+        private static ILogger _logger;
+        public static void Pokreni(ILogger logger )
         {
-            Nasljedjivanje();
-            Interfejsi();
-
+           // Nasljedjivanje();
+           // Interfejsi();
+            _logger = logger;
+            // ono sto smo prihvatili kao objekat koji  je zaduzen za logiranje, mi zelimo da sacuvamo referencu na njega u okviru naseg _loggera
+            Logiranje();
         }
+
+        private static void Logiranje()
+        {
+            try
+            {
+                throw new Exception("Namjerni izuzetak...");
+            }
+            catch (Exception e)
+            {
+                _logger.Log(e);
+            }
+        }        
 
         private static void Interfejsi()
         {
-                  //sada mozemo da kreiramo korisnika2 tipa IKorisnik koji pokazuje na DLStudenta iako DLStudent ne inpmentira interface IKorisnik vec Istudent. Ovo je moguce jer interface IStudent nasljedjuje interface IKorisnik 
+                  //sada mozemo da kreiramo korisnika2 tipa IKorisnik koji pokazuje na DLStudenta iako DLStudent ne inpmentira interface IKorisnik vec Istudent.
+                  //Ovo je moguce jer interface IStudent nasljedjuje interface IKorisnik 
              IKorisnik korisnik = new Korisnik();
              IKorisnik dlStudent = new DLStudent("IB234532", "Denis", "Mare" );
 
                   PrijaviKorisnika(korisnik);
                   PrijaviKorisnika(dlStudent);
+
+            _logger.Log("Savladali smo interfejse...");
+
         }
 
         private static void PrijaviKorisnika(IKorisnik korisnik)
         {
             korisnik.Prijava();
+            _logger.Log("Korisnik prijavljen...");
         }
 
         private static void Nasljedjivanje( )
@@ -51,95 +71,53 @@ namespace DLWMS.ConsoleApp.Predavanja.P3
         }
     }
 
-    public interface IKorisnik
+    public interface ILogger
     {
-        string KorisnickoIme { get; set; }
-        string Lozinka { get; set; }
-        bool Prijava();
-    }                           
-
-    public interface IStudent
-    {
-        bool PrijaviIspit();
+        void Log(object message);
     }
 
-    public class Korisnik : IKorisnik
+    // Baza podataka
+    public class DBLogger : ILogger
     {
-        public string KorisnickoIme { get; set; }
-        public string Lozinka { get; set; }
+        private const string Putanja = "Server = 192.168.1.10;MyDataBase = DLWMS";
 
-        public bool Prijava( )
+        public void Log(object message)
         {
-            Console.WriteLine("KORISNIK se prijavljuje... ");
-            return true;
-        }
-
-    }
-
-    public class Konfiguracija
-    {
-        public const string Naziv = "DLWMS";
-        public readonly string KonekcijskiString;
-
-        public Konfiguracija(string konekcijskiString)
-        {
-            KonekcijskiString = konekcijskiString;
-        }
-
-    }
-
-    public abstract class Osoba
-    {
-        public string Ime { get; set; }
-        public string Prezime { get; set; }
-
-        public Osoba(string ime, string prezime)
-        {
-            Ime=ime;
-            Prezime=prezime;
-        }
-
-        public abstract string PredstaviSe();
-
-        public virtual string Info()
-        {
-            return $"{Ime} {Prezime}";
-        }
-
-    }
-
-    public class DLStudent : Osoba, IKorisnik, IStudent
-    {
-        public string Indeks { get; set; }
-
-        public DLStudent(string indeks, string ime, string prezime)
-            :base(ime,prezime)
-        {
-            Indeks = indeks;
-        }
-
-        public override string PredstaviSe()
-        {
-            return $"{Indeks} - {Ime} - {Prezime}";
-        }
-
-        public override string Info()
-        {
-            return $"{Indeks} - {base.Info()}";
-        }
-
-
-        public string KorisnickoIme { get; set; }
-        public string Lozinka { get; set; }
-        public bool Prijava()
-        {
-            Console.WriteLine ("DLStudent se prijavljuje... ");
-            return true;
-        }
-        public bool PrijaviIspit()
-        {
-            throw new NotImplementedException();
+            Console.WriteLine($"DBLog -> {Putanja}\nData-> {DataExtractor.GetData(message)}");
         }
     }
 
+    // File Loger
+    public class FileLogger : ILogger
+    {
+        private const string Putanja = @"c:\logs\dlwms_log.txt";
+
+        public void Log( object message )
+        {
+            Console.WriteLine ($"FileLog -> {Putanja}\nData-> {DataExtractor.GetData (message)}");
+        }
+    }
+
+    // Web servis - API
+    public class WebServisLogger : ILogger
+    {
+        private const string Putanja = @"uri:log.fit.ba;token: 321321-sdf1312sdf0";
+
+        public void Log( object message )
+        {
+            Console.WriteLine ($"WebServisLog -> {Putanja}\nData-> {DataExtractor.GetData (message)}");
+        }
+    }
+
+    public class DataExtractor
+    {
+        public static string GetData(object message)
+        {
+            if (message == null) return string.Empty; //ukoliko je null vrati prazan string
+            if (message is Exception) 
+                return (message as Exception).Message;   //ukoliko je exception prikazi exceotion poruku 
+            return message.ToString();     //ukoliko nije nijedno, vrati poruku 
+        }
+    }
+    
 }

@@ -16,7 +16,7 @@ namespace DLWMS.ConsoleApp
         {
             //MainP1.Pokreni();
             //MainP2.Pokreni ();
-            MainP3.Pokreni();
+            MainP3.Pokreni(new FileLogger());
         
         }
     }
