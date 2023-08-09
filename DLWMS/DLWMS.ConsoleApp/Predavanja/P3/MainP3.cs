@@ -12,7 +12,23 @@ namespace DLWMS.ConsoleApp.Predavanja.P3
         public static void Pokreni( )
         {
             Nasljedjivanje();
+            Interfejsi();
 
+        }
+
+        private static void Interfejsi()
+        {
+                  //sada mozemo da kreiramo korisnika2 tipa IKorisnik koji pokazuje na DLStudenta iako DLStudent ne inpmentira interface IKorisnik vec Istudent. Ovo je moguce jer interface IStudent nasljedjuje interface IKorisnik 
+             IKorisnik korisnik = new Korisnik();
+             IKorisnik dlStudent = new DLStudent("IB234532", "Denis", "Mare" );
+
+                  PrijaviKorisnika(korisnik);
+                  PrijaviKorisnika(dlStudent);
+        }
+
+        private static void PrijaviKorisnika(IKorisnik korisnik)
+        {
+            korisnik.Prijava();
         }
 
         private static void Nasljedjivanje( )
@@ -33,6 +49,31 @@ namespace DLWMS.ConsoleApp.Predavanja.P3
                 var dlStudent = osoba as DLStudent; //osobu posmatramo kao DLStudent
             }
         }
+    }
+
+    public interface IKorisnik
+    {
+        string KorisnickoIme { get; set; }
+        string Lozinka { get; set; }
+        bool Prijava();
+    }                           
+
+    public interface IStudent
+    {
+        bool PrijaviIspit();
+    }
+
+    public class Korisnik : IKorisnik
+    {
+        public string KorisnickoIme { get; set; }
+        public string Lozinka { get; set; }
+
+        public bool Prijava( )
+        {
+            Console.WriteLine("KORISNIK se prijavljuje... ");
+            return true;
+        }
+
     }
 
     public class Konfiguracija
@@ -67,7 +108,7 @@ namespace DLWMS.ConsoleApp.Predavanja.P3
 
     }
 
-    public class DLStudent : Osoba
+    public class DLStudent : Osoba, IKorisnik, IStudent
     {
         public string Indeks { get; set; }
 
@@ -86,7 +127,19 @@ namespace DLWMS.ConsoleApp.Predavanja.P3
         {
             return $"{Indeks} - {base.Info()}";
         }
+
+
+        public string KorisnickoIme { get; set; }
+        public string Lozinka { get; set; }
+        public bool Prijava()
+        {
+            Console.WriteLine ("DLStudent se prijavljuje... ");
+            return true;
+        }
+        public bool PrijaviIspit()
+        {
+            throw new NotImplementedException();
+        }
     }
-    
 
 }

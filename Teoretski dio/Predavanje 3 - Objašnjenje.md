@@ -200,19 +200,85 @@ Sada možemo da pristupimo i manipulišemo vrijednostima propertija
 
 **Interface ** -u programiranju nam služe u kontekstu osiguranja određenih članova, propertija, atributa, metoda... Interface definiše ključna riječ interface, i nazivi interface se pišu sa velikim slovom I na početku, ovaj standard nam pomaže da lako prepoznamo interface. Ideja interface-a je da definišemo određeni set članova koje će klasa morati da posjeduje odnosno implementira. 
 
+
+
+```c#
+public interface IKorisnik
+    {
+        string KorisnickoIme { get; set; }
+        string Lozinka { get; set; }
+        bool Prijava();
+    }
+
+    public class Korisnik : IKorisnik //Klasa Korisnik implenetira interface IKorisnik
+    {
+        public string KorisnickoIme { get; set; }
+        public string Lozinka { get; set; }
+
+        public bool Prijava( )
+        {
+            throw new NotImplementedException ();
+        }
+    }
+```
+
+
+
+```c#
+IKorisnik korisnik = new Korisnik(); //s obzirom da klasa Korisnik implementira interface IKorisnik, imamo pristup svim propertijima koje se nalaze u interface-u IKorisnik
+```
+
 Kada neka klasa implementira interface, ona može da naslijedi neku klasu. npr. 
 
 ```c#
 public class Korisnik: Osoba, IKorisnik{} // ovo je moguće jer interface nije klasa i ne vrši se nasljeđivanje već implementacija interface-a. Također za razliku od nasljeđivanje klasa, implementacija interface-a nema ograničenje, možemo implementirati koliko želimo interface-a. 
 ```
 
+
+
 **Nasljeđivanje interface-a**
 
 Ukoliko želimo da imamo metode koje se odnose samo na određene klase, a ne na sve koje implementiraju neki interface, možemo raditi nasljeđivanje interface-a. npr. 
 
-public interface IStudent   : IKorisnik{}
+```c#
+    public interface IKorisnik
+    {
+        string KorisnickoIme { get; set; }
+        string Lozinka { get; set; }
+        bool Prijava();
+    }                           
+
+    public interface IStudent
+    {
+        bool PrijaviIspit();
+    }
+```
 
 Sada imamo pristup svim propertijima i metodama koje IKorisnik interface posjeduje i također možemo napraviti nove metode za interface IStudent. 
+
+```c#
+    private static void Interfejsi()
+        {
+            IKorisnik korisnik = new Korisnik();
+            IKorisnik korisnik2 = new DLStudent("IB234532", "Denis", "Mare");
+     //sada mozemo da kreiramo korisnika2 tipa IKorisnik koji pokazuje na DLStudenta iako DLStudent ne inpmentira interface IKorisnik vec Istudent. Ovo je moguce jer interface IStudent nasljedjuje interface IKorisnik 
+        }
+```
+
+
+
+```c#
+ private static void PrijaviKorisnika(IKorisnik korisnik)
+        {
+            throw new NotImplementedException();
+        }
+
+//sada kao parametar mozemo da saljemo i interface. Ovdje se zahtjeva bilo ko ko na direktan ili indirektan nacin implementira interface IKorisnik. Ovdje mozemo poslati bilo koji objekat koji implementira IKorisnik ili IStudent, jer IStudent nasljedjuje IKorisnik. 
+```
+
+
+
+
 
 
 
