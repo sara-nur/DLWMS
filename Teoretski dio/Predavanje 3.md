@@ -490,11 +490,3 @@ public class Korisnik : IKorisnik, IDisposable
     }
 }
 ```
-
-
-
-**Forme**
-
-**partial** 
-
-**Initialize component** - sam izgled forme 
