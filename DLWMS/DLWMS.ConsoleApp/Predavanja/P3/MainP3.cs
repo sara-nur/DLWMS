@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DLWMS.Data;
+using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -16,7 +18,42 @@ namespace DLWMS.ConsoleApp.Predavanja.P3
            // Interfejsi();
             _logger = logger;
             // ono sto smo prihvatili kao objekat koji  je zaduzen za logiranje, mi zelimo da sacuvamo referencu na njega u okviru naseg _loggera
-            Logiranje();
+            //Logiranje();
+            Repozitori();
+            DisposableInterfejs();
+        }
+
+        private static void DisposableInterfejs()
+        {
+            using( var sr = new Korisnik () )
+            {
+
+            }
+
+            using (var sr = new StreamReader(""))
+            {
+
+            }
+        }
+
+        private static void Repozitori()
+        {
+            StudentRepository studentDB = new StudentRepository();
+            Student sara = new Student()
+            {
+                GodinaStudija = 1,
+                Prezime = "Nur",
+                MentorId = null,
+            };
+            studentDB.Save(sara);
+
+            var korisnikDB = new KorisnikRepository();
+            Korisnik korisnik = new Korisnik()
+            {
+                KorisnickoIme = "kori",
+                Lozinka = "234",
+            };
+            korisnikDB.Save(korisnik);
         }
 
         private static void Logiranje()
@@ -70,6 +107,36 @@ namespace DLWMS.ConsoleApp.Predavanja.P3
             }
         }
     }
+
+    public interface IRepository<T>
+    {
+        T GetById(int id);
+        void Save(T Entity);
+        void Delete(T Entity);
+    }
+
+    public class Repository<T> :IRepository<T>
+    {
+        public T GetById(int id)
+        {
+            return  default(T);
+        }
+
+        public void Save(T Entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(T Entity)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class StudentRepository  :Repository<Student> { }
+
+    public class KorisnikRepository :Repository<Korisnik>
+
 
     public interface ILogger
     {

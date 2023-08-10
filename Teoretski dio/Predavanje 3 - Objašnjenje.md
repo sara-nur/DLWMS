@@ -407,22 +407,89 @@ public interface IRepository<T>
 Ovim interface-om želimo da nametnemo listu metoda koje će biti potrebne za komunikaciju s bazom podatka. 
 
 ```c#
-public class Repository<T> : IRepository
+  public interface IRepository<T>
+    {
+        T GetById(int id); //metoda T GetById koja prihvata ID na nivou tabele
+        void Save(T Entity);
+        void Delete(T Entity);
+    }
 ```
 
 Unutar jedne klase želimo da objedinimo logiku pristupa bazi podataka svim drugim tipovima. 
 
+```c#
+public class Repository<T> : IRepository
+```
+
 Repository pravimo tako da logiku save, update i delete ne bi morali implementirati za svaku klasu vec one mogu samo da implementiraju interface Repository. 
 
+```c#
+     private static void Repozitori() 
+        {
+            StudentRepository studentDB = new StudentRepository();
+            Student sara = new Student()
+            {
+                GodinaStudija = 1,
+                Prezime = "Nur",
+                MentorId = null,
+            };
+         
+            studentDB.Save(sara);
+
+            var korisnikDB = new KorisnikRepository();
+            Korisnik korisnik = new Korisnik()
+            {
+                KorisnickoIme = "kori",
+                Lozinka = "234",
+            };
+            korisnikDB.Save(korisnik);
+        }
+//sada mozemo da koristimo CRUD opcije ili bilo sta sto se nalazi u nasem repozitoriju za bilo koju drugu klasu. 
+```
+
+Dependency Injection - mehanizmi koji su ugrađeni u template-ima. 
 
 
-**Disposable repository**
+
+## Disposable repository
 
 Koristimo ga kada želimo da oslobodimo resurse što prije, počevši od momenta kad nam taj resurs nije više potreban. 
 
 To možemo postići sa ključnom riječi **using**. Osnovno pravilo kod korištenja using ključne riječi je da tip podatka treba imati metodu koja će automatski biti pozvana. Ta metoda bi trebala biti zadužna za otpuštanje tog resursa, npr. zatvaranje file, konekcije i sl. 
 
-Na raspolaganju imamo interface **IDisposable**. On će nam nametnuti da implementiramo metodu **dispose**. Metodu možemo kreirati u klasi i bez korištenja interface-a IDisposable ali korištenjem njega osiguravamo da ćemo implementirati metodu dispose. 
+```c#
+ private static void DisposableInterfejs()
+        {
+            using( var sr = new Korisnik () ) //ovdje nam ne dozvoljava da korismo using jer nasa klasa Korisnik ne posjeduje metodu Dispose. 
+//Ukoliko bismo zeljeli da Korisnika primjenjujemo u okviru usinga, mozemo implementirati IDisposable interface unutar Korisnika. To ce nam garantovati da cemo implementirati metodu koja nam je potrebna za koristenje using-a.  
+            {
+
+            }
+
+            using (var sr = new StreamReader("")) //sa StreamReaderom mozemo korisiti using
+            {
+
+            }
+        }
+```
+
+
+
+#### *IDisposable interface* 
+
+Na raspolaganju imamo interface **IDisposable**. On će nam nametnuti da implementiramo metodu **Dispose**. Metodu možemo kreirati u klasi i bez korištenja interface-a IDisposable ali korištenjem njega osiguravamo da ćemo implementirati metodu dispose. 
+
+```c#
+public class Korisnik : IKorisnik, IDisposable
+{
+    //kod ovdje...
+        
+    public void Dispose()
+    {
+        // TODO release managed resources here
+    }
+}
+```
 
 
 
