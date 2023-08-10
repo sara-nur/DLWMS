@@ -1,6 +1,6 @@
 ﻿namespace DLWMS.ConsoleApp.Predavanja.P3;
 
-public class Korisnik : IKorisnik
+public class Korisnik : IKorisnik, IDisposable
 {
     public string KorisnickoIme { get; set; }
     public string Lozinka { get; set; }
@@ -11,4 +11,8 @@ public class Korisnik : IKorisnik
         return true;
     }
 
+    public void Dispose()
+    {
+        // TODO release managed resources here
+    }
 }
