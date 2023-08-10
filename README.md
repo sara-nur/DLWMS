@@ -2,7 +2,7 @@
 
 <details>
   <summary>Predavanje 1
-    <a href="Teoretski dio/Predavanje 1 - Objašnjenje.md"> Teorija </a> ~
+    <a href="Teoretski dio/Predavanje 1.md"> Teorija </a> ~
     <a href="DLWMS/DLWMS.ConsoleApp/Predavanja/P1"> P1</a>
   </summary>
   <ul>
@@ -22,7 +22,7 @@
 
 <details>
   <summary>Predavanje 2
-    <a href="Teoretski dio/Predavanje 2 - Objašnjenje.md"> Teorija </a> ~
+    <a href="Teoretski dio/Predavanje 2.md"> Teorija </a> ~
     <a href="DLWMS/DLWMS.ConsoleApp/Predavanja/P2"> P2</a>
   </summary>
   <ul>
@@ -41,13 +41,13 @@
 
 <details>
   <summary>Predavanje 3
-    <a href="Teoretski dio/Predavanje 3 - Objašnjenje.md"> Teorija </a> ~
+    <a href="Teoretski dio/Predavanje 3.md"> Teorija </a> ~
     <a href="DLWMS/DLWMS.ConsoleApp/Predavanja/P3"> P3</a>
   </summary>
   <ul>
    <li> const & readonly </li>
-   <li> nasljeđivanje, is, as </li>
-   <li> abstract class (metode, virtual) </li>
+   <li> Nasljeđivanje, is, as </li>
+   <li> Abstraktna klasa (metode, virtual) </li>
    <li> Interface </li>
    <li> Nasljeđivanje interface-a </li>
    <li> Logiranje </li>
@@ -56,4 +56,14 @@
   </ul>
 </details>
 
+<details>
+  <summary>Predavanje 4
+    <a href="Teoretski dio/Predavanje 4.md"> Teorija </a> ~
+    <a href="DLWMS/DLWMS.ConsoleApp/Predavanja/P4"> P3</a>
+  </summary>
+  <ul>
+   <li> </li>
+ 
+  </ul>
+</details>
 
