@@ -1,4 +1,4 @@
-﻿namespace DLWMS.ConsoleApp.Predavanja.P3;
+﻿namespace DLWMS.ConsoleApp.Predavanja.P3.Interface;
 
 public interface IKorisnik
 {

@@ -1,4 +1,4 @@
-﻿namespace DLWMS.ConsoleApp.Predavanja.P3;
+﻿namespace DLWMS.ConsoleApp.Predavanja.P3.Interface;
 
 public abstract class Osoba
 {
@@ -7,8 +7,8 @@ public abstract class Osoba
 
     public Osoba(string ime, string prezime)
     {
-        Ime=ime;
-        Prezime=prezime;
+        Ime = ime;
+        Prezime = prezime;
     }
 
     public abstract string PredstaviSe();

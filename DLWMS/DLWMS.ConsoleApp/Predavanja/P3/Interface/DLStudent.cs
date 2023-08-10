@@ -1,10 +1,10 @@
-﻿namespace DLWMS.ConsoleApp.Predavanja.P3;
+﻿namespace DLWMS.ConsoleApp.Predavanja.P3.Interface;
 
 public class DLStudent : Osoba, IKorisnik, IStudent
 {
     public string Indeks { get; set; }
     public DLStudent(string indeks, string ime, string prezime)
-        :base(ime,prezime)
+        : base(ime, prezime)
     {
         Indeks = indeks;
     }
@@ -20,7 +20,7 @@ public class DLStudent : Osoba, IKorisnik, IStudent
     public string Lozinka { get; set; }
     public bool Prijava()
     {
-        Console.WriteLine ("DLStudent se prijavljuje... ");
+        Console.WriteLine("DLStudent se prijavljuje... ");
         return true;
     }
     public bool PrijaviIspit()

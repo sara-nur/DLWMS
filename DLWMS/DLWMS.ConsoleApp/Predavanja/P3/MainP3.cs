@@ -1,4 +1,7 @@
-﻿using DLWMS.Data;
+﻿using DLWMS.ConsoleApp.Predavanja.P3.Interface;
+using DLWMS.ConsoleApp.Predavanja.P3.Logger;
+using DLWMS.ConsoleApp.Predavanja.P3.Repository;
+using DLWMS.Data;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
@@ -6,13 +9,14 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DLStudent = DLWMS.ConsoleApp.Predavanja.P3.Interface.DLStudent;
 
 namespace DLWMS.ConsoleApp.Predavanja.P3
 {
     internal class MainP3
     {
         private static ILogger _logger;
-        public static void Pokreni(ILogger logger )
+        public static void Pokreni(WebServisLogger logger )
         {
            // Nasljedjivanje();
            // Interfejsi();
@@ -91,7 +95,7 @@ namespace DLWMS.ConsoleApp.Predavanja.P3
         private static void Nasljedjivanje( )
         {
             //Osoba osoba = new Osoba ("Sara" , "Prez");
-            Osoba dlStudent = new DLStudent ("IB23543" , "Sara" , "Nur");
+            var dlStudent = new DLStudent ("IB23543" , "Sara" , "Nur");
 
             //OsobaInfo(osoba);
             OsobaInfo(dlStudent);
@@ -107,84 +111,4 @@ namespace DLWMS.ConsoleApp.Predavanja.P3
             }
         }
     }
-
-    public interface IRepository<T>
-    {
-        T GetById(int id);
-        void Save(T Entity);
-        void Delete(T Entity);
-    }
-
-    public class Repository<T> :IRepository<T>
-    {
-        public T GetById(int id)
-        {
-            return  default(T);
-        }
-
-        public void Save(T Entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete(T Entity)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class StudentRepository  :Repository<Student> { }
-
-    public class KorisnikRepository :Repository<Korisnik>
-
-
-    public interface ILogger
-    {
-        void Log(object message);
-    }
-
-    // Baza podataka
-    public class DBLogger : ILogger
-    {
-        private const string Putanja = "Server = 192.168.1.10;MyDataBase = DLWMS";
-
-        public void Log(object message)
-        {
-            Console.WriteLine($"DBLog -> {Putanja}\nData-> {DataExtractor.GetData(message)}");
-        }
-    }
-
-    // File Loger
-    public class FileLogger : ILogger
-    {
-        private const string Putanja = @"c:\logs\dlwms_log.txt";
-
-        public void Log( object message )
-        {
-            Console.WriteLine ($"FileLog -> {Putanja}\nData-> {DataExtractor.GetData (message)}");
-        }
-    }
-
-    // Web servis - API
-    public class WebServisLogger : ILogger
-    {
-        private const string Putanja = @"uri:log.fit.ba;token: 321321-sdf1312sdf0";
-
-        public void Log( object message )
-        {
-            Console.WriteLine ($"WebServisLog -> {Putanja}\nData-> {DataExtractor.GetData (message)}");
-        }
-    }
-
-    public class DataExtractor
-    {
-        public static string GetData(object message)
-        {
-            if (message == null) return string.Empty; //ukoliko je null vrati prazan string
-            if (message is Exception) 
-                return (message as Exception).Message;   //ukoliko je exception prikazi exceotion poruku 
-            return message.ToString();     //ukoliko nije nijedno, vrati poruku 
-        }
-    }
-    
 }

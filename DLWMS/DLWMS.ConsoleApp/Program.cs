@@ -4,6 +4,7 @@ using DLWMS.ConsoleApp.Helpers;
 using DLWMS.ConsoleApp.Predavanja.P1;
 using DLWMS.ConsoleApp.Predavanja.P2;
 using DLWMS.ConsoleApp.Predavanja.P3;
+using DLWMS.ConsoleApp.Predavanja.P3.Logger;
 
 namespace DLWMS.ConsoleApp
 {
@@ -16,9 +17,9 @@ namespace DLWMS.ConsoleApp
         {
             //MainP1.Pokreni();
             //MainP2.Pokreni ();
-            MainP3.Pokreni(new DBLogger());
-            MainP3.Pokreni(new FileLogger());
-            MainP3.Pokreni(new WebServisLogger());
+            //MainP3.Pokreni(new DbLogger());
+            //MainP3.Pokreni(new FileLogger());
+            //MainP3.Pokreni(new WebServisLogger());
 
         }
     }
