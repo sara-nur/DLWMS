@@ -19,3 +19,4 @@ C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\ne
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.genruntimeconfig.cache
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\ref\DLWMS.WindForms.dll
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.Form2.resources
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.frmXO.resources

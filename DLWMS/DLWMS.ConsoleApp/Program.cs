@@ -20,7 +20,6 @@ namespace DLWMS.ConsoleApp
             //MainP3.Pokreni(new DbLogger());
             //MainP3.Pokreni(new FileLogger());
             //MainP3.Pokreni(new WebServisLogger());
-
         }
     }
 }
