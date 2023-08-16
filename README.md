@@ -59,7 +59,23 @@
 <details>
   <summary>Predavanje 4
     <a href="Teoretski dio/Predavanje 4.md"> Teorija </a> ~
-    <a href="DLWMS/DLWMS.ConsoleApp/Predavanja/P4"> P3</a>
+    <a href="DLWMS/DLWMS.WindForms/P4"> P4</a>
+  </summary>
+  <ul>
+   <li> Forme </li>
+   <li> Initialize Component </li>
+   <li> Toolbox, Properties Window </li>
+   <li> Partial class </li>
+   <li> Events </li>
+   <li> XO Igra </li>
+ 
+  </ul>
+</details>
+
+<details>
+  <summary>Predavanje 5
+    <a href="Teoretski dio/Predavanje 5.md"> Teorija </a> ~
+    <a href="DLWMS/DLWMS.WindForms/P5"> P5</a>
   </summary>
   <ul>
    <li> Forme </li>
