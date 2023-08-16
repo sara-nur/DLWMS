@@ -49,7 +49,9 @@ One nam služe za razdvajanje koda. Jedan dio klase - svi dijelovi koda koji se 
 
 
 
-## Events - događaji na koje će reagovati naše kontorle
+## Events
+
+Events - događaji na koje će reagovati naše kontorle
 
 Implementiramo metode koje će se automatski pozvati kada se nešto desi. npr. za dugmić, jedan od najkorištenijih metoda je click. 
 
@@ -87,7 +89,7 @@ Forma također ima svoje evente.
 
 
 
-## XO Game
+## XO Igra
 
 Kreiramo 9 dugmića, nakon toga je potrebno da omogućimo da klikom na dugme se prikaže **X** ili **O**.  
 
