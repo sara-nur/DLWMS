@@ -62,7 +62,12 @@
     <a href="DLWMS/DLWMS.ConsoleApp/Predavanja/P4"> P3</a>
   </summary>
   <ul>
-   <li> </li>
+   <li> Forme </li>
+   <li> Initialize Component </li>
+   <li> Toolbox, Properties Window </li>
+   <li> Partial class </li>
+   <li> Events </li>
+   <li> XO Igra </li>
  
   </ul>
 </details>
