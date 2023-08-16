@@ -1,7 +1,5 @@
 ## Forme
 
-
-
 ```c#
 var startnaForma = new Form1();
             
@@ -260,7 +258,7 @@ Također, kada želimo da šaljemo različit broj parametara na različitim mjes
             }
         }
 
-    public partial class StatusDugmica
+    public class StatusDugmica
     {
         public bool Enabled { get; set; }
         public bool ResetText { get; set; }
@@ -282,3 +280,38 @@ Također izmjene vršimo i u dugmetu
 //Na ovaj način se ne afektiraju drugi pozivi 
 ```
 
+
+
+Sada možemo dodati opciju dodavanja imena. Možemo to dodati ili na početak ili u sklopu dugmeta nova igra. Za to smo kreirali novu formu, sa dva textbox-a i dva label-a. 
+
+```c#
+private void button1_Click( object sender , EventArgs e )
+        {
+            Igrac1 = txtIgrac1.Text;
+            Igrac2 = txtIgrac2.Text;
+
+            if (Igrac1 != "" && Igrac2 != "")
+                Close();
+        }
+//Kada se unesu imena Igraca1 i Igraca2, pohranjujemo te vrijednosti i zatvaramo formu za unos imena.
+```
+
+ Zatim bi se trebali vratiti u našu formu XO
+
+```c#
+ public string XOIgrac1 { get; set; }
+ public string XOIgrac2 { get; set; }
+
+private void button10_Click( object sender , EventArgs e )
+        {
+            var unosImena = new frmXOIgraci ();
+            unosImena.ShowDialog ();
+     //sada imamo mogucnost da pristupimo imenima koje je korisnik unio na formi frmXOIgraci, mozemo dodati i property Igrac1 i Igrac2 i u ovo formu pa da u njih pohranjujemo vrijednosti 
+            XOIgrac1 = unosImena.Igrac1;
+            XOIgrac2 = unosImena.Igrac2;
+            PostaviStatusDugmica (new StatusDugmica () { Enabled = true , ResetColor = true , ResetText = true });
+
+        }
+```
+
+Sada možemo da na formi prikažemo ko igra sljedeći, to ćemo uraditi preko label-a. Pošto ćemo obavljati interakciju sa ovim label-om, mijenjaćemo mu sadržaj i sl. bitno nam je da imamo neki adekvatan naziv, npr lblNaredniIgrac

@@ -12,6 +12,11 @@ namespace DLWMS.WindForms
 {
     public partial class frmXO : Form
     {
+        public int Brojac { get; set; }
+        public string XOIgrac1 { get; set; }
+        public string XOIgrac2 { get; set; }
+
+
         public frmXO( )
         {
             InitializeComponent ();
@@ -20,10 +25,9 @@ namespace DLWMS.WindForms
 
         private void frmXO_Load( object sender , EventArgs e )
         {
-
+            PokreniNovuIgru ();
         }
 
-        public int Brojac { get; set; }
 
         private void DugmicOdabran( object sender )
         {
@@ -34,34 +38,42 @@ namespace DLWMS.WindForms
                 {
                     button.Text = Brojac % 2 == 0 ? "X" : "O";
 
+
                     if( KrajIgre () )
-                        PostaviStatus (false);
+                        PostaviStatusDugmica (new StatusDugmica () { Enabled = false });
 
                     Brojac++;
+                    PrikaziNarednogIgraca ();
                 }
             }
         }
 
-        private void PostaviStatus(bool enabled, bool resetText = false, bool resetColor = false)
+        private void PrikaziNarednogIgraca( )
         {
-            foreach( var kontrola in this.Controls ) 
+            lblNaredniIgrac.Text = Brojac % 2 == 0 ? XOIgrac1 : XOIgrac2;
+
+        }
+
+        private void PostaviStatusDugmica( bool enabled , bool resetText = false , bool resetColor = false )
+        {
+            foreach( var kontrola in this.Controls )
             {
-                if (kontrola is Button) 
+                if( kontrola is Button )
                 {
                     var button = kontrola as Button;
-                    if (button != btnNovaIgra)
+                    if( button != btnNovaIgra )
                     {
-                        button.Enabled = enabled; 
-                        if (resetText)
+                        button.Enabled = enabled;
+                        if( resetText )
                             button.Text = "";
-                        if (resetColor)
+                        if( resetColor )
                             button.UseVisualStyleBackColor = true;
                     }
                 }
             }
         }
         //drugi nacin
-        private void PostaviStatus( StatusDugmica  status)
+        private void PostaviStatusDugmica( StatusDugmica status )
         {
             foreach( var kontrola in this.Controls )
             {
@@ -159,15 +171,26 @@ namespace DLWMS.WindForms
             DugmicOdabran (sender);
         }
 
+
         private void button10_Click( object sender , EventArgs e )
         {
-            PostaviStatus (true, true, true);
+            PostaviStatusDugmica (new StatusDugmica () { Enabled = true , ResetColor = true , ResetText = true });
+            PokreniNovuIgru ();
+        }
+
+        private void PokreniNovuIgru( )
+        {
+            var unosImena = new frmXOIgraci ();
+            unosImena.ShowDialog ();
+            XOIgrac1 = unosImena.Igrac1;
+            XOIgrac2 = unosImena.Igrac2;
+            Brojac = 0;
+            PrikaziNarednogIgraca ();
         }
     }
 
 
-
-    public partial class StatusDugmica
+    public class StatusDugmica
     {
         public bool Enabled { get; set; }
         public bool ResetText { get; set; }
