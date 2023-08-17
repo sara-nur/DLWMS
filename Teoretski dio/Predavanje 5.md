@@ -212,3 +212,23 @@ Zatim želimo da kreiramo klasu u kojoj ćemo držati sve podatke koji su nam č
     }
 ```
 
+
+
+### Generisanje lozinke 
+
+```c#
+ private string GenerisiLozinku(int brojZnakova=10)
+        {
+            var generisanaLozinka = "";
+            var karakteri = "qwertyuiopasdfghjkl;'zxcvbnm,-1234567890-=QWERTYUIOPASDFGHJKLČĆŽĐŠŠYXCVBNM";
+            var rand = new Random();
+            for (int i = 0; i < brojZnakova; i++) 
+            {
+                var lokacija = rand.Next(0, karakteri.Length); // 0-60 npr , ukoliko je rand vrijednost 2 on ce otici u karakteri i uzeti vrijednost koja se nalazi na lokaciji 2, u ovom slucaju to ce biti slovo "e". Ovo ce se ponavljati dok ne dodje do broja znakova 
+                generisanaLozinka += karakteri[lokacija];
+            }
+
+            return generisanaLozinka;
+        }
+```
+

@@ -120,6 +120,9 @@
   <data name="DobroDosli" xml:space="preserve">
     <value>Dobro nam dosli</value>
   </data>
+  <data name="EmailVecPostoji" xml:space="preserve">
+    <value>Uneseni email se vec koristi!</value>
+  </data>
   <data name="Informacija" xml:space="preserve">
     <value>Informacija</value>
   </data>
@@ -131,5 +134,8 @@
   </data>
   <data name="PodaciNisuValidni" xml:space="preserve">
     <value>Uneseni Podaci Nisu Validni</value>
+  </data>
+  <data name="UspjesnaRegistracija" xml:space="preserve">
+    <value>Uspjesna registracija! Sada se mozete prijaviti. </value>
   </data>
 </root>

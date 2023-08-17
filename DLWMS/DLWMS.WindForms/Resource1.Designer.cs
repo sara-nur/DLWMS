@@ -70,6 +70,15 @@ namespace DLWMS.WindForms {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Uneseni email se vec koristi!.
+        /// </summary>
+        public static string EmailVecPostoji {
+            get {
+                return ResourceManager.GetString("EmailVecPostoji", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Informacija.
         /// </summary>
         public static string Informacija {
@@ -102,6 +111,15 @@ namespace DLWMS.WindForms {
         public static string PodaciNisuValidni {
             get {
                 return ResourceManager.GetString("PodaciNisuValidni", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uspjesna registracija! Sada se mozete prijaviti. .
+        /// </summary>
+        public static string UspjesnaRegistracija {
+            get {
+                return ResourceManager.GetString("UspjesnaRegistracija", resourceCulture);
             }
         }
     }

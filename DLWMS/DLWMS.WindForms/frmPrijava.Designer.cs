@@ -39,6 +39,7 @@
             label1 =  new Label () ;
             label2 =  new Label () ;
             err =  new ErrorProvider (components) ;
+            linkLabel1 =  new LinkLabel () ;
             ( ( System.ComponentModel.ISupportInitialize ) pictureBox1  ).BeginInit ();
             ( ( System.ComponentModel.ISupportInitialize ) err  ).BeginInit ();
             SuspendLayout ();
@@ -46,44 +47,46 @@
             // txtKorisnickoIme
             // 
             txtKorisnickoIme.AcceptsReturn =  true ;
-            txtKorisnickoIme.Location =  new Point (183 , 63) ;
+            txtKorisnickoIme.Location =  new Point (209 , 84) ;
+            txtKorisnickoIme.Margin =  new Padding (3 , 4 , 3 , 4) ;
             txtKorisnickoIme.Name =  "txtKorisnickoIme" ;
-            txtKorisnickoIme.Size =  new Size (196 , 23) ;
+            txtKorisnickoIme.Size =  new Size (223 , 27) ;
             txtKorisnickoIme.TabIndex =  0 ;
             // 
             // txtLozinka
             // 
             txtLozinka.AcceptsReturn =  true ;
-            txtLozinka.Location =  new Point (183 , 110) ;
+            txtLozinka.Location =  new Point (209 , 147) ;
+            txtLozinka.Margin =  new Padding (3 , 4 , 3 , 4) ;
             txtLozinka.Name =  "txtLozinka" ;
             txtLozinka.PasswordChar =  '*' ;
-            txtLozinka.Size =  new Size (196 , 23) ;
+            txtLozinka.Size =  new Size (223 , 27) ;
             txtLozinka.TabIndex =  1 ;
             // 
             // lblKorisnickoIme
             // 
             lblKorisnickoIme.AutoSize =  true ;
-            lblKorisnickoIme.Location =  new Point (183 , 45) ;
+            lblKorisnickoIme.Location =  new Point (209 , 60) ;
             lblKorisnickoIme.Name =  "lblKorisnickoIme" ;
-            lblKorisnickoIme.Size =  new Size (85 , 15) ;
+            lblKorisnickoIme.Size =  new Size (106 , 20) ;
             lblKorisnickoIme.TabIndex =  2 ;
             lblKorisnickoIme.Text =  "Korisničko Ime" ;
-            lblKorisnickoIme.Click +=  label1_Click ;
             // 
             // lblLozinka
             // 
             lblLozinka.AutoSize =  true ;
-            lblLozinka.Location =  new Point (183 , 92) ;
+            lblLozinka.Location =  new Point (209 , 123) ;
             lblLozinka.Name =  "lblLozinka" ;
-            lblLozinka.Size =  new Size (47 , 15) ;
+            lblLozinka.Size =  new Size (59 , 20) ;
             lblLozinka.TabIndex =  3 ;
             lblLozinka.Text =  "Lozinka" ;
             // 
             // btnPrijava
             // 
-            btnPrijava.Location =  new Point (212 , 150) ;
+            btnPrijava.Location =  new Point (356 , 200) ;
+            btnPrijava.Margin =  new Padding (3 , 4 , 3 , 4) ;
             btnPrijava.Name =  "btnPrijava" ;
-            btnPrijava.Size =  new Size (147 , 23) ;
+            btnPrijava.Size =  new Size (76 , 31) ;
             btnPrijava.TabIndex =  4 ;
             btnPrijava.Text =  "Prijava" ;
             btnPrijava.UseVisualStyleBackColor =  true ;
@@ -92,9 +95,10 @@
             // pictureBox1
             // 
             pictureBox1.Image =  ( Image ) resources.GetObject ("pictureBox1.Image")  ;
-            pictureBox1.Location =  new Point (12 , 12) ;
+            pictureBox1.Location =  new Point (14 , 16) ;
+            pictureBox1.Margin =  new Padding (3 , 4 , 3 , 4) ;
             pictureBox1.Name =  "pictureBox1" ;
-            pictureBox1.Size =  new Size (145 , 161) ;
+            pictureBox1.Size =  new Size (166 , 215) ;
             pictureBox1.SizeMode =  PictureBoxSizeMode.CenterImage ;
             pictureBox1.TabIndex =  5 ;
             pictureBox1.TabStop =  false ;
@@ -103,30 +107,41 @@
             // 
             label1.AutoSize =  true ;
             label1.Font =  new Font ("Segoe UI" , 14F , FontStyle.Bold , GraphicsUnit.Point) ;
-            label1.Location =  new Point (199 , 9) ;
+            label1.Location =  new Point (227 , 12) ;
             label1.Name =  "label1" ;
-            label1.Size =  new Size (140 , 25) ;
+            label1.Size =  new Size (179 , 32) ;
             label1.TabIndex =  6 ;
             label1.Text =  "DLWMS :: v4.0" ;
-            label1.Click +=  label1_Click_1 ;
             // 
             // label2
             // 
             label2.BackColor =  Color.Black ;
-            label2.Location =  new Point (167 , 12) ;
+            label2.Location =  new Point (191 , 16) ;
             label2.Name =  "label2" ;
-            label2.Size =  new Size (2 , 161) ;
+            label2.Size =  new Size (2 , 215) ;
             label2.TabIndex =  7 ;
             // 
             // err
             // 
             err.ContainerControl =  this ;
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize =  true ;
+            linkLabel1.Location =  new Point (218 , 205) ;
+            linkLabel1.Name =  "linkLabel1" ;
+            linkLabel1.Size =  new Size (132 , 20) ;
+            linkLabel1.TabIndex =  8 ;
+            linkLabel1.TabStop =  true ;
+            linkLabel1.Text =  "Niste registrovani?" ;
+            linkLabel1.LinkClicked +=  linkLabel1_LinkClicked ;
+            // 
             // frmPrijava
             // 
-            AutoScaleDimensions =  new SizeF (7F , 15F) ;
+            AutoScaleDimensions =  new SizeF (8F , 20F) ;
             AutoScaleMode =  AutoScaleMode.Font ;
-            ClientSize =  new Size (401 , 199) ;
+            ClientSize =  new Size (458 , 265) ;
+            Controls.Add (linkLabel1);
             Controls.Add (label2);
             Controls.Add (label1);
             Controls.Add (pictureBox1);
@@ -135,11 +150,11 @@
             Controls.Add (lblKorisnickoIme);
             Controls.Add (txtLozinka);
             Controls.Add (txtKorisnickoIme);
+            Margin =  new Padding (3 , 4 , 3 , 4) ;
             MinimizeBox =  false ;
             Name =  "frmPrijava" ;
             StartPosition =  FormStartPosition.CenterScreen ;
             Text =  "DLWMS :: Prijava" ;
-            Load +=  frmPrijava_Load ;
             ( ( System.ComponentModel.ISupportInitialize ) pictureBox1  ).EndInit ();
             ( ( System.ComponentModel.ISupportInitialize ) err  ).EndInit ();
             ResumeLayout (false);
@@ -157,5 +172,6 @@
         private Label label1;
         private Label label2;
         private ErrorProvider err;
+        private LinkLabel linkLabel1;
     }
 }
