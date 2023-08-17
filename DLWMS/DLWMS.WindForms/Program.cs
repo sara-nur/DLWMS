@@ -1,3 +1,5 @@
+using DLWMS.WindForms.Intro;
+
 namespace DLWMS.WindForms
 {
     internal static class Program
@@ -12,7 +14,7 @@ namespace DLWMS.WindForms
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize ();
 
-            var startnaForma = new frmPrijava();
+            var startnaForma = new frmDelegati();
             
             Application.Run (startnaForma);
         }

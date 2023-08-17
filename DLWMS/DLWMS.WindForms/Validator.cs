@@ -1,4 +1,5 @@
 ﻿using DLWMS.Data;
+using DLWMS.WindForms.Resources;
 
 namespace DLWMS.WindForms;
 
