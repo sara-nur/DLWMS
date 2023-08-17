@@ -21,3 +21,7 @@ C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\ne
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.Form2.resources
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.frmXO.resources
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.frmXOIgraci.resources
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.frmPrijava.resources
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.Properties.Resources.resources
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.Resource1.resources
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.frmGlavna.resources

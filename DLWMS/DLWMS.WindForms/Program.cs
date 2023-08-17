@@ -12,7 +12,7 @@ namespace DLWMS.WindForms
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize ();
 
-            var startnaForma = new frmXO();
+            var startnaForma = new frmPrijava();
             
             Application.Run (startnaForma);
         }

@@ -28,5 +28,10 @@ namespace DLWMS.WindForms
             if( Igrac1 != "" && Igrac2 != "" )
                 Close ();
         }
+
+        private void txtIgrac1_TextChanged( object sender , EventArgs e )
+        {
+
+        }
     }
 }

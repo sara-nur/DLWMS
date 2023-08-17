@@ -43,6 +43,7 @@
             txtIgrac1.Name =  "txtIgrac1" ;
             txtIgrac1.Size =  new Size (197 , 34) ;
             txtIgrac1.TabIndex =  0 ;
+            txtIgrac1.TextChanged +=  txtIgrac1_TextChanged ;
             // 
             // label1
             // 

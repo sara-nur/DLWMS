@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DLStudent = DLWMS.ConsoleApp.Predavanja.P3.Interface.DLStudent;
+using Korisnik = DLWMS.ConsoleApp.Predavanja.P3.Interface.Korisnik;
 
 namespace DLWMS.ConsoleApp.Predavanja.P3
 {
@@ -52,7 +53,7 @@ namespace DLWMS.ConsoleApp.Predavanja.P3
             studentDB.Save(sara);
 
             var korisnikDB = new KorisnikRepository();
-            Korisnik korisnik = new Korisnik()
+             Korisnik korisnik = new Korisnik()
             {
                 KorisnickoIme = "kori",
                 Lozinka = "234",
