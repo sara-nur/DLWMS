@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,7 +47,28 @@ namespace DLWMS.WindForms.Intro
 
         private void button1_Click( object sender , EventArgs e )
         {
-            DLWMSNotifikacije?.Invoke(txtPoruka.Text);
+           // DLWMSNotifikacije?.Invoke(txtPoruka.Text);
+           // Func<int,int> func = Saberi;
+           YieldDemo();
+        }
+
+        int Test(int a, float b, string c) { return 0;}
+        int Saberi(int broj){ return broj+broj;}
+        int Hvadriraj(int broj){ return broj*broj;}
+        int Kubiraj(int broj){ return broj*broj*broj; }
+
+        delegate int MatMetoda(int metode);
+
+        private event MatMetoda Izracunaj;
+
+        private int Calc(MatMetoda metoda, params int[] niz)
+        {
+            int suma = 0;
+            for (int i = 0; i < niz.Length; i++)
+            {
+                suma += metoda (niz[i]);
+            }
+            return suma;
         }
 
         private void PretplataNaDogadjaj( object sender , PotpisMetode metoda )
@@ -76,5 +98,30 @@ namespace DLWMS.WindForms.Intro
         {
 
         }
+
+        private void YieldDemo()
+        {
+            Kandidat kandidat = new Kandidat();
+            foreach (var ocjene in kandidat)
+            {
+                
+            }
+        }
+
     }
+                          
+    public class Kandidat
+    {
+        List<int> ocjene = new List<int>() {4,5,3,4,5,3,3,4};
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int i = 0; i < ocjene.Count; i++)
+            {
+                yield return ocjene[i] ;
+            }
+        }
+    }
+
+
 }
