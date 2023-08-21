@@ -21,7 +21,7 @@ namespace DLWMS.ConsoleApp.Predavanja.P2
 
         private static void Indekseri( )
         {
-            var obj = new Student ()
+            var obj = new _Student ()
             {
                 GodinaStudija = 1 ,
                 MentorId = null ,
@@ -58,7 +58,7 @@ namespace DLWMS.ConsoleApp.Predavanja.P2
 
         private static void Dekonstrukcija( )
         {
-            Student obj = new Student ()
+            _Student obj = new _Student ()
             {
                 GodinaStudija = 1 ,
                 MentorId = null ,
@@ -85,13 +85,13 @@ namespace DLWMS.ConsoleApp.Predavanja.P2
 
         private static void SlanjeParametara( )
         {
-            Student student = new Student ();
+            _Student student = new _Student ();
             InicijalizujStudenta (in student);
             Console.WriteLine (student.Prezime);
 
         }
 
-        private static void InicijalizujStudenta( in Student obj )
+        private static void InicijalizujStudenta( in _Student obj )
         {
             obj.Prezime = "Prezime32";
         }
@@ -99,7 +99,7 @@ namespace DLWMS.ConsoleApp.Predavanja.P2
         private static void ProvjeraNullVrijednosti( )
         {
             Konekcija konekcija = new Konekcija ();
-            Student student = konekcija.GetStudentByIndeks ("IB210012");
+            _Student student = konekcija.GetStudentByIndeks ("IB210012");
             //if( student != null )
             //{
             //    Console.WriteLine (student.Prezime);
@@ -116,7 +116,7 @@ namespace DLWMS.ConsoleApp.Predavanja.P2
             int b = 0;
 
 
-            Student marko = new Student ()
+            _Student marko = new _Student ()
             {
                 Prezime = "Neko" ,
                 GodinaStudija = 1 ,
@@ -126,11 +126,11 @@ namespace DLWMS.ConsoleApp.Predavanja.P2
 
         private static void Nizovi( )
         {
-            Student[] studenti = new Student[3];
+            _Student[] studenti = new _Student[3];
 
             for( int i = 0; i < studenti.Length; i++ )
             {
-                studenti[i] = new Student ();
+                studenti[i] = new _Student ();
                 studenti[i].Prezime = $"Prezime{i}";
                 studenti[i].GodinaStudija = i + 1;
                 Console.WriteLine (studenti[i]);
@@ -154,12 +154,12 @@ namespace DLWMS.ConsoleApp.Predavanja.P2
 
             b = 20;
 
-            Student student1 = new Student ()
+            _Student student1 = new _Student ()
             {
                 Prezime = "Music" ,
                 GodinaStudija = 1 ,
             };
-            Student student2 = student1;
+            _Student student2 = student1;
             //student1 i student2 posjeduju referencu na jedan te isti objekat
             Console.WriteLine (student1);
             Console.WriteLine (student2);
@@ -190,7 +190,7 @@ namespace DLWMS.ConsoleApp.Predavanja.P2
         private static void KonekcijaNaBazu( )
         {
             Konekcija konekcija = new Konekcija ();
-            List<Student> studenti = konekcija.GetStudentByGodinaStudija (1);
+            List<_Student> studenti = konekcija.GetStudentByGodinaStudija (1);
             foreach( var student in studenti )
             {
                 Console.WriteLine (student);

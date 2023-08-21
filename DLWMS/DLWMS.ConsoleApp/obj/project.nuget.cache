@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "anXAJ1G/dqzXzdS4rdmnv0QaTKlaWCFeOsrzV+7Rb/QpgwsacRbQpE+F+hm1xzVdoq7sKNtP0mqubucpAnt8FA==",
+  "dgSpecHash": "DL1jVxblp6CFCF73DARNt3Dju3kewJHPw/ZnP9G2+O0PMTnJeJah6cSpnZkq50aIkgX7SakaUiJEk0Tz/lnDSA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.ConsoleApp\\DLWMS.ConsoleApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Sara\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\Sara\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

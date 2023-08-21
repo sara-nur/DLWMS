@@ -17,7 +17,7 @@ namespace DLWMS.ConsoleApp.Predavanja.P1
 
         private static void NovaVerzijaMetode()
         {
-            Student denis = new Student(12432, "Denis", "Music");
+            _Student denis = new _Student(12432, "Denis", "Music");
             Console.WriteLine(denis);
             Console.WriteLine(denis.ToString());
         }
@@ -25,7 +25,7 @@ namespace DLWMS.ConsoleApp.Predavanja.P1
         private static void BazniTip()
         {
             int indeks2 = 222000;
-            Student denis = new Student(223344, "Denka", "Music");
+            _Student denis = new _Student(223344, "Denka", "Music");
 
             object objIndeks = indeks2;
             object objStudent = denis;
@@ -58,15 +58,15 @@ namespace DLWMS.ConsoleApp.Predavanja.P1
             }
             */
 
-            Student sara = new Student(123432, "Sara", "Nur"); //na heap-u
-            Student denis = sara;
+            _Student sara = new _Student(123432, "Sara", "Nur"); //na heap-u
+            _Student denis = sara;
 
             // u objekat denis se pohranjuje adresa objekta sara, promjene na jednom objektu se reflektuju na drugi objekat 
         }
 
         private static void Klase()
         {
-            Student sara = new Student(220022, "Sara", "Nur");
+            _Student sara = new _Student(220022, "Sara", "Nur");
             sara.GetIndeks();
             Console.WriteLine(sara.GetIndeks());
             sara.SetIndeks(334440);
@@ -74,8 +74,8 @@ namespace DLWMS.ConsoleApp.Predavanja.P1
             sara.Prezime = "Test"; // sada ovaj "test" postaje value u našem setter-u
                                    //ukoliko postavimo neka nasa pravila u propertiju prezime
 
-            Student zanin = new Student(indeks: 22343, prezime: "Vojic", ime: "Zanin");
-            Student jasmin = new Student()
+            _Student zanin = new _Student(indeks: 22343, prezime: "Vojic", ime: "Zanin");
+            _Student jasmin = new _Student()
             {
                 Prezime = "Jasminovic",
                 GodinaStudija = 1,

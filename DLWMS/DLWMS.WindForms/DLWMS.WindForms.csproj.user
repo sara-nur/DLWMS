@@ -25,5 +25,11 @@
     <Compile Update="P4 - XO\frmXOIgraci.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Studenti\frmStudentiNovi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Studenti\frmStudentiPretraga.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

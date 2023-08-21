@@ -1,4 +1,5 @@
 using DLWMS.WindForms.Intro;
+using DLWMS.WindForms.Studenti;
 
 namespace DLWMS.WindForms
 {
@@ -14,7 +15,7 @@ namespace DLWMS.WindForms
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize ();
 
-            var startnaForma = new frmDelegati();
+            var startnaForma = new frmStudentiNovi();
             
             Application.Run (startnaForma);
         }

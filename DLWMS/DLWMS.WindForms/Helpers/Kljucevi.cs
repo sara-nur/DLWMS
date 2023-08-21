@@ -1,4 +1,4 @@
-﻿namespace DLWMS.WindForms.Resources;
+﻿namespace DLWMS.WindForms.Helpers;
 
 public class Kljucevi
 {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DLWMS.Data;
-using DLWMS.WindForms.Resources;
+using DLWMS.WindForms.Helpers;
 
 namespace DLWMS.WindForms
 {
@@ -25,19 +25,7 @@ namespace DLWMS.WindForms
             
         }
 
-        private string GenerisiLozinku( int brojZnakova = 10 )
-        {
-            var generisanaLozinka = "";
-            var karakteri = "qwertyuiopasdfghjkl;'zxcvbnm,-1234567890-=QWERTYUIOPASDFGHJKLČĆŽĐŠŠYXCVBNM";
-            var rand = new Random ();
-            for( int i = 0; i < 10; i++ )
-            {
-                var lokacija = rand.Next (0 , karakteri.Length);
-                generisanaLozinka += karakteri[lokacija];
-            }
-
-            return generisanaLozinka;
-        }
+       
 
         private void GenerisiPodatke( )
         {
@@ -59,7 +47,7 @@ namespace DLWMS.WindForms
 
         private void btnGenerisi_Click( object sender , EventArgs e )
         {
-            txtLozinka.Text = GenerisiLozinku (20);
+            txtLozinka.Text = Generator.GenerisiLozinku (20);
         }
 
         private void btnRegistracija_Click( object sender , EventArgs e )
@@ -99,6 +87,4 @@ namespace DLWMS.WindForms
 
        
     }
-    
-
 }

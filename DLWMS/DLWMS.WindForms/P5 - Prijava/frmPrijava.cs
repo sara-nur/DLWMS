@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DLWMS.Data;
-using DLWMS.WindForms.Resources;
-
+using DLWMS.WindForms.Helpers;
 
 namespace DLWMS.WindForms
 {

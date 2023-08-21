@@ -27,3 +27,9 @@ C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\ne
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.frmRegistracija.resources
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.Intro.frmDelegati.resources
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.Resources.Resource1.resources
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\Microsoft.Win32.SystemEvents.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\System.Drawing.Common.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.Studenti.frmStudentiPretraga.resources
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.Studenti.frmStudentiNovi.resources

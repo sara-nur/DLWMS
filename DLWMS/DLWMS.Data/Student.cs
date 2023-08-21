@@ -1,6 +1,30 @@
-﻿namespace DLWMS.Data
+﻿using System.Drawing;
+using System.Net.Mime;
+
+namespace DLWMS.Data
 {
+
     public class Student
+    {
+        public int Id { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public string BrojIndeksa { get; set; }
+        public string Lozinka { get; set; }
+        public string Email { get; set; }
+        public int GodinaStudija { get; set; }
+        public DateTime DatumRodjenja { get; set; }
+        public Image Slika { get; set; }  //postaje niz byte [] 
+        public bool Aktivan { get; set; }
+
+
+        public override string ToString()
+        {
+            return $"{Ime} {Prezime}";
+        }
+    }
+
+    public class _Student
     {
         int _indeks;
         string _ime;
@@ -11,8 +35,8 @@
         public string Prezime { get; set; }
         public int GodinaStudija { get; set; }
         public int? MentorId { get; set; }
-        public Student( ) { }
-        public Student( int indeks , string ime , string prezime )
+        public _Student( ) { }
+        public _Student( int indeks , string ime , string prezime )
         {
             _indeks = indeks;
             _ime = ime;
@@ -51,19 +75,19 @@
 
     public class Konekcija
     {
-        public List<Student> GetStudentByGodinaStudija( int godinaStudija )
+        public List<_Student> GetStudentByGodinaStudija( int godinaStudija )
         {
-            return new List<Student> ()
+            return new List<_Student> ()
             {
-                new Student() {Prezime= "Prezime1", GodinaStudija= godinaStudija},
-                new Student() {Prezime= "Prezime2", GodinaStudija= godinaStudija},
-                new Student() {Prezime= "Prezime3", GodinaStudija= godinaStudija},
+                new _Student() {Prezime= "Prezime1", GodinaStudija= godinaStudija},
+                new _Student() {Prezime= "Prezime2", GodinaStudija= godinaStudija},
+                new _Student() {Prezime= "Prezime3", GodinaStudija= godinaStudija},
             };
         }
 
-        public Student GetStudentByIndeks( string indeks )
+        public _Student GetStudentByIndeks( string indeks )
         {
-            return new Student ()
+            return new _Student ()
             {
                 Prezime = $"Student {indeks}" ,
                 GodinaStudija = 1 ,

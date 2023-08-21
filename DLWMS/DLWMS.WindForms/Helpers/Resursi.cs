@@ -1,7 +1,8 @@
 ﻿using System.Reflection;
 using System.Resources;
 
-namespace DLWMS.WindForms.Resources;
+
+namespace DLWMS.WindForms.Helpers;
 
 public class Resursi
 {

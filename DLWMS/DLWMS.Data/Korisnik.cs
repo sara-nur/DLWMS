@@ -6,35 +6,6 @@ using System.Threading.Tasks;
 
 namespace DLWMS.Data
 {
-
-    public class InMemoryDB
-    {
-        public static List<Korisnik> Korisnici = GenerisiKorisnike();
-
-        private static List<Korisnik> GenerisiKorisnike()
-        {
-            return new List<Korisnik>()
-            {
-                new Korisnik()
-                {
-                    Id = 1,
-                    Aktivan = true,
-                    Email = "admin@edu.fit.ba",
-                    Ime = "Administrator",
-                    Prezime = "FIT",
-                    KorisnickoIme = "admin",
-                    Lozinka = "admin",
-                }
-            };
-        } 
-
-           
-            
-           
-        
-    }
-
-
     public class Korisnik
     {
         public int Id { get; set; }

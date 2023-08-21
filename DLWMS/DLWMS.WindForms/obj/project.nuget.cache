@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "/OgJTyB6TqxnXnzWQUw4wiw3UUO1+3vcYNa1wxMrWnbL7hZjo/HW5PJgunFdwrIz0rO7/RRmTJQyrnyrWecbSg==",
+  "dgSpecHash": "VXABq4iN/qnmCdzA2rh7qifLDb1unY5Vj5sM+643dz/RZCOBjlHheJs7URKvqYzilu5RAJmX6hgViPrb2LjEtA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\DLWMS.WindForms.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Sara\\.nuget\\packages\\microsoft.win32.systemevents\\7.0.0\\microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+    "C:\\Users\\Sara\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

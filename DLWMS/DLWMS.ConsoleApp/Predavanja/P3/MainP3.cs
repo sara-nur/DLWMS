@@ -44,7 +44,7 @@ namespace DLWMS.ConsoleApp.Predavanja.P3
         private static void Repozitori()
         {
             StudentRepository studentDB = new StudentRepository();
-            Student sara = new Student()
+            _Student sara = new _Student()
             {
                 GodinaStudija = 1,
                 Prezime = "Nur",
