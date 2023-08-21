@@ -1,5 +1,5 @@
-﻿namespace DLWMS.WindForms.Helpers;
-
+﻿namespace DLWMS.WindForms.Helpers
+{
 public class Generator
 {
     public static string GenerisiLozinku(int brojZnakova = 10)
@@ -15,4 +15,6 @@ public class Generator
 
         return generisanaLozinka;
     }
+}
+
 }

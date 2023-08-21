@@ -1,4 +1,4 @@
-﻿namespace DLWMS.WindForms
+﻿namespace DLWMS.WindForms.P5___Prijava
 {
     partial class frmPrijava
     {

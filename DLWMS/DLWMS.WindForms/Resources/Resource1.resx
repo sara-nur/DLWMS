@@ -135,6 +135,12 @@
   <data name="PodaciNisuValidni" xml:space="preserve">
     <value>Uneseni Podaci Nisu Validni</value>
   </data>
+  <data name="PodaciUspjesnoDodati" xml:space="preserve">
+    <value>Podaci uspješno dodati u bazu! </value>
+  </data>
+  <data name="PodaciUspjesnoModifikovani" xml:space="preserve">
+    <value>Podaci uspjesno modifikovani.</value>
+  </data>
   <data name="UspjesnaRegistracija" xml:space="preserve">
     <value>Uspjesna registracija! Sada se mozete prijaviti. </value>
   </data>

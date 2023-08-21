@@ -1,4 +1,4 @@
-﻿namespace DLWMS.WindForms
+﻿namespace DLWMS.WindForms.Intro
 {
     partial class Form1
     {

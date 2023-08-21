@@ -129,7 +129,81 @@ Problem se može pojaviti kada želimo da pošaljemo poruku, a ne označimo nije
 ```c#
 private void button1_Click( object sender , EventArgs e )
         {
-            DLWMSNotifikacije (txtPoruka.Text);
+            DLWMSNotifikacije?.Invoke (txtPoruka.Text); //sa Invoke nam dopusta da provjeravamo da li je null 
         }
 ```
 
+
+
+## Function : Func
+
+Function - gotovi delegat, template koji nam omogućava da preko njega definišemo pravilo na 17 različitih načina, odnosno sa 17 parametara što uključuje i povratnu vrijednost. 
+
+npr.
+
+```c#
+Func<int,int> func = Saberi;
+    //prvi clanovi su ulazni parametar, a zadnji clan je povratna vrijednost. 
+    //Ovo nam omogucava da kreiramo pokazivac odnosno delegat na bilo koju metodu koja vraca integer i prima jedan integer
+
+Func<int, float, string, int> func2 = Test;
+
+int Test(int a, float b, string c) { return 0;} 
+
+//pomocu ovog Func, to nam je skraćeni način koji nam omogućava da kreiramo delegat odnosno pokazivač na neku metodu. 
+
+//Ovo nam je bitno u slučaju kada nemamo svoje delegate, možemo da koristimo Func 
+```
+
+Function nam daje širinu da propišemo izgled metode koja će biti pozvana za svakog člana. npr. u primjeru DLWMS sistema, ako želimo da sortiramo studente, function nam omogućava da ih sortiramo po indeksu, prosjeku ocjena, imenu ili bilo čemu drugom. 
+
+
+
+## Action : Action
+
+Pored Functiona imamo i Action koji ima generiču i običnu verziju. On je prvenstveno namjenjen void metodama ali im mi možemo definisati neke ulazne parametre. 
+
+
+
+## Enumerisanje
+
+
+
+```c#
+private void YieldDemo()
+        {
+            Kandidat kandidat = new Kandidat();
+            foreach (var ocjene in kandidat) //ovo ne bi bilo moguce bez koristenja interface-a IEnumerator 
+                //uzimamo ocjenu koja se u okviru objekta kandidat sto ce ukljucivati poziv metode GetEnumerator, i svaki put kada mi zelimo da pristupimo ocjeni, varijabla ocjena ce biti inicijalizana sa narednom ocjene iz liste
+              //odstupanje od naseg znanja je da kada kazemo return, ocekujemo da se neka metoda zavrsi i u ovom slucaju vrati ocjena[0], ona ce umjesto toga prvo otici u metodu GetEnumerator vratice 4 pa se vratiti u ovu for petlju pa ponovo otici i vratiti sada drugi clan niza sto je 5 i tako sve dok ne prodje citav niz ocjene. Dakle nastavlja od lokacije na kojoj je stalo. 
+                
+            {
+                
+            }
+        }
+
+public class Kandidat
+    {
+        List<int> ocjene = new List<int>() {4,5,3,4,5,3,3,4};
+
+        public IEnumerator GetEnumerator()
+        {
+            
+            
+            for (int i = 0; i < ocjene.Count; i++)
+            {
+                yield return ocjene[i] ; //return ocjene[O]
+                
+              
+            }
+        }
+    }
+```
+
+Ključna riječ yield nam omogućava da nastavimo izvršenje u ovom slučaju iteracije na mjestima gdje smo stali prilikom prošlog poziva 
+
+Da nema yielda, svaki put bi vratili vrijednost na lokaciji 0 i time bi for petlja izgubila smisao. 
+
+To nam omogućava da ne moramo svaki put od početka pregledati podatke 
+
+Pregledamo ocjene kada dođemo do njih. Radimo enumerisanje u momentu kada nam ti podaci zatrebaju. 

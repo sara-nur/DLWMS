@@ -1,6 +1,6 @@
 ﻿using DLWMS.Data;
 
-namespace DLWMS.WindForms;
+namespace DLWMS.WindForms.P5___Prijava;
 
 public class DLWMSApp
 {

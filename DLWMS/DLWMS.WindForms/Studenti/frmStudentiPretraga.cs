@@ -24,19 +24,45 @@ namespace DLWMS.WindForms.Studenti
             UcitajStudente ();
         }
 
-        private void UcitajStudente( )
+        private void UcitajStudente( List<Student> studenti = null )
         {
-            dgvStudenti.DataSource = InMemoryDB.Studenti;
+            dgvStudenti.DataSource = null;
+            dgvStudenti.DataSource = studenti ?? InMemoryDB.Studenti;
         }
 
         private void dgvStudenti_CellContentClick( object sender , DataGridViewCellEventArgs e )
         {
-
+            var OdabraniStudent = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
+            if( OdabraniStudent != null )
+            {
+                var frmStudent = new frmStudentiNovi (OdabraniStudent);
+                frmStudent.ShowDialog ();
+                UcitajStudente ();
+            }
         }
 
         private void btnDodajStudenta_Click( object sender , EventArgs e )
         {
-            new frmStudentiNovi().Show();
+            var frmStudent = new frmStudentiNovi ();
+            if( frmStudent.ShowDialog () == DialogResult.OK )
+                UcitajStudente ();
+        }
+
+        private void txtPretraga_TextChanged( object sender , EventArgs e )
+        {
+            var pretraga = txtPretraga.Text.ToLower ();
+            var rezultat = new List<Student> ();
+
+            foreach( var student in InMemoryDB.Studenti )
+            {
+                if( student.Ime.ToLower ().Contains (pretraga) || student.Prezime.ToLower ().Contains (pretraga) || student.BrojIndeksa.ToLower ().Contains (pretraga) )
+                {
+                    rezultat.Add (student);
+                }
+
+
+            }
+            UcitajStudente (rezultat);
         }
     }
 }

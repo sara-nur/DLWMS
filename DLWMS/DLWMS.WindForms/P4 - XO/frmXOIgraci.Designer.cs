@@ -1,4 +1,4 @@
-﻿namespace DLWMS.WindForms
+﻿namespace DLWMS.WindForms.P4___XO
 {
     partial class frmXOIgraci
     {

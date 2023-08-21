@@ -14,13 +14,13 @@ namespace DLWMS.Data
         public string Email { get; set; }
         public int GodinaStudija { get; set; }
         public DateTime DatumRodjenja { get; set; }
-        public Image Slika { get; set; }  //postaje niz byte [] 
+        public Image Slika { get; set; }  //postaje niz byte []
         public bool Aktivan { get; set; }
 
 
-        public override string ToString()
+        public override string ToString( )
         {
-            return $"{Ime} {Prezime}";
+            return $"({BrojIndeksa}) {Ime} {Prezime}";
         }
     }
 

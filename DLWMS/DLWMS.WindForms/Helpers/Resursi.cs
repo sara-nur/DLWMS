@@ -1,15 +1,18 @@
-﻿using System.Reflection;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System.Reflection;
 using System.Resources;
+using static DLWMS.WindForms.Helpers.Kljucevi;
 
-
-namespace DLWMS.WindForms.Helpers;
-
-public class Resursi
+namespace DLWMS.WindForms.Helpers
 {
-    private static ResourceManager Menadzer = new ResourceManager(Kljucevi.NazivResourceFajla, Assembly.GetExecutingAssembly());
-
-    public static string Get(string kljuc)
+    public class Resursi
     {
-        return Menadzer.GetString(kljuc);
+        private static ResourceManager _menadzer = new (NazivResourceFajla , Assembly.GetExecutingAssembly ());
+
+        public static string Get( string kljuc )
+        {
+            return _menadzer.GetString (kljuc);
+        }
     }
 }
+

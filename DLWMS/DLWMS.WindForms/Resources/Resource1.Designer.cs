@@ -115,6 +115,24 @@ namespace DLWMS.WindForms.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Podaci uspješno dodati u bazu! .
+        /// </summary>
+        public static string PodaciUspjesnoDodati {
+            get {
+                return ResourceManager.GetString("PodaciUspjesnoDodati", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Podaci uspjesno modifikovani..
+        /// </summary>
+        public static string PodaciUspjesnoModifikovani {
+            get {
+                return ResourceManager.GetString("PodaciUspjesnoModifikovani", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uspjesna registracija! Sada se mozete prijaviti. .
         /// </summary>
         public static string UspjesnaRegistracija {

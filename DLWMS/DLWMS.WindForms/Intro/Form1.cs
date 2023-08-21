@@ -1,6 +1,6 @@
 using DLWMS.Data;
 
-namespace DLWMS.WindForms
+namespace DLWMS.WindForms.Intro
 {
     public partial class Form1 : Form
     {

@@ -1,16 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DLWMS.Data;
+﻿using DLWMS.Data;
 using DLWMS.WindForms.Helpers;
 
-namespace DLWMS.WindForms
+namespace DLWMS.WindForms.P5___Prijava
 {
     public partial class frmRegistracija : Form
     {
@@ -22,10 +13,10 @@ namespace DLWMS.WindForms
 
         private void frmRegistracija_Load( object sender , EventArgs e )
         {
-            
+
         }
 
-       
+
 
         private void GenerisiPodatke( )
         {
@@ -64,27 +55,26 @@ namespace DLWMS.WindForms
                     Email = txtEmail.Text ,
                     Lozinka = txtLozinka.Text ,
                 };
-                MessageBox.Show(Resursi.Get(Kljucevi.UspjesnaRegistracija));
-               
+                MessageBox.Show (Resursi.Get (Kljucevi.UspjesnaRegistracija));
+
                 new frmPrijava ().Show ();
                 Close ();
                 InMemoryDB.Korisnici.Add (noviKorisnik);
 
-                
+
             }
-            
+
         }
 
         private bool ValidanUnos( )
         {
             return
-                Validator.ValidirajKontrolu(txtIme, errPr, Kljucevi.ObaveznaVrijednost) &&
-                Validator.ValidirajKontrolu(txtPrezime, errPr, Kljucevi.ObaveznaVrijednost) &&
-                Validator.ValidirajEmail(txtEmail, errPr, Kljucevi.EmailVecPostoji);
-
+                Validator.ValidirajKontrolu (txtIme , errPr , Kljucevi.ObaveznaVrijednost) &&
+                Validator.ValidirajKontrolu (txtPrezime , errPr , Kljucevi.ObaveznaVrijednost) &&
+                Validator.ValidirajEmail (txtEmail , errPr , Kljucevi.EmailVecPostoji);
         }
-        
 
-       
+
+
     }
 }
