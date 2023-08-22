@@ -33,3 +33,4 @@ C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\ne
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.P5___Prijava.frmPrijava.resources
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.P5___Prijava.frmRegistracija.resources
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.Resources.Resource1.resources
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.Intro.frmlinq.resources
