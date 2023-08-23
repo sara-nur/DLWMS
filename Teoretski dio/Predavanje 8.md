@@ -143,3 +143,135 @@ Na ovaj način, dozvoljavajući automatsko dodavanje članova isto kao da imamo 
 
 
 ## Anonimni Tipovi
+
+Anonimni Tip podatka kreiramo tako što nakon ključne riječi new, otvorimo vitiačaste zagrade i u njih stavimo set propertija 
+
+```c#
+ var obj = new { id = 1, indeks = 120021, ime = "Denis" };
+//ovo se moze zapisati i na sljedeci nacin
+_ = new { id = 1, indeks = 120021, ime = "Denis" };
+```
+
+Članovi anonimnih tipova su read-only vrijednosti. Možemo ih inicijalizovati u momentu kreiranja ali ne i nakon toga. 
+
+
+
+Jako sličan koncept anonimnih tipova smo već radili. To je koncept Tuple. 
+
+```c#
+var tuple = (1,2432,"Denis"); 
+```
+
+Za razliku od anonimnog tipa, tuple nam dozvoljava da mijenjamo vrijednost naknadno. 
+
+```c#
+tuple.Item1 = 53; 
+```
+
+Ovdje pristupamo prvom članu, tuple automatski dodjeljuje Item1, Item2, Item3 i nisu pretjerano deskriptivni ali ih mi možemo imenovati. Ovdje ćemo za to korisiti operator :
+
+```c#
+var tuple = (id:1, inhdeks: 23432, ime:"sara");
+tuple.id = 324;
+tuple.indeks = 23432;
+```
+
+
+
+```c#
+  private void AnonimniTipovi()
+        {
+            var obj = new { id = 1, indeks = 120021, ime = "Denis" };
+
+            var tuple = (id: 1, indeks: 23532, ime: "Sara");
+            tuple.id = 2;
+            tuple.indeks = 23532;
+
+            TupleInfo(tuple);
+        }
+
+        private (int, int, string, string) TupleInfo((int id, int indeks, string ime) tuple)
+        {
+            return tuple;
+        }
+
+//Sada ovo ne odgovara potpisu metode, da bi ovo moglo
+ var tuple = (id: 1, indeks: 23532, ime: "Sara", Prezime:"Prezime");
+```
+
+
+
+Ovo je problem kada imamo metodu pozivamo iz dosta različitih dijelova koda. Ovjde dolazimo do koncepta korištenja dto klasa. 
+
+## dto (data transfer object) Klasa
+
+To su samo objekti koji služe za prenos podataka sa jedne lokacije na drugu. 
+
+```c#
+ TupleInfo(new dtoStudent() { Id = 1, Indeks = "23543", Ime = "Sara" });
+        }
+
+        private dtoStudent TupleInfo(dtoStudent obj)
+        {
+            return obj;
+        }
+```
+
+Ovo nam je korisno jer ukoliko želimo da proširimo set vrijednosti koje želimo da pošaljemo, nećemo morati da intervenišemo u ostatku koda osim na onim mjestima gdje želimo da prosljedimo te specifične vrijednosti. 
+
+
+
+### Extended metoda
+
+Predstavlja mogućnost proširenja listu metoda za već postojeći tip podatka, npr. string. 
+
+Da bismo se povezali s određenim tipom podatka treba nam statička klasa i statička metoda. Njih možemo imenovati kako želimo. 
+
+U toj statičkoj metodi, na osnovu parametra koji joj šaljemo kažemo s kojim tipom podatka želimo da radimo.  Za to nam je na raspolaganju ključna riječ this, nakon toga navedemo tip podatka s kojim želimo da povežemo ovu metodu.
+
+```c#
+ public static class DodateMetode
+    {
+        public static string VelikaSlova(this string obj)
+        {
+            return obj.ToUpper();
+        }
+    }
+
+  private void DodateMetode()
+        {
+            var ime = "Haris";
+            var imeVelikaSlova = ime.VelikaSlova();
+        }
+```
+
+Sada pored svih metoda kojima string ima pristup, imaće pristup i metodi VelikaSlova. Naravno, ovdje možemo samo pozvati metodu ToUpper, ali ideja je da možemo kreirati vlastite metode za određene potrebe koje imamo.
+
+```c#
+ public static class DodateMetode
+    {
+        public static string Enkriptuj(this string obj)
+        {
+            var enkriptovanSadrzaj = string.Empty;
+            for (int i = 0; i < obj.Length; i++)
+            {
+              enkriptovanSadrzaj += (char) (Convert.ToInt16(obj[i] + i + 1));
+            } 
+            return enkriptovaniSadrzaj;
+        }
+      //Ova metoda nam predstavlja primitivni nacin enkriptovanja nekog sadrzaja privremeno 
+     
+      public static string Dekriptuj(this string obj)
+        {
+            var dekriptovanSadrzaj = string.Empty;
+            for (int i = 0; i < obj.Length; i++)
+            {
+                dekriptovanSadrzaj += (char) (Convert.ToInt16(obj[i] + i - 1));
+            }
+            return dekriptovanSadrzaj;
+        }
+     //Ova metoda bi trebala da dekriptuje sadrzaj koji smo enkriptovali prethodnom metodom. 
+     
+    }
+```
+

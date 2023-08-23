@@ -8,12 +8,35 @@ namespace DLWMS.WindForms.Intro
         {
             InitializeComponent();
             //TipoviPodataka ();
-            AnonimniTipovi();
+            //AnonimniTipovi();
+            DodateMetode();
+        }
+
+        private void DodateMetode()
+        {
+            //var ime = "Haris";
+            //var imeVelikaSlova = ime.VelikaSlova();
+            var imePrezime = "Hare Mata";
+            var enkript = imePrezime.Enkriptuj();
+            var dekript = enkript.Dekriptuj();
+
+            MessageBox.Show(DateTime.Now.ToBiHFormat());
         }
 
         private void AnonimniTipovi()
         {
+            var obj = new { id = 1, indeks = 120021, ime = "Denis" };
 
+            var tuple = (id: 1, indeks: 23532, ime: "Sara", prezime: "Nur");
+            tuple.id = 2;
+            tuple.indeks = 23532;
+
+            TupleInfo(new dtoStudent() { Id = 1, Indeks = "23543", Ime = "Sara" });
+        }
+
+        private dtoStudent TupleInfo(dtoStudent obj)
+        {
+            return obj;
         }
 
         private void TipoviPodataka()
@@ -56,16 +79,10 @@ namespace DLWMS.WindForms.Intro
 
 
         }
-
-
-
-
-
         private void StudentInfo(dynamic objExp)
         {
             MessageBox.Show($"{objExp.Ime} {objExp.Indeks}");
         }
-
         private dynamic GetEksterniObjekat()
         {
             return new Eksterni();
@@ -78,6 +95,11 @@ namespace DLWMS.WindForms.Intro
         {
             // throw new NotImplementedException ();
         }
+
+        private void frmlinq_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     public class Eksterni
     {
@@ -86,4 +108,45 @@ namespace DLWMS.WindForms.Intro
             MessageBox.Show("Printam");
         }
     }
+    public class dtoStudent
+    {
+        public int Id { get; set; }
+        public string Ime { get; set; }
+        public string Indeks { get; set; }
+        public string KrvnaGrupa { get; set; }
+    }
+
+    public static class DodateMetode
+    {
+
+        public static string ToBiHFormat(this DateTime obj)
+        {
+            return $"BiH Format -> {obj.ToString("dd.MM.yyyy hh:mm:ss")}";
+        }
+
+        public static string Enkriptuj(this string obj)
+        {
+            var enkriptovanSadrzaj = string.Empty;
+            for (int i = 0; i < obj.Length; i++)
+            {
+                enkriptovanSadrzaj += (char) (Convert.ToInt16(obj[i] + i + 1));
+            }
+            return enkriptovanSadrzaj;
+        }
+        public static string Dekriptuj(this string obj)
+        {
+            var dekriptovanSadrzaj = string.Empty;
+            for (int i = 0; i < obj.Length; i++)
+            {
+                dekriptovanSadrzaj += (char) (Convert.ToInt16(obj[i] + i - 1));
+            }
+            return dekriptovanSadrzaj;
+        }
+
+        public static string VelikaSlova(this string obj)
+        {
+            return obj.ToUpper();
+        }
+    }
+
 }
