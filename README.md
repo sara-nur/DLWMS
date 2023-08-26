@@ -59,7 +59,7 @@
 <details>
   <summary>Predavanje 4
     <a href="Teoretski dio/Predavanje 4.md"> Teorija </a> ~
-    <a href="DLWMS/DLWMS.WindForms/XO"> P4</a>
+    <a href="DLWMS/DLWMS.WindForms/P4 - XO"> P4</a>
   </summary>
   <ul>
    <li> Forme </li>
@@ -75,7 +75,67 @@
 <details>
   <summary>Predavanje 5
     <a href="Teoretski dio/Predavanje 5.md"> Teorija </a> ~
-    <a href="DLWMS/DLWMS.WindForms/P5"> P5</a>
+    <a href="DLWMS/DLWMS.WindForms/P5 - Prijava"> P5</a>
+  </summary>
+  <ul>
+   <li> InMemoryDB </li>
+   <li> Resursi i Ključevi </li>
+   <li> MessageBox </li>
+   <li> Validacija Podataka </li>
+   <li> Generisanje Lozinke </li>
+  </ul>
+</details>
+
+<details>
+  <summary>Predavanje 6
+    <a href="Teoretski dio/Predavanje 6.md"> Teorija </a> ~
+    <a href="DLWMS/DLWMS.WindForms/Intro"> P6</a>
+  </summary>
+  <ul>
+   <li> Delegati & Eventi </li>
+   <li> Function </li>
+   <li> Action </li>
+   <li> Enumerisanje </li>
+  </ul>
+</details>
+
+<details>
+  <summary>Predavanje 7
+    <a href="Teoretski dio/Predavanje 7.md"> Teorija </a> ~
+    <a href="DLWMS/DLWMS.WindForms/P5 - Prijava"> P7</a>
+  </summary>
+  <ul>
+   <li> Data Sloj </li>
+   <li> DataViewGrid </li>
+   <li> Dodavanje Novog Studenta </li>
+   <li> ComboBox Podaci </li>
+   <li> Validacija Podataka </li>
+   <li> Učitavanje Slike </li>
+   <li> Editovanje postojećeg studenta </li>
+  </ul>
+</details>
+
+<details>
+  <summary>Predavanje 8
+    <a href="Teoretski dio/Predavanje 8.md"> Teorija </a> ~
+    <a href="DLWMS/DLWMS.WindForms/Studenti"> P8</a>
+  </summary>
+  <ul>
+   <li> Object  </li>
+   <li> Boxing </li>
+   <li> Unboxing  </li>
+   <li> Dynamic </li>
+   <li> Anonimni Tipovi  </li>
+   <li> Data Transfer Object (dto) </li>
+   <li> Extended Metoda </li>
+   <li> Linq </li>
+  </ul>
+</details>
+
+<details>
+  <summary>Predavanje 9
+    <a href="Teoretski dio/Predavanje 9.md"> Teorija </a> ~
+    <a href="DLWMS/DLWMS.WindForms/P9"> P9</a>
   </summary>
   <ul>
    <li>  </li>
@@ -84,3 +144,14 @@
   </ul>
 </details>
 
+<details>
+  <summary>Predavanje 10
+    <a href="Teoretski dio/Predavanje 10.md"> Teorija </a> ~
+    <a href="DLWMS/DLWMS.WindForms/P10"> P10</a>
+  </summary>
+  <ul>
+   <li>  </li>
+   <li>  </li>
+    
+  </ul>
+</details>
