@@ -1,4 +1,6 @@
+using DLWMS.Data;
 using System.Dynamic;
+using System.Reflection.Metadata.Ecma335;
 
 namespace DLWMS.WindForms.Intro
 {
@@ -9,9 +11,46 @@ namespace DLWMS.WindForms.Intro
             InitializeComponent();
             //TipoviPodataka ();
             //AnonimniTipovi();
-            DodateMetode();
+            //DodateMetode();
+            Linq();
+        }
+        private void Linq()
+        {
+            var ocjene = new List<int>() { 6, 7, 8, 8, 7, 8, 9, 6 };
+
+            var rezultat = from o in ocjene
+                           where o > 7
+                           select o;
+            // o ce biti naziv za svakog clana liste ocjene 
+
+            var godineStudija = new List<GodinaStudija>()
+            {
+                 new GodinaStudija() {Id = 1, Aktivan = true, Oznaka="1 GODINA", Opis="1 Godina Studija"},
+                 new GodinaStudija() {Id = 2, Aktivan = false, Oznaka="2 GODINA", Opis="2 Godina Studija"},
+                 new GodinaStudija() {Id = 3, Aktivan = true, Oznaka="3 GODINA", Opis="3 Godina Studija"},
+                 new GodinaStudija() {Id = 4, Aktivan = false, Oznaka="4 GODINA", Opis="4 Godina Studija"},
+            };
+
+            var rezGodine = from godina in godineStudija
+                            where godina.Aktivan == true
+                            select new
+                            {
+                                Rb = godina.Id,
+                                Ispis = godina.Oznaka,
+                            };
+
+            var rezGodine2 = godineStudija.Where(FiltrirajGodine2);
+
+            var rezGodine3 = godineStudija.Where(godina => godina.Aktivan == true);
+
         }
 
+        private bool FiltrirajGodine2(GodinaStudija godina) => godina.Aktivan == true;
+
+        private bool FiltrirajGodine1(GodinaStudija godina)
+        {
+            return godina.Aktivan == true;
+        }
         private void DodateMetode()
         {
             //var ime = "Haris";
@@ -22,7 +61,6 @@ namespace DLWMS.WindForms.Intro
 
             MessageBox.Show(DateTime.Now.ToBiHFormat());
         }
-
         private void AnonimniTipovi()
         {
             var obj = new { id = 1, indeks = 120021, ime = "Denis" };
@@ -33,12 +71,10 @@ namespace DLWMS.WindForms.Intro
 
             TupleInfo(new dtoStudent() { Id = 1, Indeks = "23543", Ime = "Sara" });
         }
-
         private dtoStudent TupleInfo(dtoStudent obj)
         {
             return obj;
         }
-
         private void TipoviPodataka()
         {
             object ime = "Denis";
@@ -95,7 +131,6 @@ namespace DLWMS.WindForms.Intro
         {
             // throw new NotImplementedException ();
         }
-
         private void frmlinq_Load(object sender, EventArgs e)
         {
 
@@ -115,15 +150,12 @@ namespace DLWMS.WindForms.Intro
         public string Indeks { get; set; }
         public string KrvnaGrupa { get; set; }
     }
-
     public static class DodateMetode
     {
-
         public static string ToBiHFormat(this DateTime obj)
         {
             return $"BiH Format -> {obj.ToString("dd.MM.yyyy hh:mm:ss")}";
         }
-
         public static string Enkriptuj(this string obj)
         {
             var enkriptovanSadrzaj = string.Empty;
@@ -142,11 +174,9 @@ namespace DLWMS.WindForms.Intro
             }
             return dekriptovanSadrzaj;
         }
-
         public static string VelikaSlova(this string obj)
         {
             return obj.ToUpper();
         }
     }
-
 }

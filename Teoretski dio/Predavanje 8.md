@@ -279,4 +279,131 @@ Sada pored svih metoda kojima string ima pristup, imaće pristup i metodi Velika
 
 ## Linq
 
-Mogućnost pisanja querija iz samog programskog jezika. 
+Mogućnost pisanja querija iz samog programskog jezika. On nam omogućava da na jako sličan način pravimo upite bilo kojeg skladišta podataka sa kojima C# može da komunicira. 
+
+
+
+U Linq **SELECT** dolazi posljednjim, a **FROM** i **WHERE** se koristi na identičan način. Ono što od nas Linq zahtjeva je nešto slično foreach-u, gdje odmah moramo da imenujemo varijablu koju ćemo korisititi za referenciranje svakog pojedinog člana. 
+
+
+
+Selektovanje **čitavog objekta** 
+
+```c#
+var ocjene = new List<int>() { 6, 7, 8, 8, 7, 8, 9, 6 };
+
+            var rezultat = from o in ocjene
+                           where o > 7
+                           select o;
+
+//U ovom slučaju će nam prikazati listu koja zadovoljava ovaj uslov (prikazuje čitav objekat)
+```
+
+
+
+Selektovanje određenih **Propertija**
+
+```c#
+var rezGodine = from godina in godineStudija
+                where godina.Aktivan == true
+                select godina.Opis;
+
+//Ovdje nam prikazuje selektovani property (Opis) objekta koji zadovoljava uslov
+```
+
+
+
+Selektovanje **novog objekta** 
+
+```c#
+var rezGodine = from godina in godineStudija
+                where godina.Aktivan == true
+                select new
+                {
+                    Rb = godina.Id,
+                    Ispis = godina.Oznaka,
+                };
+
+//U ovom slučaju smo odabrali anonimni tip podatka. 
+```
+
+
+
+Što se tiče linq, malo kompleksniji upiti postaju jako nepregledni, zato su nam na raspologanju  set nekih extension metoda koje nam pojednostavljuju koncept pravljenja upita nad podacima. 
+
+
+
+Te extension metode su nama najčešće dostupne putem metode **WHERE**. 
+
+```c#
+		//godineStudija.Where()
+/*
+Funtion je ustvari pokazivač na funkciju. Kao parametar where metode, kao parametar godinuStudija, a vraća bool. Svaka od tih godina će biti vraćena sa bool vrijednošću kojom će reći da li ona zadovoljava dati uslov ili ne 
+*/
+    
+        var rezGodine2 = godineStudija.Where(FiltrirajGodine); //svaki put ce se ova metoda pozvati za svakog clana niza, svaki clan koji ispunjava uslov bice sastavni dio rezultata 
+
+        private bool FiltrirajGodine(GodinaStudija godina)
+        {
+            return godina.Aktivan = true;
+        }
+```
+
+
+
+```c#
+var rezGodine3 = godineStudija.Where(godina => godina.Aktivan == true);
+
+//Ovo je najčešći pristup koji ćemo koristiti. 
+//Ovo je identičan pristup kao gore, samo što nismo morali kreirati još jednu metodu. 
+```
+
+
+
+Koncept Linq možemo implementirati kod Pretrage. 
+
+```c#
+ /* PRVI NACIN
+var pretraga = txtPretraga.Text.ToLower ();
+            var rezultat = new List<Student> ();
+            
+            foreach( var student in InMemoryDB.Studenti )
+            {
+                if( student.Ime.ToLower ().Contains (pretraga) || student.Prezime.ToLower ().Contains (pretraga) || student.BrojIndeksa.ToLower ().Contains (pretraga) )
+                {
+                    rezultat.Add (student);
+               }
+
+
+            }
+            UcitajStudente (rezultat);
+ */
+
+//DRUGI NACIN
+
+            var pretraga = txtPretraga.Text.ToLower();
+
+            var rezultat = InMemoryDB.Studenti.Where(student =>
+            student.Ime.ToLower().Contains(pretraga) ||
+            student.Prezime.ToLower().Contains(pretraga) ||
+            student.BrojIndeksa.ToLower().Contains(pretraga)).ToList();
+	//sve pretvaramo u Listu jer nam metoda UcitajStudente ocekuje listu
+
+            UcitajStudente(rezultat);
+
+//TRECI NACIN
+
+{ 
+    	var rezultat = InMemoryDB.Studenti.Where(FiltrirajStudente).ToList();
+            UcitajStudente(rezultat);
+}
+
+        private bool FiltrirajStudente(Student student)
+        {
+            var pretraga = txtPretraga.Text.ToLower();
+            return student.Ime.ToLower().Contains(pretraga) ||
+               student.Prezime.ToLower().Contains(pretraga) ||
+               student.BrojIndeksa.ToLower().Contains(pretraga));
+        }
+
+```
