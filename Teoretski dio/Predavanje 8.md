@@ -275,3 +275,8 @@ Sada pored svih metoda kojima string ima pristup, imaće pristup i metodi Velika
     }
 ```
 
+
+
+## Linq
+
+Mogućnost pisanja querija iz samog programskog jezika. 
