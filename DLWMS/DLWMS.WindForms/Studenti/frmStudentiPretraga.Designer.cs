@@ -11,13 +11,13 @@
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose( bool disposing )
+        protected override void Dispose(bool disposing)
         {
-            if( disposing && ( components != null ) )
+            if ( disposing && ( components != null ) )
             {
-                components.Dispose ();
+                components.Dispose();
             }
-            base.Dispose (disposing);
+            base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
@@ -26,32 +26,51 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent( )
+        private void InitializeComponent()
         {
-            dgvStudenti =  new DataGridView () ;
-            BrojIndeksa =  new DataGridViewTextBoxColumn () ;
-            Ime =  new DataGridViewTextBoxColumn () ;
-            Prezime =  new DataGridViewTextBoxColumn () ;
-            Email =  new DataGridViewTextBoxColumn () ;
-            DatumRodjenja =  new DataGridViewTextBoxColumn () ;
-            Aktivan =  new DataGridViewCheckBoxColumn () ;
-            btnDodajStudenta =  new Button () ;
-            txtPretraga =  new TextBox () ;
-            ( ( System.ComponentModel.ISupportInitialize ) dgvStudenti  ).BeginInit ();
-            SuspendLayout ();
+            btnDodajStudenta =  new Button() ;
+            txtPretraga =  new TextBox() ;
+            dgvStudenti =  new DataGridView() ;
+            BrojIndeksa =  new DataGridViewTextBoxColumn() ;
+            Ime =  new DataGridViewTextBoxColumn() ;
+            Prezime =  new DataGridViewTextBoxColumn() ;
+            Email =  new DataGridViewTextBoxColumn() ;
+            DatumRodjenja =  new DataGridViewTextBoxColumn() ;
+            Aktivan =  new DataGridViewCheckBoxColumn() ;
+            Predmeti =  new DataGridViewButtonColumn() ;
+            ( ( System.ComponentModel.ISupportInitialize )  dgvStudenti  ).BeginInit();
+            SuspendLayout();
+            // 
+            // btnDodajStudenta
+            // 
+            btnDodajStudenta.Location =  new Point(764, 15) ;
+            btnDodajStudenta.Name =  "btnDodajStudenta" ;
+            btnDodajStudenta.Size =  new Size(158, 29) ;
+            btnDodajStudenta.TabIndex =  1 ;
+            btnDodajStudenta.Text =  "Dodaj Studenta" ;
+            btnDodajStudenta.UseVisualStyleBackColor =  true ;
+            btnDodajStudenta.Click +=  btnDodajStudenta_Click ;
+            // 
+            // txtPretraga
+            // 
+            txtPretraga.Location =  new Point(12, 16) ;
+            txtPretraga.Name =  "txtPretraga" ;
+            txtPretraga.Size =  new Size(746, 27) ;
+            txtPretraga.TabIndex =  2 ;
+            txtPretraga.TextChanged +=  txtPretraga_TextChanged ;
             // 
             // dgvStudenti
             // 
             dgvStudenti.AllowUserToDeleteRows =  false ;
             dgvStudenti.ColumnHeadersHeightSizeMode =  DataGridViewColumnHeadersHeightSizeMode.AutoSize ;
-            dgvStudenti.Columns.AddRange (new DataGridViewColumn[] { BrojIndeksa , Ime , Prezime , Email , DatumRodjenja , Aktivan });
-            dgvStudenti.Location =  new Point (12 , 59) ;
+            dgvStudenti.Columns.AddRange(new DataGridViewColumn[] { BrojIndeksa, Ime, Prezime, Email, DatumRodjenja, Aktivan, Predmeti });
+            dgvStudenti.Location =  new Point(12, 59) ;
             dgvStudenti.Name =  "dgvStudenti" ;
             dgvStudenti.ReadOnly =  true ;
             dgvStudenti.RowHeadersWidth =  51 ;
             dgvStudenti.RowTemplate.Height =  29 ;
             dgvStudenti.SelectionMode =  DataGridViewSelectionMode.FullRowSelect ;
-            dgvStudenti.Size =  new Size (910 , 202) ;
+            dgvStudenti.Size =  new Size(910, 202) ;
             dgvStudenti.TabIndex =  0 ;
             dgvStudenti.CellContentClick +=  dgvStudenti_CellContentClick ;
             // 
@@ -62,6 +81,7 @@
             BrojIndeksa.MinimumWidth =  6 ;
             BrojIndeksa.Name =  "BrojIndeksa" ;
             BrojIndeksa.ReadOnly =  true ;
+            BrojIndeksa.Visible =  false ;
             BrojIndeksa.Width =  125 ;
             // 
             // Ime
@@ -109,42 +129,35 @@
             Aktivan.ReadOnly =  true ;
             Aktivan.Width =  125 ;
             // 
-            // btnDodajStudenta
+            // Predmeti
             // 
-            btnDodajStudenta.Location =  new Point (764 , 15) ;
-            btnDodajStudenta.Name =  "btnDodajStudenta" ;
-            btnDodajStudenta.Size =  new Size (158 , 29) ;
-            btnDodajStudenta.TabIndex =  1 ;
-            btnDodajStudenta.Text =  "Dodaj Studenta" ;
-            btnDodajStudenta.UseVisualStyleBackColor =  true ;
-            btnDodajStudenta.Click +=  btnDodajStudenta_Click ;
-            // 
-            // txtPretraga
-            // 
-            txtPretraga.Location =  new Point (12 , 16) ;
-            txtPretraga.Name =  "txtPretraga" ;
-            txtPretraga.Size =  new Size (746 , 27) ;
-            txtPretraga.TabIndex =  2 ;
-            txtPretraga.TextChanged +=  txtPretraga_TextChanged ;
+            Predmeti.HeaderText =  "Predmeti" ;
+            Predmeti.MinimumWidth =  6 ;
+            Predmeti.Name =  "Predmeti" ;
+            Predmeti.ReadOnly =  true ;
+            Predmeti.Text =  "Polozeni" ;
+            Predmeti.UseColumnTextForButtonValue =  true ;
+            Predmeti.Width =  125 ;
             // 
             // frmStudentiPretraga
             // 
-            AutoScaleDimensions =  new SizeF (8F , 20F) ;
+            AutoScaleDimensions =  new SizeF(8F, 20F) ;
             AutoScaleMode =  AutoScaleMode.Font ;
-            ClientSize =  new Size (945 , 285) ;
-            Controls.Add (txtPretraga);
-            Controls.Add (btnDodajStudenta);
-            Controls.Add (dgvStudenti);
+            ClientSize =  new Size(945, 285) ;
+            Controls.Add(txtPretraga);
+            Controls.Add(btnDodajStudenta);
+            Controls.Add(dgvStudenti);
             Name =  "frmStudentiPretraga" ;
             Text =  "Pretraga Studenata" ;
             Load +=  frmStudentiPretraga_Load ;
-            ( ( System.ComponentModel.ISupportInitialize ) dgvStudenti  ).EndInit ();
-            ResumeLayout (false);
-            PerformLayout ();
+            ( ( System.ComponentModel.ISupportInitialize )  dgvStudenti  ).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
+        private Button btnDodajStudenta;
+        private TextBox txtPretraga;
         private DataGridView dgvStudenti;
         private DataGridViewTextBoxColumn BrojIndeksa;
         private DataGridViewTextBoxColumn Ime;
@@ -152,7 +165,6 @@
         private DataGridViewTextBoxColumn Email;
         private DataGridViewTextBoxColumn DatumRodjenja;
         private DataGridViewCheckBoxColumn Aktivan;
-        private Button btnDodajStudenta;
-        private TextBox txtPretraga;
+        private DataGridViewButtonColumn Predmeti;
     }
 }

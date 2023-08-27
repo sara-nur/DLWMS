@@ -18,36 +18,40 @@ namespace DLWMS.WindForms.Studenti
             InitializeComponent();
             dgvStudenti.AutoGenerateColumns = false;
         }
-
         private void frmStudentiPretraga_Load(object sender, EventArgs e)
         {
             UcitajStudente();
         }
-
         private void UcitajStudente(List<Student> studenti = null)
         {
             dgvStudenti.DataSource = null;
             dgvStudenti.DataSource = studenti ?? InMemoryDB.Studenti;
         }
-
         private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var OdabraniStudent = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
-            if (OdabraniStudent != null)
+            var odabraniStudent = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
+
+            Text = $"Red: {e.RowIndex} Kolona: {e.ColumnIndex}";
+
+            Form forma = null;
+
+
+            if (odabraniStudent != null)
             {
-                var frmStudent = new frmStudentiNovi(OdabraniStudent);
-                frmStudent.ShowDialog();
+                if (dgvStudenti.CurrentCell is DataGridViewButtonCell)
+                    forma = new frmStudentiPredmeti(odabraniStudent);
+                else
+                    forma = new frmStudentiNovi(odabraniStudent);
+                forma.ShowDialog();
                 UcitajStudente();
             }
         }
-
         private void btnDodajStudenta_Click(object sender, EventArgs e)
         {
             var frmStudent = new frmStudentiNovi();
             if (frmStudent.ShowDialog() == DialogResult.OK)
                 UcitajStudente();
         }
-
         private void txtPretraga_TextChanged(object sender, EventArgs e)
         {
             //var pretraga = txtPretraga.Text.ToLower ();
@@ -59,22 +63,17 @@ namespace DLWMS.WindForms.Studenti
             //    {
             //        rezultat.Add (student);
             //    }
-            //
-            //
             //}
             //UcitajStudente (rezultat);
-
-
             UcitajStudente(InMemoryDB.Studenti.Where(FiltrirajStudente).ToList());
 
         }
-
         private bool FiltrirajStudente(Student student)
         {
             var pretraga = txtPretraga.Text.ToLower();
             return student.Ime.ToLower().Contains(pretraga) ||
                student.Prezime.ToLower().Contains(pretraga) ||
-               student.BrojIndeksa.ToLower().Contains(pretraga));
+               student.BrojIndeksa.ToLower().Contains(pretraga);
         }
     }
 }

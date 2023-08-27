@@ -156,6 +156,13 @@ namespace DLWMS.WindForms.Intro
         {
             return $"BiH Format -> {obj.ToString("dd.MM.yyyy hh:mm:ss")}";
         }
+        public static void LoadData<T>(this ComboBox comboBox, List<T> dataSource,
+         string displayMember = "Naziv", string valueMember = "Id")
+        {
+            comboBox.DataSource = dataSource;
+            comboBox.DisplayMember = displayMember;
+            comboBox.ValueMember = valueMember;
+        }
         public static string Enkriptuj(this string obj)
         {
             var enkriptovanSadrzaj = string.Empty;

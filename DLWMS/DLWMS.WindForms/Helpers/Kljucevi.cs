@@ -1,4 +1,4 @@
-﻿namespace DLWMS.WindForms.Helpers
+namespace DLWMS.WindForms.Helpers
 {
     public class Kljucevi
     {
@@ -12,6 +12,7 @@
         public const string UspjesnaRegistracija = "UspjesnaRegistracija";
         public const string PodaciUspjesnoDodati = "PodaciUspjesnoDodati";
         public const string PodaciUspjesnoModifikovani = "PodaciUspjesnoModifikovani";
+        public const string PodatakVecDodat = "PodatakVecDodat";
     }
 }
 

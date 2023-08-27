@@ -117,3 +117,87 @@ public class DataLoader
         }
 ```
 
+
+
+## Relacije 
+
+```c#
+  public class PolozeniPredmet //sluzi kao medjutabela da bi prosirili informacije o Polozenim Predmetima 
+    {
+        public int Id { get; set; }
+        public DateTime DatumPolaganja { get; set; }
+        public Predmet Predmet { get; set; }
+        public int Ocjene { get; set; }
+    }
+    public class Predmet
+    {
+        public int Id { get; set; }
+        public string Naziv { get; set; }
+    }
+
+ public List<PolozeniPredmet> PolozeniPredmeti { get; set; }
+        public Student()
+        {
+            PolozeniPredmeti = new List<PolozeniPredmet>(); // u konstruktoru pripremamo listu za koristenje
+        }
+```
+
+Napravili smo posebnu formu za ucitavanje Polozenih Predmeta za oznacenog studenta. Kada korisnik klikne na bilo koju kolonu osim button na Predmet koloni, imace mogucnost da mofikuje vrijednosti. 
+
+Kada korisnk odabere Polozeni button u Koloni predemti, otvara se nova forma sa polozenim predmetima. 
+
+
+
+## Dodavanje Predmeta
+
+```c#
+ private bool PredmetVecDodat()
+    {
+        var odabraniPredmet = cmbPredmet.SelectedItem as Predmet;
+        return odabraniStudent.PolozeniPredmeti.Where(
+            polozeni => polozeni.Predmet.Id == odabraniPredmet.Id)
+            .Count() > 0;
+    }
+```
+
+Želimo da onemugućimo višestruko dodavanje istog predmeta. 
+
+```c#
+ if (PredmetVecDodat())
+        {
+            var poruka = Resursi.Get(Kljucevi.PodatakVecDodat);
+            var ispis = string.Format(poruka, predmet.Naziv);
+        }
+
+        if (ValidanUnos())
+        {
+
+            odabraniStudent.PolozeniPredmeti.Add(new PolozeniPredmet()
+            {
+                Id = odabraniStudent.PolozeniPredmeti.Count() + 1,
+                Datum = dtpDatumPolaganja.Value,
+                Ocjene = int.Parse(cmbOcjene.Text),
+                Predmet = predmet
+            });
+            UcitajPolozenePredmete();
+        }
+
+//Provjera validnosti i ispis odgovarajuce poruke.
+```
+
+
+
+## Exception za form
+
+```c#
+private void UcitajPolozenePredmete()
+    {
+        var binding = new BindingSource();
+        binding.DataSource = odabraniStudent.PolozeniPredmeti;
+        dgvPolozeniPredmeti.DataSource = binding;
+    }
+```
+
+Ako se pojavi ovaj exception, potrebno je da upakujemo datasource u bindingsource, razlika je u tome što odabraneStudente ili bilo koju listu ne dodjeljujemo direktno DataGridView već prvo tu listu dodjelimo kao DataSource objektu tipa BindingSource jer je on mnogo efikasniji u handlanju DataSourcovima ovih kontrola. 
+
+Sada to dodjeljumo preko wrapper klase, ona čini pakovanje i služi za izbjegavanje exceptiona. 

@@ -1,5 +1,6 @@
 using DLWMS.Data;
 using DLWMS.WindForms.Helpers;
+using DLWMS.WindForms.Intro;
 using DLWMS.WindForms.P5___Prijava;
 
 namespace DLWMS.WindForms.Studenti
@@ -23,10 +24,19 @@ namespace DLWMS.WindForms.Studenti
         }
         private void UcitajSpolove()
         {
-            DataLoader.ToComboBox(cmbSpol, InMemoryDB.Spolovi);
+            cmbSpol.LoadData(InMemoryDB.Spolovi);
+            //DataLoader.ToComboBox(cmbSpol, InMemoryDB.Spolovi);
             //cmbSpol.DataSource = InMemoryDB.Spolovi;
             //cmbSpol.DisplayMember = "Naziv";
             //cmbSpol.ValueMember = "Id";
+        }
+        private void UcitajGodinuStudija()
+        {
+            cbGodinaStudija.LoadData(InMemoryDB.GodineStudija);
+            //DataLoader.ToComboBox(cbGodinaStudija, InMemoryDB.GodineStudija, "Oznaka");
+            //cbGodinaStudija.DataSource = InMemoryDB.GodineStudija;
+            //cbGodinaStudija.DisplayMember = "Oznaka";
+            //cbGodinaStudija.ValueMember = "Id";
         }
         private void UcitajPodatkeOStudentu()
         {
@@ -99,14 +109,6 @@ namespace DLWMS.WindForms.Studenti
             Validator.ValidirajEmail(txtEmail, err, Kljucevi.EmailVecPostoji) &&
             Validator.ValidirajKontrolu(pbSlikaStudenta, err, Kljucevi.ObaveznaVrijednost);
         }
-        private void UcitajGodinuStudija()
-        {
-            DataLoader.ToComboBox(cbGodinaStudija, InMemoryDB.GodineStudija, "Oznaka");
-
-            //cbGodinaStudija.DataSource = InMemoryDB.GodineStudija;
-            //cbGodinaStudija.DisplayMember = "Oznaka";
-            //cbGodinaStudija.ValueMember = "Id";
-        }
         private void GenerisiPodatke()
         {
             txtEmail.Text = $"{txtIme.Text}.{txtPrezime.Text}@edu.fit.ba".ToLower();
@@ -140,7 +142,6 @@ namespace DLWMS.WindForms.Studenti
         {
         }
     }
-
     public class DataLoader
     {
         public static void ToComboBox<T>(ComboBox comboBox, List<T> dataSource,

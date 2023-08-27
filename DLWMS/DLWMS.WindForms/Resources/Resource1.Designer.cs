@@ -133,6 +133,24 @@ namespace DLWMS.WindForms.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Podatak {0} je vec dodat!.
+        /// </summary>
+        public static string PodatakVecDodat {
+            get {
+                return ResourceManager.GetString("PodatakVecDodat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Da li ste sigurni da želite da uklonite podatak?.
+        /// </summary>
+        public static string UklonjanjePodatka {
+            get {
+                return ResourceManager.GetString("UklonjanjePodatka", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Uspjesna registracija! Sada se mozete prijaviti. .
         /// </summary>
         public static string UspjesnaRegistracija {

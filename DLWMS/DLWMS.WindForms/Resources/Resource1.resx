@@ -141,6 +141,12 @@
   <data name="PodaciUspjesnoModifikovani" xml:space="preserve">
     <value>Podaci uspjesno modifikovani.</value>
   </data>
+  <data name="PodatakVecDodat" xml:space="preserve">
+    <value>Podatak {0} je vec dodat!</value>
+  </data>
+  <data name="UklonjanjePodatka" xml:space="preserve">
+    <value>Da li ste sigurni da želite da uklonite podatak?</value>
+  </data>
   <data name="UspjesnaRegistracija" xml:space="preserve">
     <value>Uspjesna registracija! Sada se mozete prijaviti. </value>
   </data>

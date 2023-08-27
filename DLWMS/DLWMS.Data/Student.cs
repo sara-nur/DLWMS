@@ -17,7 +17,11 @@ namespace DLWMS.Data
         public bool Aktivan { get; set; }
         public int SpolId { get; set; }
         public Spol Spol { get; set; }
-
+        public List<PolozeniPredmet> PolozeniPredmeti { get; set; }
+        public Student()
+        {
+            PolozeniPredmeti = new List<PolozeniPredmet>();
+        }
         public override string ToString()
         {
             return $"({BrojIndeksa}) {Ime} {Prezime}";
@@ -92,10 +96,22 @@ namespace DLWMS.Data
             };
         }
     }
-    public class Spol
+    public class PolozeniPredmet
+    {
+        public int Id { get; set; }
+        public DateTime Datum { get; set; }
+        public Predmet Predmet { get; set; }
+        public int Ocjene { get; set; }
+    }
+    public class Predmet
     {
         public int Id { get; set; }
         public string Naziv { get; set; }
+
+        public override string ToString()
+        {
+            return Naziv;
+        }
     }
 
 }
