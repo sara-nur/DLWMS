@@ -1,20 +1,30 @@
-﻿namespace DLWMS.Data;
-
-public class InMemoryDB
+namespace DLWMS.Data
 {
-    public static List<Korisnik> Korisnici = GenerisiKorisnike();
-    public static List<Student> Studenti = GenerisiStudente();
-    public static List<GodinaStudija> GodineStudija = GenerisiGodineStudija();
-
-    private static List<GodinaStudija> GenerisiGodineStudija()
+    public class InMemoryDB
     {
-        return new List<GodinaStudija>()
+        public static List<Korisnik> Korisnici = GenerisiKorisnike();
+        public static List<Student> Studenti = GenerisiStudente();
+        public static List<GodinaStudija> GodineStudija = GenerisiGodineStudija();
+        public static List<Spol> Spolovi = GenerisanjeSpolova();
+
+        private static List<Spol> GenerisanjeSpolova()
+        {
+            return new List<Spol>()
+          {
+              new Spol() {Id=1, Naziv="*****"},
+              new Spol() {Id=1, Naziv="Ženski"},
+              new Spol() {Id=1, Naziv="Muški"}
+          };
+        }
+        private static List<GodinaStudija> GenerisiGodineStudija()
+        {
+            return new List<GodinaStudija>()
         {
             new GodinaStudija()
             {
                 Id = 1,
                 Aktivan = true,
-                Oznaka = "1 - GODINA", 
+                Oznaka = "1 - GODINA",
                 Opis = "Prva godina studija"
             },
             new GodinaStudija()
@@ -39,22 +49,21 @@ public class InMemoryDB
                 Opis = "Cetvrta godina studija"
             }
         };
-    }
-
-    private static List<Student> GenerisiStudente()
-    {
-        return new List<Student>()
+        }
+        private static List<Student> GenerisiStudente()
+        {
+            return new List<Student>()
         {
             new Student()
             {
                 Id = 1,
-                Aktivan = true, 
-                Email = "sara.nur@edu.fit.ba", 
-                Ime = "Sara", 
+                Aktivan = true,
+                Email = "sara.nur@edu.fit.ba",
+                Ime = "Sara",
                 Prezime = "Nur",
                 BrojIndeksa = "IB20000",
                 Lozinka = "Sara",
-                DatumRodjenja = new DateTime(2000,4,16), 
+                DatumRodjenja = new DateTime(2000,4,16),
                 GodinaStudija = 1,
                 Slika = null
             },
@@ -72,11 +81,10 @@ public class InMemoryDB
                 Slika = null
             }
         };
-    }
-
-    private static List<Korisnik> GenerisiKorisnike()
-    {
-        return new List<Korisnik>()
+        }
+        private static List<Korisnik> GenerisiKorisnike()
+        {
+            return new List<Korisnik>()
         {
             new Korisnik()
             {
@@ -89,7 +97,7 @@ public class InMemoryDB
                 Lozinka = "admin",
             }
         };
-    } 
-           
-        
+        }
+    }
 }
+
