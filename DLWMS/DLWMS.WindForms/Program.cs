@@ -1,4 +1,5 @@
 using DLWMS.WindForms.Intro;
+using DLWMS.WindForms.Predmeti;
 using DLWMS.WindForms.Studenti;
 
 namespace DLWMS.WindForms
@@ -15,7 +16,7 @@ namespace DLWMS.WindForms
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            var startnaForma = new frmStudentiPretraga();
+            var startnaForma = new Predmeti.frmPredmeti();
 
             Application.Run(startnaForma);
         }
