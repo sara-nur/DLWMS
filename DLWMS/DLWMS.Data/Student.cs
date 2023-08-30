@@ -1,3 +1,5 @@
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Drawing;
 using System.Net.Mime;
 
@@ -13,9 +15,11 @@ namespace DLWMS.Data
         public string Email { get; set; }
         public int GodinaStudija { get; set; }
         public DateTime DatumRodjenja { get; set; }
-        public Image Slika { get; set; }  //postaje niz byte []
+        public byte[] Slika { get; set; }  //postaje niz byte []
         public bool Aktivan { get; set; }
         public int SpolId { get; set; }
+
+        [NotMapped]
         public Spol Spol { get; set; }
         public List<PolozeniPredmet> PolozeniPredmeti { get; set; }
         public Student()

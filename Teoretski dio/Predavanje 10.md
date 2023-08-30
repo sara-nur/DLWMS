@@ -47,3 +47,46 @@ internal class DLWMSDbContext  : DbContext //nasljedjujemo DbContext
 
 ```
 
+Sada je lokacija naše baze hard kodirana, u ovom slučaju naša baza podataka se nalazi na našem računaru, međutim, u realnom okruženju, mi nećemo imati pristup direktno bazi i lokacija same baze podatka je podložna promjenama. Da ne bi morali voditi računa o tome i da ne bi morali na svakom mjestu mijenjati lokaciju baze podatka, na raspolaganju su nam **Konfiguracijski Fajlovi**. 
+
+To su fajlovi koji se ne kompajliraju. 
+
+add > Application configuration file. on je pisan u xml-u. Xml je sličan html-u, međutim, u njemu sve ne mora biti definisano. Dakle ne nameće neka strikna i rigorozna pravila. 
+
+
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+
+    <configurationStrings>
+        <add name="DLWMSPutanja"
+         connectionString ="Data Source = C:\\Users\\Sara\\Desktop\\DLWMS.db"
+    />
+    </configurationStrings>
+    
+</configuration>
+
+```
+
+Sada ovo povezujemo u DbContextu. 
+
+```c#
+  private string dbPutanja;
+        public DLWMSDbContext()
+        {
+            dbPutanja = ConfigurationManager.
+                ConnectionStrings["DLWMSPutanja"].ConnectionString;
+        }
+```
+
+
+
+### Not Mapped
+
+Služi nam da uklonimo potencijalne probleme pri mapiranju baze, propertije koje u momentu ne želimo da mapiramo označimo kao not mapped
+
+
+
+
+

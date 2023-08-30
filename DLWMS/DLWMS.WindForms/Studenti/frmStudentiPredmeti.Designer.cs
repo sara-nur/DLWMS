@@ -73,7 +73,7 @@ partial class frmStudentiPredmeti
         // 
         lblImePrezime.AutoSize =  true ;
         lblImePrezime.Font =  new Font("Segoe UI", 20F, FontStyle.Regular, GraphicsUnit.Point) ;
-        lblImePrezime.Location =  new Point(143, 9) ;
+        lblImePrezime.Location =  new Point(172, 12) ;
         lblImePrezime.Name =  "lblImePrezime" ;
         lblImePrezime.Size =  new Size(109, 46) ;
         lblImePrezime.TabIndex =  3 ;

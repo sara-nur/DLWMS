@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Protocols;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,14 +11,17 @@ namespace DLWMS.Data
 {
     public class DLWMSDbContext : DbContext
     {
-        //‪C:\Users\Sara\Desktop\DLWMS.db
+
+        private string dbPutanja;
         public DLWMSDbContext()
         {
+            dbPutanja = ConfigurationManager.
+                ConnectionStrings["DLWMSPutanja"].ConnectionString;
 
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source = C:\\Users\\Sara\\Desktop\\DLWMS.db");
+            optionsBuilder.UseSqlite();
         }
         public DbSet<Predmet> Predmeti { get; set; }
     }
