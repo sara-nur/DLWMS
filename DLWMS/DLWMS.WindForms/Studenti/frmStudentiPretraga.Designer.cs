@@ -81,7 +81,6 @@
             BrojIndeksa.MinimumWidth =  6 ;
             BrojIndeksa.Name =  "BrojIndeksa" ;
             BrojIndeksa.ReadOnly =  true ;
-            BrojIndeksa.Visible =  false ;
             BrojIndeksa.Width =  125 ;
             // 
             // Ime

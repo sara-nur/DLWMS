@@ -80,3 +80,14 @@ C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\ne
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
 C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\obj\Debug\net6.0-windows\DLWMS.WindForms.Predmeti.frmPredmeti.resources
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\DLWMS.WindForms.dll.config
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Logging.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\System.Configuration.ConfigurationManager.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\System.Security.Permissions.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\System.Windows.Extensions.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\Sara\Documents\github-sara-nur\DLWMS\DLWMS\DLWMS.WindForms\bin\Debug\net6.0-windows\runtimes\win\lib\net6.0\System.Windows.Extensions.dll

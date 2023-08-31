@@ -17,6 +17,7 @@ namespace DLWMS.Data
         public DateTime DatumRodjenja { get; set; }
         public byte[] Slika { get; set; }  //postaje niz byte []
         public bool Aktivan { get; set; }
+        [NotMapped]
         public int SpolId { get; set; }
 
         [NotMapped]

@@ -29,6 +29,7 @@ namespace DLWMS.WindForms.Predmeti
             dgvPredmeti.DataSource = null;
             dgvPredmeti.DataSource = db.Predmeti.ToList();
         }
+        //‪C:\Users\Sara\Desktop\DLWMS.db
         private void btnDodajPredmet_Click(object sender, EventArgs e)
         {
             ValidirajUnosPredmeta();

@@ -17,12 +17,13 @@ namespace DLWMS.Data
         {
             dbPutanja = ConfigurationManager.
                 ConnectionStrings["DLWMSPutanja"].ConnectionString;
-
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite();
+            optionsBuilder.UseSqlite(dbPutanja);
         }
         public DbSet<Predmet> Predmeti { get; set; }
+
+        public DbSet<Student> Studenti { get; set; }
     }
 }

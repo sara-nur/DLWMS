@@ -88,5 +88,46 @@ Služi nam da uklonimo potencijalne probleme pri mapiranju baze, propertije koje
 
 
 
+### Memory Stream
+
+Memory Stream je kao neko međuskladište gdje se podaci u određenom formau zapisuju u Memory Stream. 
+
+Memory Stream je klasa pomoću koje slike možemo pretvoriti u niz byta i niz byta možemo pretvoriti u Image
+
+```c#
+ public static byte[] FromImageToByte(Image image)
+        {
+            var ms = new MemoryStream();
+            image.Save(ms, ImageFormat.Jpeg);
+            return ms.ToArray();
+        }
+        public static Image FromByteToImage(byte[] image)
+        {
+            var ms = new MemoryStream(image);
+            return Image.FromStream(ms);
+        }
+```
 
 
+
+#### Dodavanje Studenta
+
+```c#
+DLWMSDbContext db = new DLWMSDbContext(); //za dodavanje studenta, u DLWMSDbContext mora da postoji prop DbSet<Studenti>
+
+
+//.....
+
+
+if (student.Id == 0)
+                {
+                    //student.Id = InMemoryDB.Studenti.Count() + 1;
+                    //InMemoryDB.Studenti.Add(student);
+                    poruka = Kljucevi.PodaciUspjesnoDodati;
+                    db.Studenti.Add(student);  //ovim dodajemo podatke u nas DbSet koji se zovu studenti 
+				}else
+                    db.Entry(student).State = EntityState.Modified; //ovo nam sluzi da mozemo da editujemo vec postojece podatke 
+                db.SaveChanges(); //tek ovim podatke spremamo u bazu 
+
+//
+```

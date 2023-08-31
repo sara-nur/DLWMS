@@ -2,12 +2,16 @@ using DLWMS.Data;
 using DLWMS.WindForms.Helpers;
 using DLWMS.WindForms.Intro;
 using DLWMS.WindForms.P5___Prijava;
+using Microsoft.EntityFrameworkCore;
 
 namespace DLWMS.WindForms.Studenti
 {
     public partial class frmStudentiNovi : Form
     {
         private Student student;
+
+        DLWMSDbContext db = new DLWMSDbContext();
+
         public frmStudentiNovi(Student odabraniStudent = null)
         {
             InitializeComponent();
@@ -48,7 +52,7 @@ namespace DLWMS.WindForms.Studenti
             txtEmail.Text = student.Email;
             txtLozinka.Text = student.Lozinka;
             cbAktivan.Checked = student.Aktivan;
-            pbSlikaStudenta.Image = student.Slika;
+            pbSlikaStudenta.Image = ImageHelper.FromByteToImage(student.Slika);
             cmbSpol.SelectedItem = student.Spol;
         }
         private void NoviStudent()
@@ -78,7 +82,7 @@ namespace DLWMS.WindForms.Studenti
                 student.Email = txtEmail.Text;
                 student.Lozinka = txtLozinka.Text;
                 student.Aktivan = cbAktivan.Checked;
-                student.Slika = pbSlikaStudenta.Image;
+                student.Slika = ImageHelper.FromImageToByte(pbSlikaStudenta.Image);
                 student.Spol = cmbSpol.SelectedItem as Spol;
 
 
@@ -86,10 +90,14 @@ namespace DLWMS.WindForms.Studenti
 
                 if (student.Id == 0)
                 {
-                    student.Id = InMemoryDB.Studenti.Count() + 1;
-                    InMemoryDB.Studenti.Add(student);
+                    //student.Id = InMemoryDB.Studenti.Count() + 1;
+                    //InMemoryDB.Studenti.Add(student);
                     poruka = Kljucevi.PodaciUspjesnoDodati;
+                    db.Studenti.Add(student);  //ovim dodajemo podatke u nas DbSet koji se zovu studenti 
                 }
+                else
+                    db.Entry(student).State = EntityState.Modified;
+                db.SaveChanges(); //tek ovim podatke spremamo u bazu 
 
                 MessageBox.Show($"{Resursi.Get(poruka)} {student}",
                     Resursi.Get(Kljucevi.Informacija),
@@ -115,7 +123,7 @@ namespace DLWMS.WindForms.Studenti
         }
         private void GenerisiBrojIndeksa()
         {
-            txtBrojIndeksa.Text = $"IB{((DateTime.Now.Year) - 2000) * 10000 + InMemoryDB.Studenti.Count() + 1}";
+            txtBrojIndeksa.Text = $"IB{((DateTime.Now.Year) - 2000) * 10000 + db.Studenti.Count() + 1}";
         }
         private void txtIme_TextChanged(object sender, EventArgs e)
         {

@@ -13,6 +13,8 @@ namespace DLWMS.WindForms.Studenti
 {
     public partial class frmStudentiPretraga : Form
     {
+        DLWMSDbContext db = new DLWMSDbContext();
+
         public frmStudentiPretraga()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace DLWMS.WindForms.Studenti
         private void UcitajStudente(List<Student> studenti = null)
         {
             dgvStudenti.DataSource = null;
-            dgvStudenti.DataSource = studenti ?? InMemoryDB.Studenti;
+            dgvStudenti.DataSource = studenti ?? db.Studenti.ToList();
         }
         private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -36,9 +38,9 @@ namespace DLWMS.WindForms.Studenti
             Form forma = null;
 
 
-            if (odabraniStudent != null)
+            if ( odabraniStudent != null )
             {
-                if (dgvStudenti.CurrentCell is DataGridViewButtonCell)
+                if ( dgvStudenti.CurrentCell is DataGridViewButtonCell )
                     forma = new frmStudentiPredmeti(odabraniStudent);
                 else
                     forma = new frmStudentiNovi(odabraniStudent);
@@ -49,7 +51,7 @@ namespace DLWMS.WindForms.Studenti
         private void btnDodajStudenta_Click(object sender, EventArgs e)
         {
             var frmStudent = new frmStudentiNovi();
-            if (frmStudent.ShowDialog() == DialogResult.OK)
+            if ( frmStudent.ShowDialog() == DialogResult.OK )
                 UcitajStudente();
         }
         private void txtPretraga_TextChanged(object sender, EventArgs e)
@@ -65,7 +67,9 @@ namespace DLWMS.WindForms.Studenti
             //    }
             //}
             //UcitajStudente (rezultat);
-            UcitajStudente(InMemoryDB.Studenti.Where(FiltrirajStudente).ToList());
+
+            //UcitajStudente(InMemoryDB.Studenti.Where(FiltrirajStudente).ToList());
+            UcitajStudente(db.Studenti.Where(FiltrirajStudente).ToList());
 
         }
         private bool FiltrirajStudente(Student student)

@@ -26,7 +26,7 @@ public partial class frmStudentiPredmeti : Form
 
     private void UcitajPodatkeOStudentu()
     {
-        pbSlikaStudenta.Image = odabraniStudent.Slika;
+        pbSlikaStudenta.Image = ImageHelper.FromByteToImage(odabraniStudent.Slika);
         lblImePrezime.Text = $"{odabraniStudent.Ime} {odabraniStudent.Prezime}";
         lblIndex.Text = odabraniStudent.BrojIndeksa;
     }
