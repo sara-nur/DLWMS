@@ -1,7 +1,7 @@
 ﻿using DLWMS.ConsoleApp.Predavanja.P3.Interface;
 using DLWMS.ConsoleApp.Predavanja.P3.Logger;
 using DLWMS.ConsoleApp.Predavanja.P3.Repository;
-using DLWMS.Data;
+using DLWMS.Data.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;

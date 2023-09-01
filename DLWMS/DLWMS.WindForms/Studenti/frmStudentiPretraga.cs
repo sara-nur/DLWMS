@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DLWMS.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DLWMS.WindForms.Studenti
 {
@@ -27,7 +28,7 @@ namespace DLWMS.WindForms.Studenti
         private void UcitajStudente(List<Student> studenti = null)
         {
             dgvStudenti.DataSource = null;
-            dgvStudenti.DataSource = studenti ?? db.Studenti.ToList();
+            dgvStudenti.DataSource = studenti ?? db.Studenti.Include(s => s.Spol).ToList();
         }
         private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -38,9 +39,9 @@ namespace DLWMS.WindForms.Studenti
             Form forma = null;
 
 
-            if ( odabraniStudent != null )
+            if (odabraniStudent != null)
             {
-                if ( dgvStudenti.CurrentCell is DataGridViewButtonCell )
+                if (dgvStudenti.CurrentCell is DataGridViewButtonCell)
                     forma = new frmStudentiPredmeti(odabraniStudent);
                 else
                     forma = new frmStudentiNovi(odabraniStudent);
@@ -51,7 +52,7 @@ namespace DLWMS.WindForms.Studenti
         private void btnDodajStudenta_Click(object sender, EventArgs e)
         {
             var frmStudent = new frmStudentiNovi();
-            if ( frmStudent.ShowDialog() == DialogResult.OK )
+            if (frmStudent.ShowDialog() == DialogResult.OK)
                 UcitajStudente();
         }
         private void txtPretraga_TextChanged(object sender, EventArgs e)

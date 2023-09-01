@@ -86,6 +86,7 @@ partial class frmStudentiPredmeti
         cmbPredmet.Name =  "cmbPredmet" ;
         cmbPredmet.Size =  new Size(125, 28) ;
         cmbPredmet.TabIndex =  4 ;
+        cmbPredmet.SelectedIndexChanged +=  cmbPredmet_SelectedIndexChanged ;
         // 
         // cmbOcjene
         // 

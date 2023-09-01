@@ -5,7 +5,8 @@ using DLWMS.WindForms.Helpers;
 namespace DLWMS.WindForms.Studenti;
 public partial class frmStudentiPredmeti : Form
 {
-    private Student odabraniStudent;
+    public Student odabraniStudent;
+    DLWMSDbContext db = new DLWMSDbContext();
 
     public frmStudentiPredmeti(Student odabraniStudent)
     {
@@ -22,7 +23,11 @@ public partial class frmStudentiPredmeti : Form
         cmbOcjene.SelectedIndex = 0;
     }
 
-    private void UcitajPredmete() => cmbPredmet.LoadData(InMemoryDB.Predmeti);
+    private void UcitajPredmete()
+    {
+        cmbPredmet.LoadData(db.Predmeti.ToList());
+        // cmbPredmet.LoadData(InMemoryDB.Predmeti);
+    }
 
     private void UcitajPodatkeOStudentu()
     {
@@ -34,7 +39,10 @@ public partial class frmStudentiPredmeti : Form
     private void UcitajPolozenePredmete()
     {
         var binding = new BindingSource();
-        binding.DataSource = odabraniStudent.PolozeniPredmeti;
+
+        binding.DataSource = db.StudentiPredmeti.Where(
+            polozeni => polozeni.StudentId == odabraniStudent.Id).ToList();
+
         dgvPolozeniPredmeti.DataSource = binding;
     }
 
@@ -53,14 +61,15 @@ public partial class frmStudentiPredmeti : Form
 
         if (ValidanUnos())
         {
-
-            odabraniStudent.PolozeniPredmeti.Add(new PolozeniPredmet()
+            db.StudentiPredmeti.Add(new StudentPredmet()
             {
-                Id = odabraniStudent.PolozeniPredmeti.Count() + 1,
+                // Id = db.StudentiPredmeti.Count() + 1,
                 Datum = dtpDatumPolaganja.Value,
-                Ocjene = int.Parse(cmbOcjene.Text),
-                Predmet = predmet
+                Ocjena = int.Parse(cmbOcjene.Text),
+                PredmetId = predmet.Id,
+                StudentId = odabraniStudent.Id
             });
+            db.SaveChanges();
             UcitajPolozenePredmete();
         }
     }
@@ -68,8 +77,9 @@ public partial class frmStudentiPredmeti : Form
     private bool PredmetVecDodat()
     {
         var odabraniPredmet = cmbPredmet.SelectedItem as Predmet;
-        return odabraniStudent.PolozeniPredmeti.Where(
-            polozeni => polozeni.Predmet.Id == odabraniPredmet.Id)
+        return db.StudentiPredmeti.Where(
+            polozeni => polozeni.PredmetId == odabraniPredmet.Id    //PredmetId ulazi samo u medjutabelu 
+            && polozeni.StudentId == odabraniStudent.Id)       //Student.Id ulazi u studenta pa tek trazi ID
             .Count() > 0;
     }
 
@@ -82,12 +92,12 @@ public partial class frmStudentiPredmeti : Form
 
     private void dgvPolozeniPredmeti_CellContentClick(object sender, DataGridViewCellEventArgs e)
     {
-        var odabraniRed = dgvPolozeniPredmeti.Rows[e.RowIndex].DataBoundItem as PolozeniPredmet;
+        var odabraniRed = dgvPolozeniPredmeti.Rows[e.RowIndex].DataBoundItem as StudentPredmet;
         if (MessageBox.Show("Da li ste sigurni da zelite da obrisete odabrani red?", "Oznacite Yes/No", MessageBoxButtons.YesNo) == DialogResult.Yes)
         {
             if (odabraniRed != null)
             {
-                _ = odabraniStudent.PolozeniPredmeti.Remove(odabraniRed);
+                _ = db.StudentiPredmeti.Remove(odabraniRed);
                 UcitajPolozenePredmete();
             }
             MessageBox.Show($"Predmet {odabraniRed.Predmet.Naziv} uspjesno obrisan!");
@@ -96,6 +106,11 @@ public partial class frmStudentiPredmeti : Form
             return;
 
 
+
+    }
+
+    private void cmbPredmet_SelectedIndexChanged(object sender, EventArgs e)
+    {
 
     }
 }

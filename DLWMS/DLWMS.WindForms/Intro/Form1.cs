@@ -1,4 +1,4 @@
-using DLWMS.Data;
+using DLWMS.Data.Helpers;
 
 namespace DLWMS.WindForms.Intro
 {

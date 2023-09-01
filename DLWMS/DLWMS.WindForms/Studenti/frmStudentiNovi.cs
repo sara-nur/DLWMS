@@ -12,6 +12,7 @@ namespace DLWMS.WindForms.Studenti
 
         DLWMSDbContext db = new DLWMSDbContext();
 
+
         public frmStudentiNovi(Student odabraniStudent = null)
         {
             InitializeComponent();
@@ -28,7 +29,8 @@ namespace DLWMS.WindForms.Studenti
         }
         private void UcitajSpolove()
         {
-            cmbSpol.LoadData(InMemoryDB.Spolovi);
+            cmbSpol.LoadData(db.Spolovi.ToList());
+            //cmbSpol.LoadData(InMemoryDB.Spolovi);
             //DataLoader.ToComboBox(cmbSpol, InMemoryDB.Spolovi);
             //cmbSpol.DataSource = InMemoryDB.Spolovi;
             //cmbSpol.DisplayMember = "Naziv";
@@ -53,7 +55,7 @@ namespace DLWMS.WindForms.Studenti
             txtLozinka.Text = student.Lozinka;
             cbAktivan.Checked = student.Aktivan;
             pbSlikaStudenta.Image = ImageHelper.FromByteToImage(student.Slika);
-            cmbSpol.SelectedItem = student.Spol;
+            cmbSpol.SelectedValue = student.Spol?.Id;
         }
         private void NoviStudent()
         {
