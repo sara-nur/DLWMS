@@ -155,3 +155,27 @@
     
   </ul>
 </details>
+
+<details>
+  <summary>Predavanje 11
+    <a href="Teoretski dio/Predavanje 11.md"> Teorija </a> ~
+    <a href="DLWMS/DLWMS.WindForms/P10"> P11</a>
+  </summary>
+  <ul>
+   <li>  </li>
+   <li>  </li>
+    
+  </ul>
+</details>
+
+<details>
+  <summary>Predavanje 12
+    <a href="Teoretski dio/Predavanje 12.md"> Teorija </a> ~
+    <a href="DLWMS/DLWMS.WindForms/P10"> P12</a>
+  </summary>
+  <ul>
+   <li>  </li>
+   <li>  </li>
+    
+  </ul>
+</details>
