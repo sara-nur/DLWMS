@@ -20,9 +20,13 @@ namespace DLWMS.Data
         //public int SpolId { get; set; }
         public Spol Spol { get; set; }
         public List<StudentPredmet> PolozeniPredmeti { get; set; }
+
+        public ICollection<Uloga> Uloga { get; set; }
         public Student()
         {
             PolozeniPredmeti = new List<StudentPredmet>();
+            Uloga = new HashSet<Uloga>();
+
         }
         public override string ToString()
         {

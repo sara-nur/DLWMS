@@ -175,7 +175,7 @@ partial class frmStudentiPredmeti
         // 
         // dataGridViewTextBoxColumn3
         // 
-        dataGridViewTextBoxColumn3.DataPropertyName =  "Ocjene" ;
+        dataGridViewTextBoxColumn3.DataPropertyName =  "Ocjena" ;
         dataGridViewTextBoxColumn3.HeaderText =  "Ocjena" ;
         dataGridViewTextBoxColumn3.MinimumWidth =  6 ;
         dataGridViewTextBoxColumn3.Name =  "dataGridViewTextBoxColumn3" ;
@@ -204,6 +204,7 @@ partial class frmStudentiPredmeti
         Controls.Add(lblIndex);
         Controls.Add(pbSlikaStudenta);
         Name =  "frmStudentiPredmeti" ;
+        StartPosition =  FormStartPosition.CenterScreen ;
         Text =  "frmStudentiPredmeti" ;
         Load +=  frmStudentiPredmeti_Load ;
         ( ( System.ComponentModel.ISupportInitialize )  pbSlikaStudenta  ).EndInit();

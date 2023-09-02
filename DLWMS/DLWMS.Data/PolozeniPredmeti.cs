@@ -13,5 +13,6 @@ namespace DLWMS.Data
         public int PredmetId { get; set; }
         public Predmet Predmet { get; set; }
         public int Ocjena { get; set; }
+
     }
 }

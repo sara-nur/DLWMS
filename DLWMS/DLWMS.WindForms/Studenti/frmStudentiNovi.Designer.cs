@@ -32,6 +32,8 @@
             var resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStudentiNovi));
             btnSacuvaj =  new Button() ;
             groupBox2 =  new GroupBox() ;
+            cmbSpol =  new ComboBox() ;
+            lblSpol =  new Label() ;
             cbGodinaStudija =  new ComboBox() ;
             lblGodinaStudija =  new Label() ;
             dtpDatumRodjenja =  new DateTimePicker() ;
@@ -55,18 +57,28 @@
             btnUcitajSliku =  new Button() ;
             err =  new ErrorProvider(components) ;
             openFileDialog1 =  new OpenFileDialog() ;
-            cmbSpol =  new ComboBox() ;
-            lblSpol =  new Label() ;
+            groupBox3 =  new GroupBox() ;
+            dgvUloge =  new DataGridView() ;
+            Naziv =  new DataGridViewTextBoxColumn() ;
+            btnDodajUlogu =  new Button() ;
+            groupBox4 =  new GroupBox() ;
+            comboBox1 =  new ComboBox() ;
+            label2 =  new Label() ;
+            button1 =  new Button() ;
+            cmbUloga =  new ComboBox() ;
             groupBox2.SuspendLayout();
             ( ( System.ComponentModel.ISupportInitialize )  pbSlikaStudenta  ).BeginInit();
             groupBox1.SuspendLayout();
             ( ( System.ComponentModel.ISupportInitialize )  pbLogo  ).BeginInit();
             ( ( System.ComponentModel.ISupportInitialize )  err  ).BeginInit();
+            groupBox3.SuspendLayout();
+            ( ( System.ComponentModel.ISupportInitialize )  dgvUloge  ).BeginInit();
+            groupBox4.SuspendLayout();
             SuspendLayout();
             // 
             // btnSacuvaj
             // 
-            btnSacuvaj.Location =  new Point(207, 603) ;
+            btnSacuvaj.Location =  new Point(269, 562) ;
             btnSacuvaj.Name =  "btnSacuvaj" ;
             btnSacuvaj.Size =  new Size(225, 29) ;
             btnSacuvaj.TabIndex =  3 ;
@@ -86,12 +98,33 @@
             groupBox2.Controls.Add(lblDatumRodjenja);
             groupBox2.Controls.Add(lblPrezime);
             groupBox2.Controls.Add(txtPrezime);
-            groupBox2.Location =  new Point(266, 119) ;
+            groupBox2.Location =  new Point(42, 115) ;
             groupBox2.Name =  "groupBox2" ;
-            groupBox2.Size =  new Size(406, 247) ;
+            groupBox2.Size =  new Size(369, 220) ;
             groupBox2.TabIndex =  0 ;
             groupBox2.TabStop =  false ;
             groupBox2.Text =  "Podaci o studentu" ;
+            groupBox2.Enter +=  groupBox2_Enter ;
+            // 
+            // cmbSpol
+            // 
+            cmbSpol.DropDownStyle =  ComboBoxStyle.DropDownList ;
+            cmbSpol.FormattingEnabled =  true ;
+            cmbSpol.Location =  new Point(130, 181) ;
+            cmbSpol.Name =  "cmbSpol" ;
+            cmbSpol.Size =  new Size(223, 28) ;
+            cmbSpol.TabIndex =  16 ;
+            cmbSpol.SelectedIndexChanged +=  comboBox1_SelectedIndexChanged ;
+            // 
+            // lblSpol
+            // 
+            lblSpol.AutoSize =  true ;
+            lblSpol.Location =  new Point(17, 184) ;
+            lblSpol.Name =  "lblSpol" ;
+            lblSpol.Size =  new Size(39, 20) ;
+            lblSpol.TabIndex =  17 ;
+            lblSpol.Text =  "Spol" ;
+            lblSpol.Click +=  label2_Click ;
             // 
             // cbGodinaStudija
             // 
@@ -168,9 +201,9 @@
             // pbSlikaStudenta
             // 
             pbSlikaStudenta.BorderStyle =  BorderStyle.FixedSingle ;
-            pbSlikaStudenta.Location =  new Point(28, 126) ;
+            pbSlikaStudenta.Location =  new Point(496, 120) ;
             pbSlikaStudenta.Name =  "pbSlikaStudenta" ;
-            pbSlikaStudenta.Size =  new Size(210, 221) ;
+            pbSlikaStudenta.Size =  new Size(204, 167) ;
             pbSlikaStudenta.SizeMode =  PictureBoxSizeMode.StretchImage ;
             pbSlikaStudenta.TabIndex =  17 ;
             pbSlikaStudenta.TabStop =  false ;
@@ -203,9 +236,9 @@
             groupBox1.Controls.Add(txtEmail);
             groupBox1.Controls.Add(lblLozinka);
             groupBox1.Controls.Add(txtLozinka);
-            groupBox1.Location =  new Point(266, 411) ;
+            groupBox1.Location =  new Point(42, 341) ;
             groupBox1.Name =  "groupBox1" ;
-            groupBox1.Size =  new Size(406, 173) ;
+            groupBox1.Size =  new Size(369, 203) ;
             groupBox1.TabIndex =  1 ;
             groupBox1.TabStop =  false ;
             groupBox1.Text =  "Korisnički podaci" ;
@@ -271,7 +304,7 @@
             label1.AutoSize =  true ;
             label1.Font =  new Font("Segoe UI", 9.3F, FontStyle.Bold, GraphicsUnit.Point) ;
             label1.ImageAlign =  ContentAlignment.TopCenter ;
-            label1.Location =  new Point(266, 21) ;
+            label1.Location =  new Point(319, 28) ;
             label1.Name =  "label1" ;
             label1.Size =  new Size(272, 63) ;
             label1.TabIndex =  19 ;
@@ -281,7 +314,7 @@
             // pbLogo
             // 
             pbLogo.Image =  ( Image )  resources.GetObject("pbLogo.Image")  ;
-            pbLogo.Location =  new Point(132, 21) ;
+            pbLogo.Location =  new Point(185, 28) ;
             pbLogo.Margin =  new Padding(3, 4, 3, 4) ;
             pbLogo.Name =  "pbLogo" ;
             pbLogo.Size =  new Size(128, 67) ;
@@ -291,9 +324,9 @@
             // 
             // btnUcitajSliku
             // 
-            btnUcitajSliku.Location =  new Point(28, 359) ;
+            btnUcitajSliku.Location =  new Point(496, 293) ;
             btnUcitajSliku.Name =  "btnUcitajSliku" ;
-            btnUcitajSliku.Size =  new Size(210, 29) ;
+            btnUcitajSliku.Size =  new Size(204, 29) ;
             btnUcitajSliku.TabIndex =  2 ;
             btnUcitajSliku.Text =  "Učitaj Sliku" ;
             btnUcitajSliku.UseVisualStyleBackColor =  true ;
@@ -307,31 +340,107 @@
             // 
             openFileDialog1.FileName =  "openFileDialog1" ;
             // 
-            // cmbSpol
+            // groupBox3
             // 
-            cmbSpol.DropDownStyle =  ComboBoxStyle.DropDownList ;
-            cmbSpol.FormattingEnabled =  true ;
-            cmbSpol.Location =  new Point(130, 181) ;
-            cmbSpol.Name =  "cmbSpol" ;
-            cmbSpol.Size =  new Size(223, 28) ;
-            cmbSpol.TabIndex =  16 ;
-            cmbSpol.SelectedIndexChanged +=  comboBox1_SelectedIndexChanged ;
+            groupBox3.Controls.Add(dgvUloge);
+            groupBox3.Controls.Add(btnDodajUlogu);
+            groupBox3.Controls.Add(groupBox4);
+            groupBox3.Controls.Add(button1);
+            groupBox3.Controls.Add(cmbUloga);
+            groupBox3.Location =  new Point(435, 341) ;
+            groupBox3.Name =  "groupBox3" ;
+            groupBox3.Size =  new Size(326, 203) ;
+            groupBox3.TabIndex =  20 ;
+            groupBox3.TabStop =  false ;
+            groupBox3.Text =  "Uloga" ;
+            groupBox3.Enter +=  groupBox3_Enter ;
             // 
-            // lblSpol
+            // dgvUloge
             // 
-            lblSpol.AutoSize =  true ;
-            lblSpol.Location =  new Point(17, 184) ;
-            lblSpol.Name =  "lblSpol" ;
-            lblSpol.Size =  new Size(39, 20) ;
-            lblSpol.TabIndex =  17 ;
-            lblSpol.Text =  "Spol" ;
-            lblSpol.Click +=  label2_Click ;
+            dgvUloge.AllowUserToAddRows =  false ;
+            dgvUloge.AllowUserToDeleteRows =  false ;
+            dgvUloge.ColumnHeadersHeightSizeMode =  DataGridViewColumnHeadersHeightSizeMode.AutoSize ;
+            dgvUloge.Columns.AddRange(new DataGridViewColumn[] { Naziv });
+            dgvUloge.Location =  new Point(17, 71) ;
+            dgvUloge.Name =  "dgvUloge" ;
+            dgvUloge.ReadOnly =  true ;
+            dgvUloge.RowHeadersWidth =  51 ;
+            dgvUloge.RowTemplate.Height =  29 ;
+            dgvUloge.Size =  new Size(300, 126) ;
+            dgvUloge.TabIndex =  23 ;
+            // 
+            // Naziv
+            // 
+            Naziv.AutoSizeMode =  DataGridViewAutoSizeColumnMode.Fill ;
+            Naziv.DataPropertyName =  "Naziv" ;
+            Naziv.HeaderText =  "Uloga" ;
+            Naziv.MinimumWidth =  6 ;
+            Naziv.Name =  "Naziv" ;
+            Naziv.ReadOnly =  true ;
+            // 
+            // btnDodajUlogu
+            // 
+            btnDodajUlogu.Location =  new Point(216, 26) ;
+            btnDodajUlogu.Name =  "btnDodajUlogu" ;
+            btnDodajUlogu.Size =  new Size(101, 29) ;
+            btnDodajUlogu.TabIndex =  21 ;
+            btnDodajUlogu.Text =  "Dodaj ulogu" ;
+            btnDodajUlogu.UseVisualStyleBackColor =  true ;
+            btnDodajUlogu.Click +=  btnDodajUlogu_Click ;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(comboBox1);
+            groupBox4.Controls.Add(label2);
+            groupBox4.Location =  new Point(166, -155) ;
+            groupBox4.Name =  "groupBox4" ;
+            groupBox4.Size =  new Size(361, 125) ;
+            groupBox4.TabIndex =  22 ;
+            groupBox4.TabStop =  false ;
+            groupBox4.Text =  "Uloge" ;
+            // 
+            // comboBox1
+            // 
+            comboBox1.DropDownStyle =  ComboBoxStyle.DropDownList ;
+            comboBox1.FormattingEnabled =  true ;
+            comboBox1.Location =  new Point(89, 32) ;
+            comboBox1.Name =  "comboBox1" ;
+            comboBox1.Size =  new Size(188, 28) ;
+            comboBox1.TabIndex =  18 ;
+            // 
+            // label2
+            // 
+            label2.AutoSize =  true ;
+            label2.Location =  new Point(18, 35) ;
+            label2.Name =  "label2" ;
+            label2.Size =  new Size(49, 20) ;
+            label2.TabIndex =  18 ;
+            label2.Text =  "Uloga" ;
+            // 
+            // button1
+            // 
+            button1.Location =  new Point(-166, 250) ;
+            button1.Name =  "button1" ;
+            button1.Size =  new Size(225, 29) ;
+            button1.TabIndex =  21 ;
+            button1.Text =  "Sačuvaj" ;
+            button1.UseVisualStyleBackColor =  true ;
+            // 
+            // cmbUloga
+            // 
+            cmbUloga.DropDownStyle =  ComboBoxStyle.DropDownList ;
+            cmbUloga.FormattingEnabled =  true ;
+            cmbUloga.Location =  new Point(17, 27) ;
+            cmbUloga.Name =  "cmbUloga" ;
+            cmbUloga.Size =  new Size(176, 28) ;
+            cmbUloga.TabIndex =  18 ;
             // 
             // frmStudentiNovi
             // 
             AutoScaleDimensions =  new SizeF(8F, 20F) ;
             AutoScaleMode =  AutoScaleMode.Font ;
-            ClientSize =  new Size(714, 644) ;
+            ClientSize =  new Size(773, 603) ;
+            Controls.Add(groupBox3);
             Controls.Add(btnUcitajSliku);
             Controls.Add(pbSlikaStudenta);
             Controls.Add(btnSacuvaj);
@@ -352,6 +461,10 @@
             groupBox1.PerformLayout();
             ( ( System.ComponentModel.ISupportInitialize )  pbLogo  ).EndInit();
             ( ( System.ComponentModel.ISupportInitialize )  err  ).EndInit();
+            groupBox3.ResumeLayout(false);
+            ( ( System.ComponentModel.ISupportInitialize )  dgvUloge  ).EndInit();
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -385,5 +498,14 @@
         private OpenFileDialog openFileDialog1;
         private ComboBox cmbSpol;
         private Label lblSpol;
+        private GroupBox groupBox3;
+        private GroupBox groupBox4;
+        private ComboBox comboBox1;
+        private Label label2;
+        private Button button1;
+        private ComboBox cmbUloga;
+        private Button btnDodajUlogu;
+        private DataGridView dgvUloge;
+        private DataGridViewTextBoxColumn Naziv;
     }
 }

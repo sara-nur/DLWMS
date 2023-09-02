@@ -61,14 +61,15 @@ public partial class frmStudentiPredmeti : Form
 
         if (ValidanUnos())
         {
-            db.StudentiPredmeti.Add(new StudentPredmet()
+            var polozeni = new StudentPredmet
             {
                 // Id = db.StudentiPredmeti.Count() + 1,
                 Datum = dtpDatumPolaganja.Value,
                 Ocjena = int.Parse(cmbOcjene.Text),
                 PredmetId = predmet.Id,
                 StudentId = odabraniStudent.Id
-            });
+            };
+            db.StudentiPredmeti.Add(polozeni);
             db.SaveChanges();
             UcitajPolozenePredmete();
         }
@@ -98,6 +99,7 @@ public partial class frmStudentiPredmeti : Form
             if (odabraniRed != null)
             {
                 _ = db.StudentiPredmeti.Remove(odabraniRed);
+                db.SaveChanges();
                 UcitajPolozenePredmete();
             }
             MessageBox.Show($"Predmet {odabraniRed.Predmet.Naziv} uspjesno obrisan!");

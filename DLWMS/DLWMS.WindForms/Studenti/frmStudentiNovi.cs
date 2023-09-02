@@ -17,15 +17,22 @@ namespace DLWMS.WindForms.Studenti
         {
             InitializeComponent();
             this.student = odabraniStudent ?? new Student();
+            dgvUloge.AutoGenerateColumns = false;
         }
         private void frmStudentiNovi_Load(object sender, EventArgs e)
         {
             UcitajGodinuStudija();
             UcitajSpolove();
+            UcitajUloge();
             if (student.Id == 0)
                 NoviStudent();
             else
                 UcitajPodatkeOStudentu();
+        }
+
+        private void UcitajUloge()
+        {
+            cmbUloga.LoadData(db.Uloge.ToList());
         }
         private void UcitajSpolove()
         {
@@ -56,7 +63,15 @@ namespace DLWMS.WindForms.Studenti
             cbAktivan.Checked = student.Aktivan;
             pbSlikaStudenta.Image = ImageHelper.FromByteToImage(student.Slika);
             cmbSpol.SelectedValue = student.Spol?.Id;
+            UcitajUlogeStudenta();
         }
+
+        private void UcitajUlogeStudenta()
+        {
+            dgvUloge.DataSource = null;
+            dgvUloge.DataSource = student.Uloga.ToList();
+        }
+
         private void NoviStudent()
         {
             GenerisiBrojIndeksa();
@@ -150,6 +165,36 @@ namespace DLWMS.WindForms.Studenti
         }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDodajUlogu_Click(object sender, EventArgs e)
+        {
+            var odabranaUloga = cmbUloga.SelectedItem as Uloga;
+            if (UlogaVecPostoji(odabranaUloga))
+            {
+                MessageBox.Show($"Student vec ima ulogu {odabranaUloga.Naziv} !");
+            }
+            else
+            {
+                student.Uloga.Add(odabranaUloga);
+                UcitajUlogeStudenta();
+            }
+
+        }
+
+        private bool UlogaVecPostoji(Uloga odabranaUloga)       //dovrsiti verifikaciju 
+        {
+            return student.Uloga.Any(uloga => uloga.Id == odabranaUloga.Id);
         }
     }
     public class DataLoader

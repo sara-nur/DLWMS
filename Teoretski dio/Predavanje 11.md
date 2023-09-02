@@ -137,3 +137,65 @@ namespace DLWMS.Data
         public DbSet<StudentPredmet> StudentiPredmeti { get; set; }
 ```
 
+
+
+### <u>Many to many relacija - bez međutipa</u>
+
+Many to many relaciju možemo ostvariti i bez kreiranje međutipa kao što smo gore imali StudentiPredmeti. Sada ćemo praviti međutabelu za povezivanje bez pravljenja dodatne klase. 
+
+##### *Uloge*
+
+| Id   | Naziv                 | StudentId |
+| ---- | --------------------- | --------- |
+| 1    | Demonstrator          |           |
+| 2    | Predstavnik Studenata |           |
+| 3    | Moderator             |           |
+
+Sada nam je želja da implementiramo many to many relaciju na primjeru **StudentiUloge** gdje nećemo imati zaseban entitet već ćemo relaciju realizovati na način da će svaki od entiteta koji ima tu many to many vezu, unutar sebe, svojim propertijem implementirati taj koncept many to many relacija na način da će sada **Student** unutar sebe čuvati listu Uloga, a **Uloga** će unutar sebe čuvati listu studenata. 
+
+##### *StudentiUloge*
+
+| Id   | StudentId | UlogaId |
+| ---- | --------- | ------- |
+| 1    | 1         | 1       |
+| 2    | 2         | 3       |
+| 3    | 4         | 2       |
+
+Nećemo kreirati klasu StudentiUloge, ali ćemo kreirati tablu u bazi. 
+
+```c#
+public class Uloga
+    {
+        public int Id { get; set; }
+        public string Naziv { get; set; }
+        public ICollection<Student> Student { get; set; }
+        public Uloga()
+        {
+            Student = new List<Student>(); //naznačavamo da 
+        }
+    }
+
+//Uparivanje na nivou tabela će se vršiti na način da će on tražiti ključ StudentId ako drugačije ne naznačimo, jer nam se prop zove Student. 
+```
+
+**HashSet** - jako sličan listi, s tim da je namjen za rad s većom količinom podataka jer se pokazao veoma efektivnim.
+
+Sada Entity Framework-u želimo da naznačimo da postoji međutabela StudentiUloge, a koja će nam poslužiti za ostvarivanje ove relacije. 
+
+Za to će nam služiti metoda **OnConfiguring**. Nju smo koristili za setovanje putanje do baze odnosno Konekcijskog Stringa. 
+
+
+
+#### OnModelCreating metoda
+
+Druga metoda koja ćemo još korisiti je **OnModelCreating** u našem DLWMSDbContext-u. 
+
+```c#
+  protected override void OnModelCreating(ModelBuilder modelBuilder)
+      {
+         modelBuilder.Entity<Student>() //posmatramo entitet Student
+            .HasMany(student => student.Uloga) //naglašavamo da student ima više Uloga 
+            .WithMany(uloga => uloga.Student) //naglašavamo da uloga ima više Studenata 
+            .UsingEntity(medjutabela => medjutabela.ToTable("StudentiUloge")); // Entity Frameworku govorimo gdje će se podaci neophodni za ostvarenje te relacije nalaziti - u ovom slučaju u tabeli StudentiUloge
+      }
+```

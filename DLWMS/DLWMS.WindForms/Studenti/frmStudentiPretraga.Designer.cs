@@ -147,6 +147,7 @@
             Controls.Add(btnDodajStudenta);
             Controls.Add(dgvStudenti);
             Name =  "frmStudentiPretraga" ;
+            StartPosition =  FormStartPosition.CenterScreen ;
             Text =  "Pretraga Studenata" ;
             Load +=  frmStudentiPretraga_Load ;
             ( ( System.ComponentModel.ISupportInitialize )  dgvStudenti  ).EndInit();
