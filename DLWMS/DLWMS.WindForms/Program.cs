@@ -16,7 +16,7 @@ namespace DLWMS.WindForms
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            var startnaForma = new Studenti.frmStudentiPretraga();
+            var startnaForma = new Izvjestaji.frmIzvjestaji();
 
             Application.Run(startnaForma);
         }

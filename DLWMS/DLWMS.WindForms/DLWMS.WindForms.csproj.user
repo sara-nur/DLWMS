@@ -4,6 +4,9 @@
     <Compile Update="Intro\frmLinq.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Izvjestaji\frmIzvjestaji.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="P5 - Prijava\frmGlavna.cs">
       <SubType>Form</SubType>
     </Compile>
