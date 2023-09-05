@@ -59,3 +59,52 @@ public partial class frmIzvjestaji : Form
 }
 ```
 
+
+
+Uvezivanje propertija sa reportom
+
+```c#
+    private void frmIzvjestaji_Load(object sender, EventArgs e)
+    {
+        ReportParameterCollection rpc = new ReportParameterCollection();
+        rpc.Add(new ReportParameter("pBrojIndeksa", "IB150051"));
+        rpc.Add(new ReportParameter("pImePrezime", "Sara Nur"));
+        rpc.Add(new ReportParameter("pStatus", "redovan"));
+        rpc.Add(new ReportParameter("pAkademskaGodina", "2022/23"));
+
+        reportViewer1.LocalReport.SetParameters(rpc);
+        reportViewer1.RefreshReport();
+    }
+```
+
+
+
+Sada u naš folder Izvjestaji dodajemo DataSet. Cilj je da u ovaj DataSet napravilo replikaciju baze podataka. 
+
+Za prikaz kreirane tabele u DataSetu, u ReportViewer-u dodamo tabelu. 
+
+Omogućavanje prikazivanje tabele u Izvjestaju 
+
+```c#
+    var tabela = new dsDLWMS.PolozeniDataTable();
+    var rand = new Random();
+    for (int i = 0; i < 5; i++)
+    {
+        var red = tabela.NewPolozeniRow();
+        red.Rb = (i + 1).ToString();
+        red.Naziv = $"Predmet {i + 1}";
+        red.Ocjena = rand.Next(6, 15).ToString();
+        red.Datum = DateTime.Now.ToBiHFormat();
+        tabela.AddPolozeniRow(red);
+    }
+```
+
+Kada smo kreirali tabelu, treba da taj dataset, iskoristimo za inicijalizaciju data sourca u samom izvjestaju. 
+
+```c#
+    var rds = new ReportDataSource();
+    rds.Name = "DataSet1";
+    rds.Value = tabela;
+
+reportViewer1.LocalReport.DataSources.Add(rds);
+```

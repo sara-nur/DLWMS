@@ -154,7 +154,7 @@ namespace DLWMS.WindForms.Intro
     {
         public static string ToBiHFormat(this DateTime obj)
         {
-            return $"BiH Format -> {obj.ToString("dd.MM.yyyy hh:mm:ss")}";
+            return $"{obj.ToString("dd.MM.yyyy hh:mm:ss")}";
         }
         public static void LoadData<T>(this ComboBox comboBox, List<T> dataSource,
          string displayMember = "Naziv", string valueMember = "Id")
