@@ -108,3 +108,12 @@ Kada smo kreirali tabelu, treba da taj dataset, iskoristimo za inicijalizaciju d
 
 reportViewer1.LocalReport.DataSources.Add(rds);
 ```
+
+
+
+
+
+### Korištenje anonimnih tipova 
+
+
+
