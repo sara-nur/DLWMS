@@ -153,9 +153,9 @@
     <a href="DLWMS/DLWMS.WindForms/P10"> P10</a>
   </summary>
   <ul>
-   <li>  </li>
-   <li>  </li>
-    
+   <li> ORM - Object Relational Mapping </li>
+   <li> Not Mapped </li>
+   <li> Memory Stream </li>
   </ul>
 </details>
 
@@ -165,9 +165,8 @@
     <a href="DLWMS/DLWMS.WindForms/P10"> P11</a>
   </summary>
   <ul>
-   <li>  </li>
-   <li>  </li>
-    
+   <li> Baza </li>
+   <li> Relacije </li>    
   </ul>
 </details>
 
@@ -175,6 +174,29 @@
   <summary>Predavanje 12
     <a href="Teoretski dio/Predavanje 12.md"> Teorija </a> ~
     <a href="DLWMS/DLWMS.WindForms/P10"> P12</a>
+  </summary>
+  <ul>
+   <li> Izvještaji </li>
+   <li> Anonimni tipovi </li>
+  </ul>
+</details>
+
+<details>
+  <summary>Predavanje 13
+    <a href="Teoretski dio/Predavanje 13.md"> Teorija </a> ~
+    <a href=""> P12</a>
+  </summary>
+  <ul>
+   <li>  </li>
+   <li>  </li>
+    
+  </ul>
+</details>
+
+<details>
+  <summary>Predavanje 14
+    <a href="Teoretski dio/Predavanje 14.md"> Teorija </a> ~
+    <a href=""> P12</a>
   </summary>
   <ul>
    <li>  </li>
