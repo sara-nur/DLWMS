@@ -138,9 +138,12 @@
     <a href="DLWMS/DLWMS.WindForms/P9"> P9</a>
   </summary>
   <ul>
-   <li>  </li>
-   <li>  </li>
-    
+   <li> Database first </li>
+   <li> Code first </li>
+   <li> Korelacija s bazom podataka </li>
+   <li> Entity Framework - naming konvencije </li>
+   <li> Relacije </li>
+   <li> Exception za forme </li>    
   </ul>
 </details>
 
