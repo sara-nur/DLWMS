@@ -7,7 +7,7 @@
     <Compile Update="Izvjestaji\frmIzvjestaji.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="P5 - Prijava\frmGlavna.cs">
+    <Compile Update="frmGlavna.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="P5 - Prijava\frmPrijava.cs">

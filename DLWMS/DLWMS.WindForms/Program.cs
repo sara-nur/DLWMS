@@ -1,4 +1,5 @@
 using DLWMS.WindForms.Intro;
+using DLWMS.WindForms.P5___Prijava;
 using DLWMS.WindForms.Predmeti;
 using DLWMS.WindForms.Studenti;
 
@@ -16,7 +17,7 @@ namespace DLWMS.WindForms
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            var startnaForma = new Izvjestaji.frmIzvjestaji();
+            var startnaForma = new frmGlavna();
 
             Application.Run(startnaForma);
         }

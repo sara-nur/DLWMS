@@ -534,7 +534,7 @@
           }
         }
       },
-      "ReportViewerCore.WinForms/15.1.18": {
+      "ReportViewerCore.WinForms/15.1.19": {
         "type": "package",
         "dependencies": {
           "Microsoft.CodeAnalysis.VisualBasic": "4.0.0",
@@ -1840,10 +1840,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "ReportViewerCore.WinForms/15.1.18": {
-      "sha512": "jreLkUJrSiOK3yonlu8zVQAMBsSVE0RAJEVreksNV/YT8uV/5dlRaS6/JRBMtJ3QJ8fF81m6jEpSCy4iXQcAYA==",
+    "ReportViewerCore.WinForms/15.1.19": {
+      "sha512": "oxQ+9M/bQirdjMjnmtrGPKp+Kx8w7mQNfJAcVDeUIj/J3bY9tNk/AtNY876w1MNP087jvzbqDSyZdK0/FGtL0Q==",
       "type": "package",
-      "path": "reportviewercore.winforms/15.1.18",
+      "path": "reportviewercore.winforms/15.1.19",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1860,11 +1860,15 @@
         "lib/net7.0-windows/Microsoft.ReportViewer.DataVisualization.dll",
         "lib/net7.0-windows/Microsoft.ReportViewer.ProcessingObjectModel.dll",
         "lib/net7.0-windows/Microsoft.ReportViewer.WinForms.dll",
+        "lib/net8.0-windows/Microsoft.ReportViewer.Common.dll",
+        "lib/net8.0-windows/Microsoft.ReportViewer.DataVisualization.dll",
+        "lib/net8.0-windows/Microsoft.ReportViewer.ProcessingObjectModel.dll",
+        "lib/net8.0-windows/Microsoft.ReportViewer.WinForms.dll",
         "lib/netcoreapp3.1/Microsoft.ReportViewer.Common.dll",
         "lib/netcoreapp3.1/Microsoft.ReportViewer.DataVisualization.dll",
         "lib/netcoreapp3.1/Microsoft.ReportViewer.ProcessingObjectModel.dll",
         "lib/netcoreapp3.1/Microsoft.ReportViewer.WinForms.dll",
-        "reportviewercore.winforms.15.1.18.nupkg.sha512",
+        "reportviewercore.winforms.15.1.19.nupkg.sha512",
         "reportviewercore.winforms.nuspec"
       ]
     },
@@ -2523,23 +2527,23 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "DLWMS.Data >= 1.0.0",
-      "ReportViewerCore.WinForms >= 15.1.18"
+      "ReportViewerCore.WinForms >= 15.1.19"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sara\\.nuget\\packages\\": {}
+    "C:\\Users\\W10\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\DLWMS.WindForms.csproj",
+      "projectUniqueName": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\DLWMS.WindForms.csproj",
       "projectName": "DLWMS.WindForms",
-      "projectPath": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\DLWMS.WindForms.csproj",
-      "packagesPath": "C:\\Users\\Sara\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\obj\\",
+      "projectPath": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\DLWMS.WindForms.csproj",
+      "packagesPath": "C:\\Users\\W10\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Sara\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\W10\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2553,8 +2557,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj": {
-              "projectPath": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj"
+            "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj": {
+              "projectPath": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj"
             }
           }
         }
@@ -2571,7 +2575,7 @@
         "dependencies": {
           "ReportViewerCore.WinForms": {
             "target": "Package",
-            "version": "[15.1.18, )"
+            "version": "[15.1.19, )"
           }
         },
         "imports": [
@@ -2593,7 +2597,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

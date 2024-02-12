@@ -1,18 +1,19 @@
 using DLWMS.Data;
 using DLWMS.WindForms.Intro;
 using DLWMS.WindForms.Helpers;
+using DLWMS.WindForms.Izvjestaji;
 
 namespace DLWMS.WindForms.Studenti;
 public partial class frmStudentiPredmeti : Form
 {
-    public Student odabraniStudent;
+    private Student student;
     DLWMSDbContext db = new DLWMSDbContext();
 
     public frmStudentiPredmeti(Student odabraniStudent)
     {
         InitializeComponent();
         dgvPolozeniPredmeti.AutoGenerateColumns = false;   //da bi prikazao samo kolone koje smo mi definisali
-        this.odabraniStudent = odabraniStudent;
+        this.student = odabraniStudent;
     }
 
     private void frmStudentiPredmeti_Load(object sender, EventArgs e)
@@ -31,9 +32,9 @@ public partial class frmStudentiPredmeti : Form
 
     private void UcitajPodatkeOStudentu()
     {
-        pbSlikaStudenta.Image = ImageHelper.FromByteToImage(odabraniStudent.Slika);
-        lblImePrezime.Text = $"{odabraniStudent.Ime} {odabraniStudent.Prezime}";
-        lblIndex.Text = odabraniStudent.BrojIndeksa;
+        pbSlikaStudenta.Image = ImageHelper.FromByteToImage(student.Slika);
+        lblImePrezime.Text = $"{student.Ime} {student.Prezime}";
+        lblIndex.Text = student.BrojIndeksa;
     }
 
     private void UcitajPolozenePredmete()
@@ -41,7 +42,7 @@ public partial class frmStudentiPredmeti : Form
         var binding = new BindingSource();
 
         binding.DataSource = db.StudentiPredmeti.Where(
-            polozeni => polozeni.StudentId == odabraniStudent.Id).ToList();
+            polozeni => polozeni.StudentId == student.Id).ToList();
 
         dgvPolozeniPredmeti.DataSource = binding;
     }
@@ -67,7 +68,7 @@ public partial class frmStudentiPredmeti : Form
                 Datum = dtpDatumPolaganja.Value,
                 Ocjena = int.Parse(cmbOcjene.Text),
                 PredmetId = predmet.Id,
-                StudentId = odabraniStudent.Id
+                StudentId = student.Id
             };
             db.StudentiPredmeti.Add(polozeni);
             db.SaveChanges();
@@ -80,7 +81,7 @@ public partial class frmStudentiPredmeti : Form
         var odabraniPredmet = cmbPredmet.SelectedItem as Predmet;
         return db.StudentiPredmeti.Where(
             polozeni => polozeni.PredmetId == odabraniPredmet.Id    //PredmetId ulazi samo u medjutabelu 
-            && polozeni.StudentId == odabraniStudent.Id)       //Student.Id ulazi u studenta pa tek trazi ID
+            && polozeni.StudentId == student.Id)       //Student.Id ulazi u studenta pa tek trazi ID
             .Count() > 0;
     }
 
@@ -115,4 +116,28 @@ public partial class frmStudentiPredmeti : Form
     {
 
     }
+
+    private void btnPrintaj_Click(object sender, EventArgs e)
+    {
+        var podaciZaPrint = new dtoUvjerenjeOPolozenim()
+        {
+            BrojIndeksa = student.BrojIndeksa,
+            ImePrezime = $"{student.Ime} {student.Prezime}",
+            Status = "REDOVAN",
+            Polozeni = (dgvPolozeniPredmeti.DataSource as BindingSource).DataSource as List<StudentPredmet>,
+            AkademskaGodina = "2022",
+        };
+
+        var frmIzvjestaji = new frmIzvjestaji(podaciZaPrint);
+        frmIzvjestaji.ShowDialog();
+    }
+}
+
+public class dtoUvjerenjeOPolozenim
+{
+    public string BrojIndeksa { get; set; }
+    public string ImePrezime { get; set; }
+    public string Status { get; set; }
+    public string AkademskaGodina { get; set; }
+    public List<StudentPredmet> Polozeni { get; set; }
 }

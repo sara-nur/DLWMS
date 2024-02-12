@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\DLWMS.WindForms.csproj": {}
+    "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\DLWMS.WindForms.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj": {
+    "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj",
+        "projectUniqueName": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj",
         "projectName": "DLWMS.Data",
-        "projectPath": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj",
-        "packagesPath": "C:\\Users\\Sara\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\obj\\",
+        "projectPath": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj",
+        "packagesPath": "C:\\Users\\W10\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Sara\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\W10\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,21 +73,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\DLWMS.WindForms.csproj": {
+    "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\DLWMS.WindForms.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\DLWMS.WindForms.csproj",
+        "projectUniqueName": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\DLWMS.WindForms.csproj",
         "projectName": "DLWMS.WindForms",
-        "projectPath": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\DLWMS.WindForms.csproj",
-        "packagesPath": "C:\\Users\\Sara\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\obj\\",
+        "projectPath": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\DLWMS.WindForms.csproj",
+        "packagesPath": "C:\\Users\\W10\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.WindForms\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Sara\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\W10\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -101,8 +101,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj": {
-                "projectPath": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj"
+              "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj": {
+                "projectPath": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj"
               }
             }
           }
@@ -119,7 +119,7 @@
           "dependencies": {
             "ReportViewerCore.WinForms": {
               "target": "Package",
-              "version": "[15.1.18, )"
+              "version": "[15.1.19, )"
             }
           },
           "imports": [
@@ -141,7 +141,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

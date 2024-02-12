@@ -9,7 +9,7 @@
       "DLWMS.WindForms/1.0.0": {
         "dependencies": {
           "DLWMS.Data": "1.0.0",
-          "ReportViewerCore.WinForms": "15.1.18"
+          "ReportViewerCore.WinForms": "15.1.19"
         },
         "runtime": {
           "DLWMS.WindForms.dll": {}
@@ -367,7 +367,7 @@
           }
         }
       },
-      "ReportViewerCore.WinForms/15.1.18": {
+      "ReportViewerCore.WinForms/15.1.19": {
         "dependencies": {
           "Microsoft.CodeAnalysis.VisualBasic": "4.0.0",
           "System.CodeDom": "4.7.0",
@@ -390,8 +390,8 @@
             "fileVersion": "15.0.1404.0"
           },
           "lib/net6.0-windows/Microsoft.ReportViewer.WinForms.dll": {
-            "assemblyVersion": "15.1.18.0",
-            "fileVersion": "15.1.18.0"
+            "assemblyVersion": "15.1.19.0",
+            "fileVersion": "15.1.19.0"
           }
         }
       },
@@ -879,12 +879,12 @@
       "path": "microsoft.win32.systemevents/7.0.0",
       "hashPath": "microsoft.win32.systemevents.7.0.0.nupkg.sha512"
     },
-    "ReportViewerCore.WinForms/15.1.18": {
+    "ReportViewerCore.WinForms/15.1.19": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jreLkUJrSiOK3yonlu8zVQAMBsSVE0RAJEVreksNV/YT8uV/5dlRaS6/JRBMtJ3QJ8fF81m6jEpSCy4iXQcAYA==",
-      "path": "reportviewercore.winforms/15.1.18",
-      "hashPath": "reportviewercore.winforms.15.1.18.nupkg.sha512"
+      "sha512": "sha512-oxQ+9M/bQirdjMjnmtrGPKp+Kx8w7mQNfJAcVDeUIj/J3bY9tNk/AtNY876w1MNP087jvzbqDSyZdK0/FGtL0Q==",
+      "path": "reportviewercore.winforms/15.1.19",
+      "hashPath": "reportviewercore.winforms.15.1.19.nupkg.sha512"
     },
     "SQLitePCLRaw.bundle_e_sqlite3/2.1.4": {
       "type": "package",

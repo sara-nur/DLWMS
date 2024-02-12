@@ -1815,19 +1815,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sara\\.nuget\\packages\\": {}
+    "C:\\Users\\W10\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj",
+      "projectUniqueName": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj",
       "projectName": "DLWMS.Data",
-      "projectPath": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj",
-      "packagesPath": "C:\\Users\\Sara\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Sara\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\obj\\",
+      "projectPath": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\DLWMS.Data.csproj",
+      "packagesPath": "C:\\Users\\W10\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\W10\\Documents\\github-sara-nur\\DLWMS\\DLWMS\\DLWMS.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Sara\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\W10\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1886,7 +1886,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

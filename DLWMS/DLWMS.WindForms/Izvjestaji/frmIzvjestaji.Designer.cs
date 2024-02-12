@@ -13,7 +13,7 @@ partial class frmIzvjestaji
     /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
     protected override void Dispose(bool disposing)
     {
-        if ( disposing && ( components != null ) )
+        if (disposing && (components != null))
         {
             components.Dispose();
         }
@@ -28,30 +28,32 @@ partial class frmIzvjestaji
     /// </summary>
     private void InitializeComponent()
     {
-        reportViewer1 =  new Microsoft.Reporting.WinForms.ReportViewer() ;
-        SuspendLayout();
+        reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+        this.SuspendLayout();
         // 
         // reportViewer1
         // 
-        reportViewer1.Dock =  DockStyle.Fill ;
-        reportViewer1.LocalReport.ReportEmbeddedResource =  "DLWMS.WindForms.Izvjestaji.rptUvjerenje.rdlc" ;
-        reportViewer1.Location =  new Point(0, 0) ;
-        reportViewer1.Name =  "ReportViewer" ;
-        reportViewer1.ServerReport.BearerToken =  null ;
-        reportViewer1.Size =  new Size(800, 450) ;
-        reportViewer1.TabIndex =  0 ;
+        reportViewer1.Dock = DockStyle.Fill;
+        reportViewer1.LocalReport.ReportEmbeddedResource = "DLWMS.WindForms.Izvjestaji.rptUvjerenje.rdlc";
+        reportViewer1.Location = new Point(0, 0);
+        reportViewer1.Margin = new Padding(3, 2, 3, 2);
+        reportViewer1.Name = "ReportViewer";
+        reportViewer1.ServerReport.BearerToken = null;
+        reportViewer1.Size = new Size(700, 338);
+        reportViewer1.TabIndex = 0;
         // 
         // frmIzvjestaji
         // 
-        AutoScaleDimensions =  new SizeF(8F, 20F) ;
-        AutoScaleMode =  AutoScaleMode.Font ;
-        ClientSize =  new Size(800, 450) ;
-        Controls.Add(reportViewer1);
-        Name =  "frmIzvjestaji" ;
-        StartPosition =  FormStartPosition.CenterScreen ;
-        Text =  "Izvjestaj" ;
-        Load +=  frmIzvjestaji_Load ;
-        ResumeLayout(false);
+        this.AutoScaleDimensions = new SizeF(7F, 15F);
+        this.AutoScaleMode = AutoScaleMode.Font;
+        this.ClientSize = new Size(700, 338);
+        this.Controls.Add(reportViewer1);
+        this.Margin = new Padding(3, 2, 3, 2);
+        this.Name = "frmIzvjestaji";
+        this.StartPosition = FormStartPosition.CenterScreen;
+        this.Text = "Izvjestaj";
+        this.Load += this.frmIzvjestaji_Load;
+        this.ResumeLayout(false);
     }
 
     #endregion
