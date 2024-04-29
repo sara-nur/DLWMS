@@ -17,7 +17,7 @@ namespace DLWMS.WindForms
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            var startnaForma = new frmGlavna();
+            var startnaForma = new Asinhrono.frmPing();
 
             Application.Run(startnaForma);
         }
