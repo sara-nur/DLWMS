@@ -184,7 +184,7 @@
 <details>
   <summary>Predavanje 13
     <a href="Teoretski dio/Predavanje 13.md"> Teorija </a> ~
-    <a href=""> P12</a>
+    <a href=""> P13</a>
   </summary>
   <ul>
    <li>  </li>
@@ -196,7 +196,7 @@
 <details>
   <summary>Predavanje 14
     <a href="Teoretski dio/Predavanje 14.md"> Teorija </a> ~
-    <a href=""> P12</a>
+    <a href=""> P14</a>
   </summary>
   <ul>
    <li>  </li>
