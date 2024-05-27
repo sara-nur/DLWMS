@@ -187,9 +187,7 @@
     <a href=""> P13</a>
   </summary>
   <ul>
-   <li>  </li>
-   <li>  </li>
-    
+   <li> Thread-ovi </li>
   </ul>
 </details>
 
